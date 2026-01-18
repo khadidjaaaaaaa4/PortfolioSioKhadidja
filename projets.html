@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - Portfolio BTS SIO</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,');
+    opacity: 0.3;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+nav {
+    background: rgba(52, 73, 94, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: white;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    color: white;
+}
+
+.nav-btn:hover::before {
+    width: 80%;
+}
+
+.nav-btn.active {
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+}
+
+.nav-btn.active::before {
+    width: 100%;
+}
+
+.content {
+    padding: 3rem 2rem;
+    min-height: 400px;
+}
+
+.tab-content {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+    border-radius: 2px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(52, 73, 94, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #3498db, #2ecc71);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-left: 1rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.75rem;
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
+    background: #3498db;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #3498db;
+}
+
+.badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0.2rem;
+}
+
+.skill-bar {
+    background: #ecf0f1;
+    height: 8px;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+.contact-info {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.contact-info h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.highlight {
+    background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    border-left: 4px solid #3498db;
+}
+
+.btn-projet {
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0.5rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-projet:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Media Queries pour responsive */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+    }
+    
+    .nav-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .content {
+        padding: 2rem 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projets - Portfolio BTS SIO</title>
+  <style>
+    /* Ajouté : styles modale */
+    .situation-modal {
+      display: none;
+      position: fixed;
+      z-index: 200;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      background-color: rgba(0,0,0,0.6);
+      padding: 2rem;
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      margin: auto;
+      max-width: 800px;
+      position: relative;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-section h4 {
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-section p,
+    .modal-section ul {
+      line-height: 1.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Réutilise les styles déjà fournis dans ton CSS */
+  </style>
+</head>
+<body>
+  <!-- Ton contenu existant ici... -->
+
+  <!-- Scripts modale -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = "block";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.situation-modal');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    };
+  </script>
+</body>
+</html>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mon Portfolio BTS SIO</h1>
+            <p class="subtitle">Services Informatiques aux Organisations</p>
+        </header>
+
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="nav-btn">Accueil</a>
+                <a href="parcours.html" class="nav-btn">Parcours</a>
+                <a href="certifications.html" class="nav-btn">Certifications</a>
+                <a href="projets.html" class="nav-btn active">Projets</a>
+                <a href="competences.html" class="nav-btn">Compétences</a>
+                <a href="objectifs.html" class="nav-btn">Objectifs</a>
+                <a href="veille.html" class="nav-btn">Veille Informationnelle</a>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="tab-content">
+                <h2 class="section-title">Mes Projets</h2>
+                
+                <div class="grid">
+                    <div class="card">
+                        <h3>Projet de stage - Migration OneDrive (Vinci Airport)</h3>
+                        <p><strong>Technologies utilisées :</strong></p>
+                        <div>
+                            <span class="badge">PowerShell</span>
+                            <span class="badge">Active Directory</span>
+                            <span class="badge">GPO</span>
+                            <span class="badge">OneDrive</span>
+                            <span class="badge">Excel</span>
+                        </div>
+                        <p><strong>Description :</strong> Projet de migration des données utilisateurs vers OneDrive avec suppression des redirections réseau existantes. Automatisation du recensement des utilisateurs impactés et création d'un suivi complet du processus.</p>
+                        <p><strong>Défis relevés :</strong> Gestion de la migration de données sensibles, communication avec les utilisateurs, et maintien de la continuité de service pendant la transition.</p>
+                        <div style="margin-top: 1rem">
+                            <button class="btn-projet" onclick="openModal('modal1')">📄 Situation Professionnelle</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🔧 Projet Active Directory & DNS</h3>
+                        <p><strong>Technologies :</strong> Windows Server 2019, Active Directory, DNS, DHCP, Serveur de fichiers</p>
+                        <div>
+                            <span class="badge">Administration Serveur</span>
+                            <span class="badge">Gestion de Domaine</span>
+                            <span class="badge">Windows Server</span>
+                            <span class="badge">DNS</span>
+                        </div>
+                        <p><strong>Description :</strong> Ce projet de ma formation BTS SIO SISR consiste à installer et configurer un contrôleur de domaine Active Directory (AD) et un serveur DNS sur Windows Server 2019 pour gérer centralement les utilisateurs et les ressources. Il inclut également un serveur de fichiers pour centraliser les données des utilisateurs.</p>
+                        <p><strong>Défis réalisés :</strong></p>
+                        <ul>
+                            <li>Installation et configuration d'un contrôleur de domaine Active Directory</li>
+                            <li>Mise en place d'un serveur DNS pour la gestion des noms de domaine</li>
+                            <li>Intégration de machines clients au domaine et tests de connexion</li>
+                            <li>Configuration d'un serveur de fichiers pour la gestion centralisée des données utilisateurs</li>
+                        </ul>
+                        <div style="margin-top: 1rem">
+                            <button class="btn-projet" onclick="openModal('modal2')">Situation Professionnelle</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🚀 Projets futurs</h3>
+                        <p>D'autres projets seront ajoutés au fur et à mesure de ma formation BTS SIO SISR.</p>
+                        <div>
+                            <span class="badge">En développement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour Situation Professionnelle 1 -->
+    <div id="modal1" class="situation-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h3 class="modal-title">Situation Professionnelle 1 – Migration des fichiers utilisateurs vers OneDrive</h3>
+            
+            <div class="modal-section">
+                <h4>Contexte :</h4>
+                <p>Chez VINCI Airports, un vaste projet de modernisation de l'infrastructure informatique a été lancé. Il s'agissait notamment de faire évoluer l'ensemble des postes utilisateurs de Windows 10 vers Windows 11, dans le but d'améliorer la sécurité, la compatibilité applicative et la performance générale du parc informatique.</p>
+                <p>Cependant, un blocage technique majeur a été rapidement identifié : un nombre important d'utilisateurs, généralement les plus anciens dans l'entreprise, disposaient encore d'une redirection automatique de leurs dossiers Documents et Bureau vers un lecteur réseau local, le fameux lecteur U:.</p>
+                <p>Ce fonctionnement, hérité de pratiques anciennes, n'était plus compatible avec les standards de Windows 11, qui repose davantage sur une logique de stockage cloud via Microsoft 365.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>Environnement :</h4>
+                <ul>
+                    <li><strong>Systèmes :</strong> Windows 10 (avant migration), préparation vers Windows 11</li>
+                    <li><strong>Réseau :</strong> Active Directory, GPO (stratégies de groupe), comptes utilisateurs centralisés</li>
+                    <li><strong>Outils :</strong> OneDrive, PowerShell, Excel, Outlook, GPO, documentation PowerPoint</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h4>Réalisation :</h4>
+                <p><strong>1. Recensement des utilisateurs concernés :</strong></p>
+                <p>À l'aide d'un script PowerShell fourni et expliqué par un collègue (Antonin Desestre), j'ai détecté les utilisateurs dont les dossiers redirigés pointaient encore vers le lecteur U. J'ai intégré les résultats dans un fichier Excel pour identifier les utilisateurs prioritaires par direction (DSI, DRH, DAF, DOPS, DAIJ…), leur mail, leur numéro de téléphone et la taille de leurs données dans le lecteur U.</p>
+
+                <p><strong>2. Communication avec les utilisateurs :</strong></p>
+                <p>J'ai conçu un PowerPoint explicatif contenant : le contexte de la migration, les étapes de la procédure, les bénéfices de OneDrive, et les bonnes pratiques à suivre. J'ai ensuite rédigé un mail d'accompagnement clair et professionnel, que j'ai envoyé individuellement à chaque utilisateur concerné avec la présentation PowerPoint en pièce jointe.</p>
+
+                <p><strong>3. Préparation et actions techniques :</strong></p>
+                <p>J'ai ajouté manuellement chaque utilisateur dans les groupes AD nécessaires : "O_GPO_Exclude-Folder" pour exclure certaines redirections automatiques et "O_GPO_Redirect-Folder" pour forcer le comportement souhaité temporairement. J'ai ensuite déclenché la mise à jour des GPO via la commande 'gpupdate /force'.</p>
+
+                <p><strong>4. Migration des fichiers vers OneDrive :</strong></p>
+                <p>Je me suis rendu physiquement sur le poste de l'utilisateur à l'heure convenue. J'ai vérifié que OneDrive était bien activé et synchronisé sur le PC. J'ai copié manuellement tous les fichiers depuis le lecteur U vers le dossier OneDrive local, en veillant à conserver l'arborescence des fichiers.</p>
+
+                <p><strong>5. Clôture de la migration :</strong></p>
+                <p>Après validation du bon fonctionnement de OneDrive, j'ai retiré l'utilisateur du groupe "O_GPO_Redirect-Folder" pour finaliser le processus. J'ai mis à jour le tableau de suivi de migration dans Excel et ai informé mon tuteur de l'état de chaque migration.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>Bilan :</h4>
+                <p>La plupart des utilisateurs ciblés ont été migrés avec succès vers OneDrive, supprimant ainsi le blocage empêchant la transition vers Windows 11. L'approche personnalisée, combinant un support technique et une communication claire, a permis de réduire les réticences et d'assurer une transition fluide.</p>
+                <p>Ce projet m'a permis de développer des compétences techniques concrètes (AD, PowerShell, GPO, cloud), mais aussi des compétences humaines : écoute, accompagnement, autonomie et rigueur.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour Situation Professionnelle 2 -->
+    <div id="modal2" class="situation-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <h3 class="modal-title">Situation Professionnelle 2 – Installation et configuration d'un contrôleur de domaine Active Directory et DNS sur Windows Server 2019</h3>
+            
+            <div class="modal-section">
+                <h4>Contexte :</h4>
+                <p>Lors de ma première année en BTS SIO, un des exercices pratiques consistait à installer et configurer un contrôleur de domaine Active Directory (AD) ainsi qu'un serveur DNS sur une machine virtuelle Windows Server 2019. Ce projet avait pour but de centraliser la gestion des utilisateurs, des groupes, et des machines dans un réseau d'entreprise, tout en assurant une résolution de noms efficace grâce au DNS intégré à Windows Server.</p>
+                <p>L'objectif était aussi de simuler un environnement réaliste, avec une infrastructure étendue : en plus du contrôleur de domaine, nous avons utilisé un serveur de fichiers distinct, nommé SRV-FIC, pour stocker et organiser les fichiers des utilisateurs de manière centralisée.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>Environnement :</h4>
+                <ul>
+                    <li><strong>Système serveur :</strong> Windows Server 2019</li>
+                    <li><strong>Client :</strong> Machine virtuelle (VM) Windows 10</li>
+                    <li><strong>Réseau :</strong> LAN virtuel avec IP statique (10.0.206.x)</li>
+                    <li><strong>Outils :</strong> Active Directory, DNS, Gestionnaire de serveur, Outils GPO</li>
+                    <li><strong>Serveur complémentaire :</strong> Serveur de fichiers nommé SRV-FIC</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h4>Réalisation :</h4>
+                <p><strong>1. Création et préparation du serveur :</strong></p>
+                <p>J'ai commencé par créer une machine virtuelle Windows Server 2019. Après installation, j'ai ajusté les paramètres de base : nom du serveur (AD-DNS) et adresse IP statique pour une communication fiable sur le réseau local.</p>
+
+                <p><strong>2. Installation des rôles Active Directory (AD), DNS et DHCP :</strong></p>
+                <p>Depuis le Gestionnaire de serveur, j'ai ajouté les rôles nécessaires : Active Directory Domain Services (AD DS) et DNS, indispensable pour la résolution de noms dans le domaine. Une fois les rôles installés, j'ai utilisé l'assistant de promotion du serveur pour en faire un contrôleur de domaine principal d'un nouveau domaine : GSBKD.local.</p>
+
+                <p><strong>3. Configuration du DNS :</strong></p>
+                <p>Une fois le domaine fonctionnel, j'ai configuré le DNS avec une zone de recherche directe : création d'un enregistrement A pour w19-ad-dns.GSBKD.local, ce qui permet au DNS de faire correspondre un nom de machine à une adresse IP.</p>
+
+                <p><strong>4. Tests et vérification :</strong></p>
+                <p>J'ai mené plusieurs tests pour valider la configuration : j'ai rejoint une VM Windows 10 au domaine, puis vérifié qu'un utilisateur pouvait se connecter avec un compte AD. J'ai également testé que la résolution inversée fonctionnait, en interrogeant une adresse IP et en recevant le bon nom DNS.</p>
+                <p>En parallèle, j'ai commencé à utiliser un serveur de fichiers séparé, nommé SRV-FIC, sur lequel les utilisateurs pouvaient stocker leurs documents.</p>
+            </div>
+
+            <div class="modal-section">
+                <h4>Bilan :</h4>
+                <p>Ce projet m'a permis de développer des compétences techniques solides dans :</p>
+                <ul>
+                    <li>L'installation et la configuration d'un contrôleur de domaine Active Directory</li>
+                    <li>La mise en place et l'utilisation d'un serveur DNS</li>
+                    <li>L'intégration de clients au domaine</li>
+                    <li>La gestion de ressources partagées via un serveur de fichiers dédié (SRV-FIC)</li>
+                </ul>
+                <p>J'ai compris l'intérêt d'une gestion centralisée des utilisateurs et des ressources, notamment à travers les stratégies de groupe (GPO) que nous avons abordées par la suite. Cette expérience m'a offert un aperçu concret du fonctionnement d'une infrastructure réseau en entreprise, et de l'importance des services comme AD, DNS, DHCP et les serveurs de fichiers dans l'organisation quotidienne du travail.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+    </script>
+</body>
+</html>
