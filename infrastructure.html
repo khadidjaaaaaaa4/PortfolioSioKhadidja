@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>a
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure - Portfolio BTS SIO</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mon Portfolio BTS SIO</h1>
+            <p class="subtitle">Services Informatiques aux Organisations</p>
+        </header>
+
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="nav-btn">Accueil</a>
+                <a href="parcours.html" class="nav-btn">Parcours</a>
+                <a href="certifications.html" class="nav-btn">Certifications</a>
+                <a href="projets.html" class="nav-btn">Projets</a>
+                <a href="competences.html" class="nav-btn">Compétences</a>
+                <a href="grille-competences.html" class="nav-btn">Grille de Compétences</a>
+                <a href="infrastructure.html" class="nav-btn active">🌐 Infrastructure</a>
+                <a href="objectifs.html" class="nav-btn">Objectifs</a>
+                <a href="veille.html" class="nav-btn">Veille Tech</a>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="tab-content">
+                <h2 class="section-title">Schéma d'Infrastructure Réseau</h2>
+                
+                <div class="card">
+                    <h3>📊 Architecture réseau</h3>
+                    <p>Voici le schéma d'infrastructure réseau que j'ai conçu et déployé dans le cadre de mes projets BTS SIO SISR.</p>
+                    
+                    <div class="schema-container">
+                        <div id="uploadZone" class="upload-zone">
+                            <div class="upload-icon">📁</div>
+                            <p><strong>Pour afficher votre schéma réseau :</strong></p>
+                            <p>1. Placez votre fichier JPG dans le même dossier que vos fichiers HTML</p>
+                            <p>2. Nommez-le <strong>"schema-reseau.jpg"</strong></p>
+                            <p>3. Rafraîchissez cette page</p>
+                            <p style="font-size: 0.9rem; color: #888; margin-top: 1.5rem;">
+                                Format accepté : JPG/JPEG<br>
+                                Résolution recommandée : 1920x1080 ou supérieure
+                            </p>
+                        </div>
+                        
+                        <!-- L'image apparaîtra ici une fois le fichier ajouté -->
+                        <img id="schemaImage" src="schema-reseau.jpg" alt="Schéma d'infrastructure réseau" class="schema-image" style="display: none;" onclick="openModal()">
+                    </div>
+                    
+                    <div class="description-box">
+                        <h4>🔧 Description de l'infrastructure</h4>
+                        <p>Cette infrastructure comprend :</p>
+                        <ul style="margin-top: 0.5rem; line-height: 1.8;">
+                            <li><strong>Contrôleur de domaine Active Directory</strong> avec DNS intégré</li>
+                            <li><strong>Serveur DHCP</strong> pour l'attribution automatique des adresses IP</li>
+                            <li><strong>Serveur de fichiers</strong> (SRV-FIC) pour la centralisation des données</li>
+                            <li><strong>Postes clients Windows 10/11</strong> joints au domaine</li>
+                            <li><strong>Architecture réseau sécurisée</strong> avec segmentation appropriée</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>🛠️ Technologies utilisées</h3>
+                    <div>
+                        <span class="badge">Windows Server 2019</span>
+                        <span class="badge">Active Directory</span>
+                        <span class="badge">DNS</span>
+                        <span class="badge">DHCP</span>
+                        <span class="badge">VMware</span>
+                        <span class="badge">VirtualBox</span>
+                        <span class="badge">Serveur de fichiers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour agrandir l'image -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content-img" id="modalImage">
+    </div>
+
+    <script>
+        // Vérifier si l'image existe au chargement de la page
+        window.onload = function() {
+            const img = document.getElementById('schemaImage');
+            const uploadZone = document.getElementById('uploadZone');
+            
+            img.onerror = function() {
+                // Si l'image n'existe pas, afficher la zone d'upload
+                img.style.display = 'none';
+                uploadZone.style.display = 'block';
+            };
+            
+            img.onload = function() {
+                // Si l'image existe, la montrer et cacher la zone d'upload
+                img.style.display = 'block';
+                uploadZone.style.display = 'none';
+            };
+            
+            // Tenter de charger l'image
+            img.src = 'schema-reseau.jpg?' + new Date().getTime();
+        };
+        
+        function openModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const img = document.getElementById('schemaImage');
+            
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+        }
+        
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+        
+        // Fermer avec la touche Échap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
