@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcours - Portfolio BTS SIO</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="parcours.css">
+    <link rel="stylesheet" href="parcours-y2k.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=VT323&family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
     /* PARCOURS Y2K/CYBER CHAOS STYLESHEET */
@@ -736,172 +737,248 @@ body {
         padding: 0.4rem 1rem;
     }
 }
-    <div class="container">
-        <header>
-            <h1>Mon Portfolio BTS SIO</h1>
-            <p class="subtitle">Services Informatiques aux Organisations</p>
+    <div class="cursor-trail"></div>
+    
+    <div class="container y2k-container">
+        <header class="glitch-header">
+            <h1 class="glitch-text" data-text="Mon Portfolio BTS SIO">Mon Portfolio BTS SIO</h1>
+            <p class="subtitle neon-text">Services Informatiques aux Organisations</p>
+            <div class="header-decorations">
+                <span class="float-sticker">⚡</span>
+                <span class="float-sticker">💻</span>
+                <span class="float-sticker">🚀</span>
+            </div>
         </header>
 
-        <nav>
+        <nav class="y2k-nav">
             <div class="nav-container">
-                <a href="index.html" class="nav-btn">Accueil</a>
-                <a href="parcours.html" class="nav-btn active">Parcours</a>
-                <a href="infrastructure.html" class="nav-btn">Infrastructure</a>
-                <a href="certifications.html" class="nav-btn">Certifications</a>
-                <a href="projets.html" class="nav-btn">Projets</a>
-                <a href="veille.html" class="nav-btn">Veille Informationnelle</a>
+                <a href="index.html" class="nav-btn nav-bubble">🏠 Accueil</a>
+                <a href="parcours.html" class="nav-btn nav-bubble active">🎓 Parcours</a>
+                <a href="infrastructure.html" class="nav-btn nav-bubble">🖥️ Infra</a>
+                <a href="certifications.html" class="nav-btn nav-bubble">🏆 Certifs</a>
+                <a href="projets.html" class="nav-btn nav-bubble">💻 Projets</a>
+                <a href="veille.html" class="nav-btn nav-bubble">📡 Veille</a>
             </div>
         </nav>
 
-        <div class="content">
-            <h2 class="section-title">Parcours Scolaire et Professionnel</h2>
+        <div class="content chaos-content">
+            <div class="title-wrapper">
+                <h2 class="section-title cyber-title">
+                    <span class="title-bg">MY JOURNEY</span>
+                    Parcours
+                </h2>
+                <div class="decorative-line"></div>
+            </div>
             
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <h3>BTS SIO - Lycée Jacques Brel</h3>
-                        <span class="timeline-date">2024-2026</span>
-                    </div>
-                    <p class="timeline-subtitle">Option SISR (Solutions d'Infrastructure, Systèmes et Réseaux)</p>
+            <div class="timeline chaos-timeline">
+                <!-- BTS SIO -->
+                <div class="timeline-item card-chaos card-purple">
+                    <div class="card-sticker">🎓</div>
+                    <div class="card-noise"></div>
                     
-                    <p class="timeline-description">
-                        Formation en Services Informatiques aux Organisations avec spécialisation en Solutions d'Infrastructure, Systèmes et Réseaux.
+                    <div class="timeline-header">
+                        <h3 class="cyber-heading">BTS SIO</h3>
+                        <span class="timeline-tag tag-gradient">2024-2026</span>
+                    </div>
+                    
+                    <div class="location-badge">
+                        <span class="badge-icon">📍</span>
+                        Lycée Jacques Brel
+                    </div>
+                    
+                    <p class="timeline-subtitle neon-subtitle">
+                        SISR → Solutions d'Infrastructure, Systèmes et Réseaux
                     </p>
                     
-                    <div class="badge-container">
-                        <span class="badge">Infrastructure</span>
-                        <span class="badge">Systèmes</span>
-                        <span class="badge">Réseaux</span>
-                        <span class="badge">Sécurité</span>
+                    <div class="badge-chaos">
+                        <span class="badge badge-pop">Infrastructure</span>
+                        <span class="badge badge-pop">Systèmes</span>
+                        <span class="badge badge-pop">Réseaux</span>
+                        <span class="badge badge-pop">Sécurité</span>
                     </div>
+                    
+                    <div class="corner-deco top-left"></div>
+                    <div class="corner-deco bottom-right"></div>
                 </div>
 
-                <div class="timeline-item">
+                <!-- Stage 2026 -->
+                <div class="timeline-item card-chaos card-cyan">
+                    <div class="card-sticker">💼</div>
+                    <div class="card-noise"></div>
+                    
                     <div class="timeline-header">
-                        <h3>Stage - Vinci Airport</h3>
-                        <span class="timeline-date">5 janvier - 6 février 2026</span>
-                    </div>
-                    <p class="timeline-subtitle">Aéroport de Lyon • Durée : 5 semaines</p>
-                    
-                    <div class="missions-section">
-                        <h4 class="section-subtitle">Missions réalisées</h4>
-                        
-                        <div class="mission-card">
-                            <h5>Mise en place de Stacking</h5>
-                            <p>Installation et configuration de switchs en cluster pour garantir la haute disponibilité</p>
-                        </div>
-                        
-                        <div class="mission-card">
-                            <h5>Configuration Réseau</h5>
-                            <p>Paramétrage des VLANs, du routage dynamique (IS-IS) et de la supervision (SNMP)</p>
-                        </div>
-                        
-                        <div class="mission-card">
-                            <h5>Maintenance Critique</h5>
-                            <p>Remplacement et remise à neuf de switchs vidéo (gamme Extreme/Avaya)</p>
-                        </div>
-                        
-                        <div class="mission-card">
-                            <h5>Équipements Mobiles</h5>
-                            <p>Configuration et déploiement de tablettes tactiles durcies pour les interventions des sapeurs-pompiers</p>
-                        </div>
-                        
-                        <div class="mission-card">
-                            <h5>Gestion de Parc</h5>
-                            <p>Réalisation de l'inventaire physique et logique des stocks matériels</p>
-                        </div>
-                        
-                        <div class="mission-card">
-                            <h5>Audit Active Directory</h5>
-                            <p>Mise en conformité des données utilisateurs et des abonnements mobiles (format international +33)</p>
-                        </div>
-                        
-                        <div class="mission-card">
-                            <h5>Fiabilisation des données</h5>
-                            <p>Correction des erreurs d'affectation pour assurer la cohérence entre l'AD et la flotte mobile</p>
-                        </div>
-                        
-                        <div class="mission-card">
-                            <h5>Supervision</h5>
-                            <p>Remplacement d'anciens agents de supervision par de nouveaux avec connexion au bureau à distance</p>
-                        </div>
+                        <h3 class="cyber-heading">VINCI AIRPORT</h3>
+                        <span class="timeline-tag tag-neon">JAN-FEV 2026</span>
                     </div>
                     
-                    <div class="competences-section">
-                        <h4 class="section-subtitle">Compétences développées</h4>
-                        <div class="badge-container">
-                            <span class="badge">Stacking & Switching</span>
-                            <span class="badge">Routage IS-IS</span>
-                            <span class="badge">Audit Active Directory</span>
-                            <span class="badge">Maintenance Critique</span>
-                            <span class="badge">Déploiement Mobilité</span>
-                            <span class="badge">Supervision SNMP</span>
-                            <span class="badge">Bureau à distance</span>
+                    <div class="location-badge">
+                        <span class="badge-icon">✈️</span>
+                        Aéroport Lyon • 5 semaines
+                    </div>
+                    
+                    <div class="missions-chaos">
+                        <div class="section-label glitch-label">// MISSIONS_EXEC</div>
+                        
+                        <div class="mission-bubble bubble-1">
+                            <div class="mission-icon">🔗</div>
+                            <h5>STACKING</h5>
+                            <p>Config switchs en cluster → haute dispo garantie</p>
+                        </div>
+                        
+                        <div class="mission-bubble bubble-2">
+                            <div class="mission-icon">🌐</div>
+                            <h5>RÉSEAU</h5>
+                            <p>VLANs + routage IS-IS + supervision SNMP</p>
+                        </div>
+                        
+                        <div class="mission-bubble bubble-3">
+                            <div class="mission-icon">🔧</div>
+                            <h5>MAINTENANCE</h5>
+                            <p>Switchs vidéo Extreme/Avaya → remise à neuf</p>
+                        </div>
+                        
+                        <div class="mission-bubble bubble-4">
+                            <div class="mission-icon">📱</div>
+                            <h5>MOBILITÉ</h5>
+                            <p>Tablettes tactiles durcies pour pompiers</p>
+                        </div>
+                        
+                        <div class="mission-bubble bubble-5">
+                            <div class="mission-icon">📦</div>
+                            <h5>GESTION PARC</h5>
+                            <p>Inventaire physique + logique du stock</p>
+                        </div>
+                        
+                        <div class="mission-bubble bubble-6">
+                            <div class="mission-icon">🔍</div>
+                            <h5>AUDIT AD</h5>
+                            <p>Conformité données users + mobile (+33)</p>
+                        </div>
+                        
+                        <div class="mission-bubble bubble-7">
+                            <div class="mission-icon">✅</div>
+                            <h5>DATA CLEAN</h5>
+                            <p>Cohérence AD ↔ flotte mobile</p>
+                        </div>
+                        
+                        <div class="mission-bubble bubble-8">
+                            <div class="mission-icon">🖥️</div>
+                            <h5>SUPERVISION</h5>
+                            <p>New agents + bureau à distance</p>
                         </div>
                     </div>
+                    
+                    <div class="skills-chaos">
+                        <div class="section-label">// SKILLS_UNLOCKED</div>
+                        <div class="badge-chaos">
+                            <span class="badge badge-cyber">Stacking</span>
+                            <span class="badge badge-cyber">IS-IS</span>
+                            <span class="badge badge-cyber">AD Audit</span>
+                            <span class="badge badge-cyber">Maintenance</span>
+                            <span class="badge badge-cyber">Mobilité</span>
+                            <span class="badge badge-cyber">SNMP</span>
+                            <span class="badge badge-cyber">RDP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="corner-deco top-right"></div>
+                    <div class="corner-deco bottom-left"></div>
                 </div>
                 
-                <div class="timeline-item">
+                <!-- Stage 2025 -->
+                <div class="timeline-item card-chaos card-pink">
+                    <div class="card-sticker">💼</div>
+                    <div class="card-noise"></div>
+                    
                     <div class="timeline-header">
-                        <h3>Stage - Vinci Airport</h3>
-                        <span class="timeline-date">12 mai - 20 juin 2025</span>
-                    </div>
-                    <p class="timeline-subtitle">Aéroport de Lyon • Durée : 6 semaines</p>
-                    
-                    <div class="missions-section">
-                        <h4 class="section-subtitle">Missions réalisées</h4>
-                        
-                        <div class="mission-card">
-                            <h5>Recensement des utilisateurs</h5>
-                            <p>Automatisation du recensement avec script PowerShell et analyse des données via Excel</p>
-                        </div>
-                        
-                        <div class="mission-card">
-                            <h5>Supports de communication</h5>
-                            <p>Rédaction de présentations PowerPoint et mails personnalisés pour les utilisateurs</p>
-                        </div>
-                        
-                        <div class="mission-card">
-                            <h5>Gestion Active Directory</h5>
-                            <p>Administration des groupes AD et application des GPO (gpupdate /force, gpresult /r)</p>
-                        </div>
-                        
-                        <div class="mission-card">
-                            <h5>Migration OneDrive</h5>
-                            <p>Suppression des redirections réseau et migration manuelle des données vers OneDrive</p>
-                        </div>
-                        
-                        <div class="mission-card">
-                            <h5>Suivi et accompagnement</h5>
-                            <p>Support technique utilisateur et reporting via tableau de suivi détaillé</p>
-                        </div>
+                        <h3 class="cyber-heading">VINCI AIRPORT</h3>
+                        <span class="timeline-tag tag-retro">MAI-JUIN 2025</span>
                     </div>
                     
-                    <div class="competences-section">
-                        <h4 class="section-subtitle">Compétences développées</h4>
-                        <div class="badge-container">
-                            <span class="badge">PowerShell</span>
-                            <span class="badge">Active Directory</span>
-                            <span class="badge">GPO</span>
-                            <span class="badge">OneDrive</span>
-                            <span class="badge">Communication IT</span>
-                            <span class="badge">Support utilisateur</span>
+                    <div class="location-badge">
+                        <span class="badge-icon">✈️</span>
+                        Aéroport Lyon • 6 semaines
+                    </div>
+                    
+                    <div class="missions-chaos">
+                        <div class="section-label glitch-label">// MISSIONS_EXEC</div>
+                        
+                        <div class="mission-bubble bubble-1">
+                            <div class="mission-icon">📊</div>
+                            <h5>POWERSHELL</h5>
+                            <p>Script de recensement users + analyse Excel</p>
+                        </div>
+                        
+                        <div class="mission-bubble bubble-2">
+                            <div class="mission-icon">📝</div>
+                            <h5>COMMUNICATION</h5>
+                            <p>PPT + mails perso pour les users</p>
+                        </div>
+                        
+                        <div class="mission-bubble bubble-3">
+                            <div class="mission-icon">👥</div>
+                            <h5>ACTIVE DIRECTORY</h5>
+                            <p>Gestion groupes + GPO deployment</p>
+                        </div>
+                        
+                        <div class="mission-bubble bubble-4">
+                            <div class="mission-icon">☁️</div>
+                            <h5>ONEDRIVE</h5>
+                            <p>Migration data + suppression redirections</p>
+                        </div>
+                        
+                        <div class="mission-bubble bubble-5">
+                            <div class="mission-icon">📈</div>
+                            <h5>SUPPORT</h5>
+                            <p>Accompagnement users + reporting détaillé</p>
                         </div>
                     </div>
+                    
+                    <div class="skills-chaos">
+                        <div class="section-label">// SKILLS_UNLOCKED</div>
+                        <div class="badge-chaos">
+                            <span class="badge badge-street">PowerShell</span>
+                            <span class="badge badge-street">AD</span>
+                            <span class="badge badge-street">GPO</span>
+                            <span class="badge badge-street">OneDrive</span>
+                            <span class="badge badge-street">IT Comm</span>
+                            <span class="badge badge-street">Support</span>
+                        </div>
+                    </div>
+                    
+                    <div class="corner-deco top-left"></div>
+                    <div class="corner-deco bottom-right"></div>
                 </div>
                 
-                <div class="timeline-item">
+                <!-- BAC -->
+                <div class="timeline-item card-chaos card-yellow">
+                    <div class="card-sticker">🎓</div>
+                    <div class="card-noise"></div>
+                    
                     <div class="timeline-header">
-                        <h3>🎓 Baccalauréat STMG</h3>
-                        <span class="timeline-date">2024</span>
+                        <h3 class="cyber-heading">BAC STMG</h3>
+                        <span class="timeline-tag tag-pixel">2024</span>
                     </div>
-                    <p class="timeline-subtitle">Lycée Jacques Brel</p>
-                    <p class="timeline-description">Spécialité : Mercatique</p>
+                    
+                    <div class="location-badge">
+                        <span class="badge-icon">📍</span>
+                        Lycée Jacques Brel
+                    </div>
+                    
+                    <p class="timeline-subtitle">Spé: Mercatique</p>
+                    
+                    <div class="corner-deco top-right"></div>
+                    <div class="corner-deco bottom-left"></div>
                 </div>
             </div>
+        </div>
+        
+        <div class="floating-elements">
+            <div class="float-elem elem-1">⚡</div>
+            <div class="float-elem elem-2">💾</div>
+            <div class="float-elem elem-3">🌟</div>
+            <div class="float-elem elem-4">💫</div>
         </div>
     </div>
 </body>
 </html>
-
-
