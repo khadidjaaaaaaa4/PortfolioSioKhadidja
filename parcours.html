@@ -5,8 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcours - Portfolio BTS SIO</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="parcours.css">
 </head>
 <body>
+    /* parcours.css - Styles supplémentaires pour la page Parcours */
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.timeline-header h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.4rem;
+}
+
+.timeline-date {
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.timeline-subtitle {
+    color: #7f8c8d;
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.timeline-description {
+    line-height: 1.8;
+    color: #555;
+    margin: 1rem 0;
+}
+
+.missions-section {
+    margin: 2rem 0;
+}
+
+.section-subtitle {
+    color: #2c3e50;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+.mission-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-left: 4px solid #3498db;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.mission-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+    border-left-color: #2ecc71;
+}
+
+.mission-card h5 {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    margin: 0 0 0.7rem 0;
+    font-weight: 600;
+}
+
+.mission-card p {
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.competences-section {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px dashed #ecf0f1;
+}
+
+.badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 768px) {
+    .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .timeline-date {
+        align-self: flex-start;
+    }
+    
+    .mission-card {
+        padding: 1rem;
+    }
+    
+    .mission-card h5 {
+        font-size: 1rem;
+    }
+}
     <div class="container">
         <header>
             <h1>Mon Portfolio BTS SIO</h1>
@@ -15,71 +130,145 @@
 
         <nav>
             <div class="nav-container">
-                <a href="index.html" class="nav-btn">Accueil</a>
-                <a href="parcours.html" class="nav-btn active">Parcours</a>
-                <a href="infrastructure.html" class="nav-btn">Infrastructure</a>
-                <a href="certifications.html" class="nav-btn">Certifications</a>
-                <a href="projets.html" class="nav-btn">Projets</a>
-                <a href="veille.html" class="nav-btn">Veille Informationnelle</a>
+                <a href="index.html" class="nav-btn">🏠 Accueil</a>
+                <a href="parcours.html" class="nav-btn active">🎓 Parcours</a>
+                <a href="infrastructure.html" class="nav-btn">🖥️ Infrastructure</a>
+                <a href="certifications.html" class="nav-btn">🏆 Certifications</a>
+                <a href="projets.html" class="nav-btn">💻 Projets</a>
+                <a href="veille.html" class="nav-btn">📡 Veille Informationnelle</a>
             </div>
         </nav>
 
         <div class="content">
-            <div class="tab-content">
-                <h2 class="section-title">Parcours Scolaire et Professionnel</h2>
-                
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>BTS SIO - Lycée Jacques Brel</h3>
-                        <p><strong>2024-2026</strong> | Option SISR</p>
-                        <p>Formation en Services Informatiques aux Organisations avec spécialisation en Solutions d'Infrastructure, Systèmes et Réseaux.</p>
-                        <div>
-                            <span class="badge">Infrastructure</span>
-                            <span class="badge">Systèmes</span>
-                            <span class="badge">Réseaux</span>
-                            <span class="badge">Sécurité</span>
+            <h2 class="section-title">Parcours Scolaire et Professionnel</h2>
+            
+            <div class="timeline">
+                <!-- Formation BTS SIO -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>🎓 BTS SIO - Lycée Jacques Brel</h3>
+                        <span class="timeline-date">2024-2026</span>
+                    </div>
+                    <p class="timeline-subtitle">Option SISR (Solutions d'Infrastructure, Systèmes et Réseaux)</p>
+                    
+                    <p class="timeline-description">
+                        Formation en Services Informatiques aux Organisations avec spécialisation en Solutions d'Infrastructure, Systèmes et Réseaux.
+                    </p>
+                    
+                    <div class="badge-container">
+                        <span class="badge">Infrastructure</span>
+                        <span class="badge">Systèmes</span>
+                        <span class="badge">Réseaux</span>
+                        <span class="badge">Sécurité</span>
+                    </div>
+                </div>
+
+                <!-- Stage 2026 -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>💼 Stage - Vinci Airport</h3>
+                        <span class="timeline-date">5 janvier - 6 février 2026</span>
+                    </div>
+                    <p class="timeline-subtitle">Aéroport de Lyon • Durée : 5 semaines</p>
+                    
+                    <div class="missions-section">
+                        <h4 class="section-subtitle">🎯 Missions réalisées</h4>
+                        
+                        <div class="mission-card">
+                            <h5>🔗 Mise en place de Stacking</h5>
+                            <p>Installation et configuration de switchs en cluster pour garantir la haute disponibilité</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h5>🌐 Configuration Réseau</h5>
+                            <p>Paramétrage des VLANs, du routage dynamique (IS-IS) et de la supervision (SNMP)</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h5>🔧 Maintenance Critique</h5>
+                            <p>Remplacement et remise à neuf de switchs vidéo (gamme Extreme/Avaya)</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h5>📱 Équipements Mobiles</h5>
+                            <p>Configuration et déploiement de tablettes tactiles durcies pour les interventions des sapeurs-pompiers</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h5>📦 Gestion de Parc</h5>
+                            <p>Réalisation de l'inventaire physique et logique des stocks matériels</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h5>🔍 Audit Active Directory</h5>
+                            <p>Mise en conformité des données utilisateurs et des abonnements mobiles (format international +33)</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h5>✅ Fiabilisation des données</h5>
+                            <p>Correction des erreurs d'affectation pour assurer la cohérence entre l'AD et la flotte mobile</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h5>🖥️ Supervision</h5>
+                            <p>Remplacement d'anciens agents de supervision par de nouveaux avec connexion au bureau à distance</p>
                         </div>
                     </div>
-
-                    <div class="timeline-item">
-                        <h3>Stage - Vinci Airport (Aéroport de Lyon)</h3>
-                        <p><strong>5 janvier - 6 février 2026</strong> | Durée : 5 semaines</p>
-                        <p><strong>Missions réalisées :</strong></p>
-                        <ul>
-                            <li>Mise en place de Stacking : Installation et configuration de switchs en cluster pour garantir la haute disponibilité.</li>
-                            <li>Configuration Réseau : Paramétrage des VLANs, du routage dynamique (IS-IS) et de la supervision (SNMP).</li>
-                            <li>Maintenance Critique : Remplacement et remise à neuf de switchs vidéo (gamme Extreme/Avaya).</li>
-                            <li>Équipements Mobiles : Configuration et déploiement de tablettes tactiles durcies pour les interventions des sapeurs-pompiers.</li>
-                            <li>Gestion de Parc : Réalisation de l'inventaire physique et logique des stocks matériels.</li>
-                            <li>Audit Active Directory (AD) : Mise en conformité des données utilisateurs et des abonnements mobiles (format international +33).</li>
-                            <li>Fiabilisation des données : Correction des erreurs d'affectation pour assurer la cohérence entre l'AD et la flotte mobile.</li>
-                            <li>Remplacement d’anciens agents de supervision dans des serveurs par de nouveaux avec connexion au bureau à distance</li>
-                        </ul>
-                        <p><strong>Compétences développées :</strong></p>
-                        <div>
+                    
+                    <div class="competences-section">
+                        <h4 class="section-subtitle">⚡ Compétences développées</h4>
+                        <div class="badge-container">
                             <span class="badge">Stacking & Switching</span>
                             <span class="badge">Routage IS-IS</span>
                             <span class="badge">Audit Active Directory</span>
                             <span class="badge">Maintenance Critique</span>
                             <span class="badge">Déploiement Mobilité</span>
                             <span class="badge">Supervision SNMP</span>
-                            <span class="badge">Connexion bureau à distance</span>
+                            <span class="badge">Bureau à distance</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stage 2025 -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>💼 Stage - Vinci Airport</h3>
+                        <span class="timeline-date">12 mai - 20 juin 2025</span>
+                    </div>
+                    <p class="timeline-subtitle">Aéroport de Lyon • Durée : 6 semaines</p>
+                    
+                    <div class="missions-section">
+                        <h4 class="section-subtitle">🎯 Missions réalisées</h4>
+                        
+                        <div class="mission-card">
+                            <h5>📊 Recensement des utilisateurs</h5>
+                            <p>Automatisation du recensement avec script PowerShell et analyse des données via Excel</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h5>📝 Supports de communication</h5>
+                            <p>Rédaction de présentations PowerPoint et mails personnalisés pour les utilisateurs</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h5>👥 Gestion Active Directory</h5>
+                            <p>Administration des groupes AD et application des GPO (gpupdate /force, gpresult /r)</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h5>☁️ Migration OneDrive</h5>
+                            <p>Suppression des redirections réseau et migration manuelle des données vers OneDrive</p>
+                        </div>
+                        
+                        <div class="mission-card">
+                            <h5>📈 Suivi et accompagnement</h5>
+                            <p>Support technique utilisateur et reporting via tableau de suivi détaillé</p>
                         </div>
                     </div>
                     
-                    <div class="timeline-item">
-                        <h3>Stage - Vinci Airport (Aéroport de Lyon)</h3>
-                        <p><strong>12 mai - 20 juin 2025</strong> | Durée : 6 semaines</p>
-                        <p><strong>Missions réalisées :</strong></p>
-                        <ul>
-                            <li>Recensement des utilisateurs impactés à l'aide d'un script PowerShell et analyse via Excel</li>
-                            <li>Rédaction de supports de communication (présentation PowerPoint, mails personnalisés)</li>
-                            <li>Gestion des groupes Active Directory, application des GPO (gpupdate /force, gpresult /r)</li>
-                            <li>Suppression des redirections réseau et migration manuelle des données vers OneDrive</li>
-                            <li>Suivi technique, accompagnement utilisateur, et reporting via un tableau de suivi</li>
-                        </ul>
-                        <p><strong>Compétences développées :</strong></p>
-                        <div>
+                    <div class="competences-section">
+                        <h4 class="section-subtitle">⚡ Compétences développées</h4>
+                        <div class="badge-container">
                             <span class="badge">PowerShell</span>
                             <span class="badge">Active Directory</span>
                             <span class="badge">GPO</span>
@@ -88,19 +277,19 @@
                             <span class="badge">Support utilisateur</span>
                         </div>
                     </div>
-                    
-                    <div class="timeline-item">
-                        <h3>Baccalauréat STMG</h3>
-                        <p><strong>2024</strong> | Lycée Jacques Brel</p>
-                        <p>Spécialité : Mercatique</p>
+                </div>
+                
+                <!-- Baccalauréat -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>🎓 Baccalauréat STMG</h3>
+                        <span class="timeline-date">2024</span>
                     </div>
+                    <p class="timeline-subtitle">Lycée Jacques Brel</p>
+                    <p class="timeline-description">Spécialité : Mercatique</p>
                 </div>
             </div>
         </div>
     </div>
 </body>
-
 </html>
-
-
-
