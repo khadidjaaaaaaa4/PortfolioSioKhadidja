@@ -3,41 +3,1175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio BTS SIO</title>
+    <title>Infrastructure - Portfolio BTS SIO</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="parcours.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=VT323&family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== VARIABLES & BASE (reprises de ton CSS existant) ===== */
+        :root {
+            --neon-cyan: #00ffff;
+            --neon-pink: #ff00ff;
+            --neon-yellow: #ffff00;
+            --cyber-purple: #9d00ff;
+            --street-orange: #ff6b35;
+            --pastel-blue: #b8d4f0;
+            --pastel-pink: #f0b8d4;
+            --dark-bg: #0a0a0f;
+            --dark-card: #12121a;
+            --dark-card2: #1a1a2e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--dark-bg);
+            color: #fff;
+            font-family: 'Rubik', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(ellipse at 20% 20%, rgba(157,0,255,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0,255,255,0.06) 0%, transparent 50%);
+        }
+
+        /* ===== CONTAINER ===== */
+        .y2k-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* ===== HEADER GLITCH ===== */
+        .glitch-header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            position: relative;
+        }
+
+        .glitch-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            color: #fff;
+            position: relative;
+            text-shadow: 3px 3px 0 var(--neon-pink), -3px -3px 0 var(--neon-cyan);
+            animation: glitch 3s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% { text-shadow: 3px 3px 0 var(--neon-pink), -3px -3px 0 var(--neon-cyan); }
+            92% { text-shadow: -3px 3px 0 var(--neon-cyan), 3px -3px 0 var(--neon-pink); clip-path: inset(10% 0 80% 0); transform: translateX(4px); }
+            94% { text-shadow: 3px -3px 0 var(--neon-yellow); clip-path: inset(60% 0 20% 0); transform: translateX(-4px); }
+            96% { clip-path: none; transform: none; }
+        }
+
+        .subtitle.neon-text {
+            font-family: 'VT323', monospace;
+            font-size: 1.4rem;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 20px var(--neon-cyan);
+            letter-spacing: 4px;
+            margin-top: 0.5rem;
+        }
+
+        .header-decorations { margin-top: 1rem; }
+        .float-sticker {
+            font-size: 1.8rem;
+            margin: 0 0.5rem;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        .float-sticker:nth-child(2) { animation-delay: 0.5s; }
+        .float-sticker:nth-child(3) { animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ===== NAV ===== */
+        .y2k-nav {
+            margin: 1.5rem 0 3rem;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            background: rgba(255,255,255,0.03);
+            border: 2px solid rgba(0,255,255,0.2);
+            border-radius: 20px;
+            padding: 1rem;
+        }
+
+        .nav-btn {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #fff;
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--cyber-purple));
+            border-color: var(--neon-cyan);
+            box-shadow: 0 5px 20px rgba(0,255,255,0.4);
+            transform: translateY(-2px);
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .title-wrapper { margin-bottom: 3rem; }
+
+        .cyber-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+        }
+
+        .title-bg {
+            display: block;
+            font-family: 'VT323', monospace;
+            font-size: 5rem;
+            color: rgba(0,255,255,0.07);
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            letter-spacing: 8px;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .decorative-line {
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--cyber-purple), var(--neon-pink), transparent);
+            border-radius: 2px;
+            margin-top: 1rem;
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* ===== CARDS ===== */
+        .card-chaos {
+            background: var(--dark-card);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-chaos:hover { transform: translateY(-5px) rotate(0.2deg); }
+
+        .card-noise::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            opacity: 0.4;
+            border-radius: 20px;
+        }
+
+        .card-sticker {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 2.5rem;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .card-cyan { border: 3px solid var(--neon-cyan); box-shadow: 0 0 30px rgba(0,255,255,0.3); }
+        .card-purple { border: 3px solid var(--cyber-purple); box-shadow: 0 0 30px rgba(157,0,255,0.3); }
+        .card-pink { border: 3px solid var(--neon-pink); box-shadow: 0 0 30px rgba(255,0,255,0.3); }
+        .card-yellow { border: 3px solid var(--neon-yellow); box-shadow: 0 0 30px rgba(255,255,0,0.3); }
+        .card-orange { border: 3px solid var(--street-orange); box-shadow: 0 0 30px rgba(255,107,53,0.3); }
+
+        /* corner decos */
+        .corner-deco {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+        }
+        .top-right { top: 10px; right: 10px; border-top: 3px solid var(--neon-cyan); border-right: 3px solid var(--neon-cyan); }
+        .bottom-left { bottom: 10px; left: 10px; border-bottom: 3px solid var(--neon-cyan); border-left: 3px solid var(--neon-cyan); }
+        .top-left { top: 10px; left: 10px; border-top: 3px solid var(--neon-pink); border-left: 3px solid var(--neon-pink); }
+        .bottom-right { bottom: 10px; right: 10px; border-bottom: 3px solid var(--neon-pink); border-right: 3px solid var(--neon-pink); }
+
+        /* ===== SECTION LABELS ===== */
+        .glitch-label {
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            color: var(--neon-cyan);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .cyber-heading-small {
+            font-family: 'VT323', monospace;
+            font-size: 1.8rem;
+            color: var(--neon-cyan);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== INTRO CARD ===== */
+        .intro-text {
+            font-family: 'Rubik', sans-serif;
+            color: var(--pastel-blue);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .intro-text strong { color: var(--neon-pink); text-shadow: 0 0 10px rgba(255,0,255,0.3); }
+
+        .theme-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .theme-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.7rem;
+            background: linear-gradient(135deg, rgba(157,0,255,0.15), rgba(255,0,255,0.15));
+            border: 2px solid var(--cyber-purple);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-item:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 5px 20px rgba(255,0,255,0.3);
+            transform: translateY(-5px);
+        }
+
+        .theme-icon { font-size: 2.5rem; filter: drop-shadow(0 0 10px var(--cyber-purple)); }
+        .theme-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* ===== NETWORK DIAGRAM ===== */
+        .diagram-section { margin: 4rem 0; }
+
+        .diagram-wrapper {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(10,10,30,0.9));
+            border: 3px solid var(--neon-cyan);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(0,255,255,0.15);
+        }
+
+        .diagram-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,255,0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+        }
+
+        .diagram-title {
+            font-family: 'VT323', monospace;
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .diagram-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), transparent);
+        }
+
+        /* ===== SVG NETWORK DIAGRAM ===== */
+        .network-svg-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .network-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Zone labels */
+        .zone-label {
+            font-family: 'VT323', monospace;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Node styling */
+        .node-group { cursor: pointer; }
+        .node-group:hover .node-box { filter: brightness(1.3) drop-shadow(0 0 8px currentColor); }
+        .node-group:hover .node-label { fill: #fff; }
+
+        /* Tooltip */
+        .node-tooltip {
+            position: absolute;
+            background: rgba(0,0,0,0.95);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 10px;
+            padding: 0.8rem 1.2rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            color: #fff;
+            pointer-events: none;
+            z-index: 100;
+            display: none;
+            max-width: 250px;
+            box-shadow: 0 0 20px rgba(0,255,255,0.4);
+        }
+
+        .node-tooltip.show { display: block; }
+        .node-tooltip h4 { color: var(--neon-cyan); font-size: 1rem; margin-bottom: 0.4rem; }
+        .node-tooltip p { color: var(--pastel-blue); font-size: 0.8rem; line-height: 1.5; }
+        .node-tooltip .ip { color: var(--neon-yellow); font-family: 'VT323', monospace; font-size: 1rem; }
+
+        /* ===== SERVERS GRID ===== */
+        .servers-section { margin: 4rem 0; }
+
+        .servers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .server-card {
+            animation: server-enter 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .server-card:nth-child(1) { animation-delay: 0.1s; }
+        .server-card:nth-child(2) { animation-delay: 0.2s; }
+        .server-card:nth-child(3) { animation-delay: 0.3s; }
+        .server-card:nth-child(4) { animation-delay: 0.4s; }
+        .server-card:nth-child(5) { animation-delay: 0.5s; }
+        .server-card:nth-child(6) { animation-delay: 0.6s; }
+        .server-card:nth-child(7) { animation-delay: 0.7s; }
+        .server-card:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes server-enter {
+            from { opacity: 0; transform: translateY(20px) rotate(2deg); }
+            to { opacity: 1; transform: translateY(0) rotate(-0.3deg); }
+        }
+
+        .server-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .server-icon { font-size: 2rem; }
+
+        .server-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .server-ip {
+            font-family: 'VT323', monospace;
+            font-size: 1.1rem;
+            color: var(--neon-yellow);
+            letter-spacing: 2px;
+        }
+
+        .server-zone-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 10px;
+            font-family: 'VT323', monospace;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .zone-interne { background: rgba(0,200,0,0.15); border: 1px solid #00c800; color: #00c800; }
+        .zone-dmz { background: rgba(255,107,53,0.15); border: 1px solid var(--street-orange); color: var(--street-orange); }
+        .zone-externe { background: rgba(255,107,53,0.2); border: 1px solid var(--street-orange); color: var(--street-orange); }
+
+        .server-desc {
+            font-family: 'Rubik', sans-serif;
+            color: var(--pastel-blue);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .server-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .server-tag {
+            font-family: 'Rubik', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.7rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 10px;
+            color: var(--pastel-pink);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* STATUS INDICATOR */
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-dot 2s infinite;
+        }
+        .status-online { background: #00ff88; box-shadow: 0 0 8px #00ff88; }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.8); }
+        }
+
+        /* ===== SYNTHESIS ===== */
+        .synthesis-content > p {
+            font-family: 'Rubik', sans-serif;
+            color: var(--pastel-blue);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .synthesis-content strong { color: var(--neon-pink); text-shadow: 0 0 10px rgba(255,0,255,0.3); }
+
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .finding-box {
+            background: linear-gradient(135deg, rgba(0,255,255,0.08), rgba(157,0,255,0.08));
+            border: 2px solid rgba(0,255,255,0.25);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .finding-box:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 5px 20px rgba(0,255,255,0.3);
+            transform: translateY(-5px);
+        }
+
+        .finding-icon { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
+
+        .finding-box h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 0.8rem 0;
+        }
+
+        .finding-box p {
+            font-family: 'Rubik', sans-serif;
+            color: var(--pastel-pink);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .findings-title {
+            font-family: 'VT323', monospace;
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+        }
+
+        /* ===== FLOATING ELEMENTS ===== */
+        .floating-elements { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .float-elem {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.05;
+            animation: drift 15s ease-in-out infinite;
+        }
+        .elem-1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .elem-2 { top: 30%; right: 8%; animation-delay: 3s; }
+        .elem-3 { top: 60%; left: 3%; animation-delay: 6s; }
+        .elem-4 { top: 80%; right: 5%; animation-delay: 9s; }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(20px, -20px) rotate(10deg); }
+            66% { transform: translate(-10px, 15px) rotate(-5deg); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .servers-grid { grid-template-columns: 1fr; }
+            .theme-highlights { grid-template-columns: repeat(2, 1fr); }
+            .findings-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Mon Portfolio BTS SIO</h1>
-            <p class="subtitle">Services Informatiques aux Organisations</p>
+    <div class="floating-elements">
+        <div class="float-elem elem-1">🖥️</div>
+        <div class="float-elem elem-2">🔒</div>
+        <div class="float-elem elem-3">🌐</div>
+        <div class="float-elem elem-4">⚙️</div>
+    </div>
+
+    <!-- Tooltip -->
+    <div class="node-tooltip" id="tooltip"></div>
+
+    <div class="container y2k-container" style="position:relative; z-index:1;">
+        <header class="glitch-header">
+            <h1 class="glitch-text" data-text="Mon Portfolio BTS SIO">Mon Portfolio BTS SIO</h1>
+            <p class="subtitle neon-text">Services Informatiques aux Organisations</p>
+            <div class="header-decorations">
+                <span class="float-sticker">🖥️</span>
+                <span class="float-sticker">🔒</span>
+                <span class="float-sticker">🌐</span>
+            </div>
         </header>
 
-        <nav>
+        <nav class="y2k-nav">
             <div class="nav-container">
-                <a href="index.html" class="nav-btn">Accueil</a>
-                <a href="parcours.html" class="nav-btn">Parcours</a>
-                <a href="infrastructure.html" class="nav-btn active">Infrastructure</a>
-                <a href="certifications.html" class="nav-btn">Certifications</a>
-                <a href="projets.html" class="nav-btn">Projets</a>
-                <a href="grille-competences.html" class="nav-btn">Grille de Compétences</a>
-                <a href="veille.html" class="nav-btn">Veille Informationnelle</a>
+                <a href="index.html" class="nav-btn nav-bubble">🏠 Accueil</a>
+                <a href="parcours.html" class="nav-btn nav-bubble">🎓 Parcours</a>
+                <a href="infrastructure.html" class="nav-btn nav-bubble active">🖥️ Infra</a>
+                <a href="certifications.html" class="nav-btn nav-bubble">🏆 Certifs</a>
+                <a href="projets.html" class="nav-btn nav-bubble">💻 Projets</a>
+                <a href="grille-competences.html" class="nav-btn nav-bubble">📊 Compétences</a>
+                <a href="veille.html" class="nav-btn nav-bubble">📡 Veille</a>
             </div>
         </nav>
 
-        <div class="content">
-            <div class="tab-content">
-                <h2 class="section-title">Schéma d'Infrastructure Réseau</h2>
+        <div class="content chaos-content">
+            <!-- TITRE -->
+            <div class="title-wrapper">
+                <h2 class="section-title cyber-title">
+                    <span class="title-bg">NETWORK MAP</span>
+                    Infrastructure Réseau
+                </h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <!-- INTRO -->
+            <div class="intro-card card-chaos card-cyan" style="margin-bottom:4rem;">
+                <div class="card-sticker">🖥️</div>
+                <div class="card-noise"></div>
+                <div>
+                    <h3 class="cyber-heading-small">MON INFRASTRUCTURE</h3>
+                    <p class="intro-text">
+                        Dans le cadre de ma formation BTS SIO, j'ai eu l'opportunité de travailler sur une <strong>infrastructure réseau complète</strong>. Celle-ci comprend plusieurs zones de sécurité distinctes : une zone interne sécurisée avec des serveurs de gestion, une DMZ pour les services exposés, et une connexion vers Internet contrôlée par un pare-feu centralisé.
+                    </p>
+                    <div class="theme-highlights">
+                        <div class="theme-item">
+                            <span class="theme-icon">🔥</span>
+                            <span class="theme-label">Pare-feu & Sécurité</span>
+                        </div>
+                        <div class="theme-item">
+                            <span class="theme-icon">🖧</span>
+                            <span class="theme-label">Segmentation réseau</span>
+                        </div>
+                        <div class="theme-item">
+                            <span class="theme-icon">📊</span>
+                            <span class="theme-label">Supervision & Monitoring</span>
+                        </div>
+                        <div class="theme-item">
+                            <span class="theme-icon">🪟</span>
+                            <span class="theme-label">Active Directory</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="corner-deco top-right"></div>
+                <div class="corner-deco bottom-left"></div>
+            </div>
+
+            <!-- SCHEMA RÉSEAU -->
+            <div class="diagram-section">
+                <div class="section-label glitch-label">// NETWORK_TOPOLOGY</div>
+
+                <div class="diagram-wrapper">
+                    <div class="diagram-title">🔌 Schéma réseau interactif</div>
+
+                    <div class="network-svg-container">
+                        <svg class="network-svg" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <!-- Glow filters -->
+                                <filter id="glow-cyan">
+                                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                                    <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                                <filter id="glow-green">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                                <filter id="glow-orange">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                                <filter id="glow-pink">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                                <!-- Arrow markers -->
+                                <marker id="arrow-cyan" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto">
+                                    <path d="M0,0 L0,6 L8,3 z" fill="#00ffff" opacity="0.8"/>
+                                </marker>
+                                <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto">
+                                    <path d="M0,0 L0,6 L8,3 z" fill="#ff6b35" opacity="0.8"/>
+                                </marker>
+                                <!-- Animated dash -->
+                                <style>
+                                    .link-line { stroke-dasharray: 8 4; animation: dash 2s linear infinite; }
+                                    .link-line-slow { stroke-dasharray: 6 6; animation: dash 4s linear infinite; }
+                                    @keyframes dash { to { stroke-dashoffset: -24; } }
+                                    .zone-pulse { animation: zone-glow 3s ease-in-out infinite; }
+                                    @keyframes zone-glow {
+                                        0%, 100% { opacity: 0.15; }
+                                        50% { opacity: 0.25; }
+                                    }
+                                </style>
+                            </defs>
+
+                            <!-- ======================== ZONES ======================== -->
+
+                            <!-- Zone Interne (verte) -->
+                            <rect x="30" y="30" width="360" height="250" rx="20"
+                                  fill="rgba(0,200,0,0.08)" stroke="#00c800" stroke-width="2.5"
+                                  stroke-dasharray="8 4" class="zone-pulse"/>
+                            <text x="50" y="58" class="zone-label" fill="#00c800" filter="url(#glow-green)">🟢 ZONE INTERNE</text>
+
+                            <!-- Zone DMZ (orange-rouge) -->
+                            <rect x="30" y="380" width="260" height="170" rx="20"
+                                  fill="rgba(255,107,53,0.08)" stroke="#ff6b35" stroke-width="2.5"
+                                  stroke-dasharray="8 4" class="zone-pulse"/>
+                            <text x="50" y="408" class="zone-label" fill="#ff6b35" filter="url(#glow-orange)">🔴 ZONE DMZ / EXTERNE</text>
+
+                            <!-- Zone DMZ SRV (orange) -->
+                            <rect x="580" y="30" width="190" height="140" rx="20"
+                                  fill="rgba(255,165,0,0.1)" stroke="#ffa500" stroke-width="2.5"
+                                  stroke-dasharray="8 4" class="zone-pulse"/>
+                            <text x="600" y="58" class="zone-label" fill="#ffa500" filter="url(#glow-orange)">🟠 DMZ</text>
+
+                            <!-- Internet cloud -->
+                            <text x="770" y="380" font-size="55" text-anchor="middle" opacity="0.7">☁️</text>
+                            <text x="770" y="415" font-size="12" fill="#88aaff" text-anchor="middle" font-family="VT323, monospace" letter-spacing="2">INTERNET</text>
+
+                            <!-- ======================== FIREWALL (centre) ======================== -->
+                            <g class="node-group"
+                               data-name="Pare-feu"
+                               data-ip="10.0.206.17 / 10.0.206.1 / 172.28.206.1"
+                               data-desc="Pare-feu central gérant toutes les communications entre les zones. Il sécurise le trafic entrant/sortant."
+                               data-role="Sécurité réseau"
+                               onmouseenter="showTooltip(event, this)"
+                               onmouseleave="hideTooltip()">
+                                <rect x="400" y="240" width="100" height="80" rx="12"
+                                      fill="#1a1a2e" stroke="#ff6b35" stroke-width="3"
+                                      filter="url(#glow-orange)"/>
+                                <text x="450" y="270" font-size="28" text-anchor="middle">🔥</text>
+                                <text x="450" y="295" font-size="11" fill="#ff6b35" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">FIREWALL</text>
+                                <text x="450" y="310" font-size="10" fill="#ffa500" text-anchor="middle" font-family="VT323, monospace">CENTRAL</text>
+                            </g>
+
+                            <!-- ======================== CONNEXIONS ======================== -->
+
+                            <!-- Zone interne → Firewall -->
+                            <line x1="390" y1="270" x2="400" y2="270"
+                                  stroke="#00c800" stroke-width="2.5"
+                                  class="link-line" marker-end="url(#arrow-cyan)" opacity="0.8"/>
+                            <text x="330" y="262" font-size="11" fill="#00c800" font-family="VT323, monospace" letter-spacing="1">10.0.206.17</text>
+
+                            <!-- DMZ SRV → Firewall -->
+                            <line x1="580" y1="100" x2="500" y2="260"
+                                  stroke="#ffa500" stroke-width="2"
+                                  class="link-line" marker-end="url(#arrow-orange)" opacity="0.7"/>
+                            <text x="540" y="175" font-size="11" fill="#ffa500" font-family="VT323, monospace" letter-spacing="1">10.0.206.1</text>
+
+                            <!-- Firewall → Internet -->
+                            <line x1="730" y1="355" x2="510" y2="310"
+                                  stroke="#88aaff" stroke-width="2"
+                                  class="link-line-slow" marker-end="url(#arrow-cyan)" opacity="0.7"/>
+
+                            <!-- DMZ/Externe → Firewall -->
+                            <line x1="290" y1="450" x2="410" y2="335"
+                                  stroke="#ff6b35" stroke-width="2"
+                                  class="link-line" marker-end="url(#arrow-orange)" opacity="0.7"/>
+                            <text x="300" y="390" font-size="11" fill="#ff6b35" font-family="VT323, monospace" letter-spacing="1">172.28.206.1</text>
+
+                            <!-- ======================== SERVEURS INTERNES ======================== -->
+
+                            <!-- AD -->
+                            <g class="node-group"
+                               data-name="AD (Active Directory)"
+                               data-ip="10.0.206.66"
+                               data-desc="Contrôleur de domaine Windows Server. Gère l'authentification, les politiques de groupe (GPO) et les comptes utilisateurs."
+                               data-role="Annuaire & Authentification"
+                               onmouseenter="showTooltip(event, this)"
+                               onmouseleave="hideTooltip()">
+                                <rect x="45" y="70" width="90" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
+                                <text x="90" y="98" font-size="20" text-anchor="middle">🏢</text>
+                                <text x="90" y="116" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">AD</text>
+                                <text x="90" y="130" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.66</text>
+                            </g>
+
+                            <!-- SRV-FIC -->
+                            <g class="node-group"
+                               data-name="SRV-FIC (Serveur de fichiers)"
+                               data-ip="10.0.206.67"
+                               data-desc="Serveur de fichiers partagés permettant le stockage centralisé et la gestion des droits d'accès aux fichiers."
+                               data-role="Partage de fichiers"
+                               onmouseenter="showTooltip(event, this)"
+                               onmouseleave="hideTooltip()">
+                                <rect x="155" y="70" width="90" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
+                                <text x="200" y="98" font-size="20" text-anchor="middle">🗂️</text>
+                                <text x="200" y="116" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">SRV-FIC</text>
+                                <text x="200" y="130" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.67</text>
+                            </g>
+
+                            <!-- SRV-TRUENAS -->
+                            <g class="node-group"
+                               data-name="SRV-TRUENAS"
+                               data-ip="10.0.206.68"
+                               data-desc="Serveur NAS TrueNAS pour le stockage réseau, les sauvegardes et la gestion de données volumineuses."
+                               data-role="Stockage NAS"
+                               onmouseenter="showTooltip(event, this)"
+                               onmouseleave="hideTooltip()">
+                                <rect x="265" y="70" width="105" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
+                                <text x="317" y="98" font-size="20" text-anchor="middle">💾</text>
+                                <text x="317" y="116" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">TRUENAS</text>
+                                <text x="317" y="130" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.68</text>
+                            </g>
+
+                            <!-- SRV-CENTREON -->
+                            <g class="node-group"
+                               data-name="SRV-CENTREON"
+                               data-ip="10.0.206.64"
+                               data-desc="Serveur de supervision Centreon pour le monitoring de l'infrastructure, des services et des performances réseau."
+                               data-role="Supervision / Monitoring"
+                               onmouseenter="showTooltip(event, this)"
+                               onmouseleave="hideTooltip()">
+                                <rect x="45" y="180" width="105" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
+                                <text x="97" y="208" font-size="20" text-anchor="middle">📊</text>
+                                <text x="97" y="226" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">CENTREON</text>
+                                <text x="97" y="240" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.64</text>
+                            </g>
+
+                            <!-- SRV-WAZUH -->
+                            <g class="node-group"
+                               data-name="SRV-WAZUH"
+                               data-ip="10.0.206.63"
+                               data-desc="Serveur SIEM Wazuh pour la détection d'intrusions, la gestion des logs de sécurité et la réponse aux incidents."
+                               data-role="SIEM / Sécurité"
+                               onmouseenter="showTooltip(event, this)"
+                               onmouseleave="hideTooltip()">
+                                <rect x="170" y="180" width="100" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
+                                <text x="220" y="208" font-size="20" text-anchor="middle">🛡️</text>
+                                <text x="220" y="226" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">WAZUH</text>
+                                <text x="220" y="240" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.63</text>
+                            </g>
+
+                            <!-- W11 CLIENT -->
+                            <g class="node-group"
+                               data-name="W11 CLIENT"
+                               data-ip="10.0.206.70"
+                               data-desc="Poste de travail client Windows 11 rattaché au domaine Active Directory."
+                               data-role="Poste utilisateur"
+                               onmouseenter="showTooltip(event, this)"
+                               onmouseleave="hideTooltip()">
+                                <rect x="280" y="180" width="100" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
+                                <text x="330" y="208" font-size="20" text-anchor="middle">💻</text>
+                                <text x="330" y="226" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">W11 CLIENT</text>
+                                <text x="330" y="240" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.70</text>
+                            </g>
+
+                            <!-- ======================== DMZ ORANGE ======================== -->
+
+                            <!-- SRV-LAMP -->
+                            <g class="node-group"
+                               data-name="SRV-LAMP"
+                               data-ip="10.0.206.10"
+                               data-desc="Serveur web LAMP (Linux, Apache, MySQL, PHP). Héberge des applications web accessibles depuis la DMZ."
+                               data-role="Serveur Web"
+                               onmouseenter="showTooltip(event, this)"
+                               onmouseleave="hideTooltip()">
+                                <rect x="600" y="65" width="100" height="70" rx="10" fill="#1a1200" stroke="#ffa500" stroke-width="2" filter="url(#glow-orange)"/>
+                                <text x="650" y="93" font-size="20" text-anchor="middle">🌐</text>
+                                <text x="650" y="111" font-size="10" fill="#ffc966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">SRV-LAMP</text>
+                                <text x="650" y="125" font-size="9" fill="#cc8800" text-anchor="middle" font-family="VT323, monospace">10.0.206.10</text>
+                            </g>
+
+                            <!-- ======================== DMZ ROUGE ======================== -->
+
+                            <!-- DCB CLIENT -->
+                            <g class="node-group"
+                               data-name="DCB CLIENT"
+                               data-ip="172.28.206.220"
+                               data-desc="Client dans la zone DMZ externe, simulant un accès depuis un réseau moins fiable ou externe."
+                               data-role="Client DMZ externe"
+                               onmouseenter="showTooltip(event, this)"
+                               onmouseleave="hideTooltip()">
+                                <rect x="50" y="420" width="100" height="70" rx="10" fill="#1a0a00" stroke="#ff6b35" stroke-width="2" filter="url(#glow-orange)"/>
+                                <text x="100" y="448" font-size="20" text-anchor="middle">🖥️</text>
+                                <text x="100" y="466" font-size="9" fill="#ff9966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">DCB CLIENT</text>
+                                <text x="100" y="480" font-size="8.5" fill="#cc5533" text-anchor="middle" font-family="VT323, monospace">172.28.206.220</text>
+                            </g>
+
+                            <!-- SRV-DNS -->
+                            <g class="node-group"
+                               data-name="SRV-DNS"
+                               data-ip="10.0.206.65"
+                               data-desc="Serveur DNS gérant la résolution de noms de domaine interne et la redirection vers les DNS externes."
+                               data-role="Résolution DNS"
+                               onmouseenter="showTooltip(event, this)"
+                               onmouseleave="hideTooltip()">
+                                <rect x="165" y="420" width="100" height="70" rx="10" fill="#1a0a00" stroke="#ff6b35" stroke-width="2" filter="url(#glow-orange)"/>
+                                <text x="215" y="448" font-size="20" text-anchor="middle">🔍</text>
+                                <text x="215" y="466" font-size="10" fill="#ff9966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">SRV-DNS</text>
+                                <text x="215" y="480" font-size="9" fill="#cc5533" text-anchor="middle" font-family="VT323, monospace">10.0.206.65</text>
+                            </g>
+
+                            <!-- ======================== LÉGENDE ======================== -->
+                            <rect x="540" y="460" width="330" height="120" rx="12" fill="rgba(0,0,0,0.5)" stroke="rgba(0,255,255,0.2)" stroke-width="1.5"/>
+                            <text x="560" y="485" font-size="12" fill="#00ffff" font-family="VT323, monospace" letter-spacing="2">LÉGENDE</text>
+                            <rect x="560" y="495" width="15" height="8" rx="2" fill="rgba(0,200,0,0.3)" stroke="#00c800"/>
+                            <text x="582" y="504" font-size="11" fill="#88bb88" font-family="Rubik, sans-serif">Zone Interne</text>
+                            <rect x="560" y="515" width="15" height="8" rx="2" fill="rgba(255,165,0,0.2)" stroke="#ffa500"/>
+                            <text x="582" y="524" font-size="11" fill="#cc9944" font-family="Rubik, sans-serif">DMZ (services web)</text>
+                            <rect x="560" y="535" width="15" height="8" rx="2" fill="rgba(255,107,53,0.2)" stroke="#ff6b35"/>
+                            <text x="582" y="544" font-size="11" fill="#cc6633" font-family="Rubik, sans-serif">Zone Externe / DMZ</text>
+                            <line x1="560" y1="559" x2="575" y2="559" stroke="#00ffff" stroke-width="2" stroke-dasharray="4 2"/>
+                            <text x="582" y="563" font-size="11" fill="#88aacc" font-family="Rubik, sans-serif">Flux réseau</text>
+                            <text x="560" y="578" font-size="10" fill="#556677" font-family="Rubik, sans-serif" font-style="italic">Survolez les équipements pour plus d'infos</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DÉTAILS SERVEURS -->
+            <div class="servers-section">
+                <div class="section-label glitch-label">// SERVER_DETAILS</div>
+
+                <div class="servers-grid" style="margin-top:2rem;">
+
+                    <!-- AD -->
+                    <div class="server-card card-chaos card-cyan">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🏢</span>
+                            <div>
+                                <div class="server-name">Active Directory <span class="status-dot status-online" style="margin-left:8px;"></span></div>
+                                <div class="server-ip">10.0.206.66</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-interne">🟢 Zone Interne</span>
+                        <p class="server-desc">Contrôleur de domaine Windows Server. Il gère l'authentification des utilisateurs, les politiques de groupe (GPO) et l'organisation de l'annuaire d'entreprise.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Windows Server</span>
+                            <span class="server-tag">LDAP</span>
+                            <span class="server-tag">GPO</span>
+                            <span class="server-tag">Kerberos</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- SRV-FIC -->
+                    <div class="server-card card-chaos card-cyan">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🗂️</span>
+                            <div>
+                                <div class="server-name">SRV-FIC <span class="status-dot status-online" style="margin-left:8px;"></span></div>
+                                <div class="server-ip">10.0.206.67</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-interne">🟢 Zone Interne</span>
+                        <p class="server-desc">Serveur de fichiers partagés permettant un stockage centralisé avec gestion fine des droits d'accès (ACL) par utilisateur et groupe AD.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">SMB</span>
+                            <span class="server-tag">ACL</span>
+                            <span class="server-tag">Partage réseau</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- TRUENAS -->
+                    <div class="server-card card-chaos card-purple">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">💾</span>
+                            <div>
+                                <div class="server-name">SRV-TRUENAS <span class="status-dot status-online" style="margin-left:8px;"></span></div>
+                                <div class="server-ip">10.0.206.68</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-interne">🟢 Zone Interne</span>
+                        <p class="server-desc">NAS TrueNAS pour le stockage réseau haute capacité, la gestion des sauvegardes et la redondance des données via ZFS.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">TrueNAS</span>
+                            <span class="server-tag">ZFS</span>
+                            <span class="server-tag">Sauvegarde</span>
+                            <span class="server-tag">NFS/SMB</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- CENTREON -->
+                    <div class="server-card card-chaos card-pink">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">📊</span>
+                            <div>
+                                <div class="server-name">SRV-CENTREON <span class="status-dot status-online" style="margin-left:8px;"></span></div>
+                                <div class="server-ip">10.0.206.64</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-interne">🟢 Zone Interne</span>
+                        <p class="server-desc">Plateforme de supervision Centreon pour le monitoring temps réel des services réseau, des serveurs et des équipements via SNMP et NRPE.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Centreon</span>
+                            <span class="server-tag">SNMP</span>
+                            <span class="server-tag">Monitoring</span>
+                            <span class="server-tag">Alerting</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- WAZUH -->
+                    <div class="server-card card-chaos card-yellow">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🛡️</span>
+                            <div>
+                                <div class="server-name">SRV-WAZUH <span class="status-dot status-online" style="margin-left:8px;"></span></div>
+                                <div class="server-ip">10.0.206.63</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-interne">🟢 Zone Interne</span>
+                        <p class="server-desc">SIEM Wazuh pour la détection d'intrusions (IDS), la centralisation des logs de sécurité, l'analyse comportementale et la réponse aux incidents.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">SIEM</span>
+                            <span class="server-tag">IDS</span>
+                            <span class="server-tag">Logs</span>
+                            <span class="server-tag">Wazuh</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- SRV-LAMP -->
+                    <div class="server-card card-chaos card-orange">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🌐</span>
+                            <div>
+                                <div class="server-name">SRV-LAMP <span class="status-dot status-online" style="margin-left:8px;"></span></div>
+                                <div class="server-ip">10.0.206.10</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-dmz">🟠 DMZ</span>
+                        <p class="server-desc">Serveur web LAMP (Linux, Apache, MySQL, PHP) hébergeant des applications web. Situé en DMZ pour être accessible depuis l'extérieur de façon contrôlée.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Apache</span>
+                            <span class="server-tag">PHP</span>
+                            <span class="server-tag">MySQL</span>
+                            <span class="server-tag">Linux</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- SRV-DNS -->
+                    <div class="server-card card-chaos card-pink">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🔍</span>
+                            <div>
+                                <div class="server-name">SRV-DNS <span class="status-dot status-online" style="margin-left:8px;"></span></div>
+                                <div class="server-ip">10.0.206.65</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-externe">🔴 Zone Externe</span>
+                        <p class="server-desc">Serveur DNS assurant la résolution des noms de domaine internes et la redirection vers des résolveurs DNS publics pour les requêtes externes.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">DNS</span>
+                            <span class="server-tag">BIND</span>
+                            <span class="server-tag">Résolution</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- DCB CLIENT -->
+                    <div class="server-card card-chaos card-orange">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🖥️</span>
+                            <div>
+                                <div class="server-name">DCB CLIENT <span class="status-dot status-online" style="margin-left:8px;"></span></div>
+                                <div class="server-ip">172.28.206.220</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-externe">🔴 Zone Externe</span>
+                        <p class="server-desc">Poste client situé dans la zone externe/DMZ, simulant un accès depuis un réseau peu fiable. Son trafic transite obligatoirement par le pare-feu.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Client</span>
+                            <span class="server-tag">DMZ</span>
+                            <span class="server-tag">172.28.x.x</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SYNTHÈSE -->
+            <div style="margin: 5rem 0 3rem 0;">
+                <div class="section-label glitch-label">// SYNTHESIS</div>
+
+                <div class="synthesis-card card-chaos card-purple" style="margin-top:2rem;">
+                    <div class="card-sticker">💭</div>
+                    <div class="card-noise"></div>
+
+                    <h3 class="cyber-heading-small">SYNTHÈSE & RÉFLEXION</h3>
+
+                    <div class="synthesis-content">
+                        <p>
+                            Cette infrastructure illustre les <strong>bonnes pratiques de segmentation réseau</strong> appliquées dans un contexte professionnel. La séparation en zones distinctes (interne, DMZ, externe) permet de limiter la surface d'attaque et d'appliquer le principe du moindre privilège. Le pare-feu central joue un rôle crucial en filtrant l'ensemble des flux entre ces zones.
+                        </p>
+
+                        <div class="key-findings" style="margin: 3rem 0;">
+                            <h4 class="findings-title">🔑 Points techniques clés</h4>
+                            <div class="findings-grid">
+                                <div class="finding-box">
+                                    <span class="finding-icon">🔥</span>
+                                    <h5>Pare-feu centralisé</h5>
+                                    <p>Filtrage de tout le trafic inter-zones avec règles strictes</p>
+                                </div>
+                                <div class="finding-box">
+                                    <span class="finding-icon">🏢</span>
+                                    <h5>Active Directory</h5>
+                                    <p>Gestion centralisée des identités et des politiques</p>
+                                </div>
+                                <div class="finding-box">
+                                    <span class="finding-icon">📊</span>
+                                    <h5>Supervision complète</h5>
+                                    <p>Monitoring réseau (Centreon) + SIEM sécurité (Wazuh)</p>
+                                </div>
+                                <div class="finding-box">
+                                    <span class="finding-icon">🌐</span>
+                                    <h5>DMZ isolée</h5>
+                                    <p>Services web exposés dans une zone contrôlée et isolée</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="personal-reflection" style="background:linear-gradient(135deg,rgba(255,0,255,0.1),rgba(255,107,53,0.1)); border:2px solid var(--neon-pink); border-radius:15px; padding:2rem; margin-top:2rem;">
+                            <h4 style="font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--neon-pink); text-transform:uppercase; letter-spacing:1px; margin:0 0 1.5rem 0;">💡 Ce que j'ai appris</h4>
+                            <p style="font-family:'Rubik',sans-serif; color:var(--pastel-blue); line-height:1.8; font-size:1.05rem; margin:0;">
+                                La mise en place de cette infrastructure m'a permis de comprendre concrètement l'importance de la <strong>défense en profondeur</strong> et de la segmentation réseau. Chaque composant a un rôle précis : le pare-feu protège, l'AD centralise, Centreon surveille et Wazuh détecte. Cette vision systémique de l'infrastructure est fondamentale pour tout professionnel de l'IT.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="corner-deco top-right"></div>
+                    <div class="corner-deco bottom-left"></div>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        const tooltip = document.getElementById('tooltip');
+
+        function showTooltip(event, el) {
+            const name = el.dataset.name;
+            const ip = el.dataset.ip;
+            const desc = el.dataset.desc;
+            const role = el.dataset.role;
+
+            tooltip.innerHTML = `
+                <h4>${name}</h4>
+                <p class="ip">📡 ${ip}</p>
+                <p><strong style="color:#aaddff;">Rôle :</strong> ${role}</p>
+                <p>${desc}</p>
+            `;
+            tooltip.classList.add('show');
+            moveTooltip(event);
+        }
+
+        function hideTooltip() {
+            tooltip.classList.remove('show');
+        }
+
+        function moveTooltip(e) {
+            const x = e.clientX + 15;
+            const y = e.clientY + 15;
+            tooltip.style.left = Math.min(x, window.innerWidth - 270) + 'px';
+            tooltip.style.top = Math.min(y, window.innerHeight - 200) + 'px';
+        }
+
+        document.querySelectorAll('.node-group').forEach(el => {
+            el.addEventListener('mousemove', moveTooltip);
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
