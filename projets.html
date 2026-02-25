@@ -5,194 +5,482 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projets - Portfolio BTS SIO</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="parcours.css">
-    
+    <link rel="stylesheet" href="projets.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=VT323&family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Mon Portfolio BTS SIO</h1>
-            <p class="subtitle">Services Informatiques aux Organisations</p>
+    <div class="cursor-trail"></div>
+    
+    <div class="container y2k-container">
+        <header class="glitch-header">
+            <h1 class="glitch-text" data-text="Mon Portfolio BTS SIO">Mon Portfolio BTS SIO</h1>
+            <p class="subtitle neon-text">Services Informatiques aux Organisations</p>
+            <div class="header-decorations">
+                <span class="float-sticker">💻</span>
+                <span class="float-sticker">🚀</span>
+                <span class="float-sticker">⚡</span>
+            </div>
         </header>
 
-        <nav>
+        <nav class="y2k-nav">
             <div class="nav-container">
-                <a href="index.html" class="nav-btn">Accueil</a>
-                <a href="parcours.html" class="nav-btn">Parcours</a>
-                <a href="infrastructure.html" class="nav-btn">Infrastructure</a>
-                <a href="certifications.html" class="nav-btn">Certifications</a>
-                <a href="projets.html" class="nav-btn">Projets</a>
-                <a href="grille-competences.html" class="nav-btn">Grille de Compétences</a>
-                <a href="veille.html" class="nav-btn">Veille Informationnelle</a>
+                <a href="index.html" class="nav-btn nav-bubble">🏠 Accueil</a>
+                <a href="parcours.html" class="nav-btn nav-bubble">🎓 Parcours</a>
+                <a href="infrastructure.html" class="nav-btn nav-bubble">🖥️ Infra</a>
+                <a href="certifications.html" class="nav-btn nav-bubble">🏆 Certifs</a>
+                <a href="projets.html" class="nav-btn nav-bubble active">💻 Projets</a>
+                <a href="grille-competences.html" class="nav-btn nav-bubble">📊 Compétences</a>
+                <a href="veille.html" class="nav-btn nav-bubble">📡 Veille</a>
             </div>
         </nav>
 
-        <div class="content">
-            <div class="tab-content">
-                <h2 class="section-title">Mes Projets</h2>
-                
-                <div class="grid">
-                    <div class="card">
-                        <h3>Projet de stage - Migration OneDrive (Vinci Airport)</h3>
-                        <p><strong>Technologies utilisées :</strong></p>
+        <div class="content chaos-content">
+            <div class="title-wrapper">
+                <h2 class="section-title cyber-title">
+                    <span class="title-bg">MY WORK</span>
+                    Mes Projets
+                </h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <!-- Séparation par année -->
+            <div class="year-section">
+                <div class="year-label">
+                    <span class="year-tag tag-gradient">2024-2025</span>
+                    <h3 class="year-title">PREMIÈRE ANNÉE</h3>
+                </div>
+
+                <!-- Projet 1ère année -->
+                <div class="project-card card-chaos card-purple">
+                    <div class="card-sticker">💼</div>
+                    <div class="card-noise"></div>
+                    
+                    <div class="project-header">
+                        <div class="project-icon">☁️</div>
                         <div>
-                            <span class="badge">PowerShell</span>
-                            <span class="badge">Active Directory</span>
-                            <span class="badge">GPO</span>
-                            <span class="badge">OneDrive</span>
-                            <span class="badge">Excel</span>
-                        </div>
-                        <p><strong>Description :</strong> Projet de migration des données utilisateurs vers OneDrive avec suppression des redirections réseau existantes. Automatisation du recensement des utilisateurs impactés et création d'un suivi complet du processus.</p>
-                        <p><strong>Défis relevés :</strong> Gestion de la migration de données sensibles, communication avec les utilisateurs, et maintien de la continuité de service pendant la transition.</p>
-                        <div style="margin-top: 1rem">
-                            <button class="btn-projet" onclick="openModal('modal1')">📄 Situation Professionnelle</button>
+                            <h3 class="cyber-heading">MIGRATION ONEDRIVE</h3>
+                            <div class="project-meta">
+                                <span class="meta-badge">🏢 Vinci Airport</span>
+                                <span class="meta-badge">📅 Stage 1ère année</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="card">
-                        <h3>Projet Active Directory & DNS</h3>
-                        <p><strong>Technologies :</strong> Windows Server 2019, Active Directory, DNS, DHCP, Serveur de fichiers</p>
-                        <div>
-                            <span class="badge">Administration Serveur</span>
-                            <span class="badge">Gestion de Domaine</span>
-                            <span class="badge">Windows Server</span>
-                            <span class="badge">DNS</span>
-                        </div>
-                        <p><strong>Description :</strong> Ce projet de ma formation BTS SIO SISR consiste à installer et configurer un contrôleur de domaine Active Directory (AD) et un serveur DNS sur Windows Server 2019 pour gérer centralement les utilisateurs et les ressources. Il inclut également un serveur de fichiers pour centraliser les données des utilisateurs.</p>
-                        <p><strong>Défis réalisés :</strong></p>
-                        <ul>
-                            <li>Installation et configuration d'un contrôleur de domaine Active Directory</li>
-                            <li>Mise en place d'un serveur DNS pour la gestion des noms de domaine</li>
-                            <li>Intégration de machines clients au domaine et tests de connexion</li>
-                            <li>Configuration d'un serveur de fichiers pour la gestion centralisée des données utilisateurs</li>
-                        </ul>
-                        <div style="margin-top: 1rem">
-                            <button class="btn-projet" onclick="openModal('modal2')">Situation Professionnelle</button>
+
+                    <p class="project-description">
+                        Projet de migration des données utilisateurs vers OneDrive avec suppression des redirections réseau existantes. Automatisation du recensement des utilisateurs impactés et création d'un suivi complet du processus.
+                    </p>
+
+                    <div class="tech-section">
+                        <div class="section-label">// TECH_STACK</div>
+                        <div class="badge-chaos">
+                            <span class="badge badge-pop">PowerShell</span>
+                            <span class="badge badge-pop">Active Directory</span>
+                            <span class="badge badge-pop">GPO</span>
+                            <span class="badge badge-pop">OneDrive</span>
+                            <span class="badge badge-pop">Excel</span>
                         </div>
                     </div>
-                    
-                    <div class="card">
-                        <h3>Projets futurs</h3>
-                        <p>D'autres projets seront ajoutés au fur et à mesure de ma formation BTS SIO SISR.</p>
-                        <div>
-                            <span class="badge">En développement</span>
+
+                    <div class="challenges-box">
+                        <h4 class="challenges-title">⚡ Défis relevés</h4>
+                        <p>Gestion de la migration de données sensibles, communication avec les utilisateurs, et maintien de la continuité de service pendant la transition.</p>
+                    </div>
+
+                    <button class="btn-cyber" onclick="openModal('modal1')">
+                        <span class="btn-icon">📄</span>
+                        <span>Situation Professionnelle</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+
+                    <div class="corner-deco top-left"></div>
+                    <div class="corner-deco bottom-right"></div>
+                </div>
+            </div>
+
+            <!-- Projets 2ème année -->
+            <div class="year-section">
+                <div class="year-label">
+                    <span class="year-tag tag-neon">2025-2026</span>
+                    <h3 class="year-title">DEUXIÈME ANNÉE</h3>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Projet Centreon -->
+                    <div class="project-card card-chaos card-cyan">
+                        <div class="card-sticker">📊</div>
+                        <div class="card-noise"></div>
+                        
+                        <div class="project-header">
+                            <div class="project-icon">🔍</div>
+                            <div>
+                                <h3 class="cyber-heading">SUPERVISION CENTREON</h3>
+                                <div class="project-meta">
+                                    <span class="meta-badge">🏫 Formation</span>
+                                    <span class="meta-badge">🏢 GSB</span>
+                                </div>
+                            </div>
                         </div>
+
+                        <p class="project-description">
+                            Mise en place d'une solution de supervision complète pour l'entreprise GSB avec Centreon. Surveillance centralisée des serveurs Linux et Windows, ainsi que des équipements réseau Cisco via SNMPv3.
+                        </p>
+
+                        <div class="tech-section">
+                            <div class="section-label">// TECH_STACK</div>
+                            <div class="badge-chaos">
+                                <span class="badge badge-cyber">Centreon</span>
+                                <span class="badge badge-cyber">SNMPv3</span>
+                                <span class="badge badge-cyber">NSClient++</span>
+                                <span class="badge badge-cyber">Linux</span>
+                                <span class="badge badge-cyber">Windows Server</span>
+                                <span class="badge badge-cyber">Cisco</span>
+                            </div>
+                        </div>
+
+                        <div class="features-list">
+                            <div class="feature-item-project">
+                                <span class="feature-bullet">▸</span>
+                                <span>Supervision ressources critiques (CPU, RAM, disque)</span>
+                            </div>
+                            <div class="feature-item-project">
+                                <span class="feature-bullet">▸</span>
+                                <span>Monitoring services (SSH, Apache, services Windows)</span>
+                            </div>
+                            <div class="feature-item-project">
+                                <span class="feature-bullet">▸</span>
+                                <span>Sécurisation HTTPS et gestion des accès</span>
+                            </div>
+                            <div class="feature-item-project">
+                                <span class="feature-bullet">▸</span>
+                                <span>Tests de panne et validation des alertes</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-cyber" onclick="openModal('modal2')">
+                            <span class="btn-icon">📄</span>
+                            <span>Situation Professionnelle</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+
+                        <div class="corner-deco top-right"></div>
+                        <div class="corner-deco bottom-left"></div>
+                    </div>
+
+                    <!-- Projet Migration Agent -->
+                    <div class="project-card card-chaos card-pink">
+                        <div class="card-sticker">🔄</div>
+                        <div class="card-noise"></div>
+                        
+                        <div class="project-header">
+                            <div class="project-icon">⚙️</div>
+                            <div>
+                                <h3 class="cyber-heading">MIGRATION AGENTS</h3>
+                                <div class="project-meta">
+                                    <span class="meta-badge">🏢 Vinci Airport</span>
+                                    <span class="meta-badge">📅 Stage 2ème année</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="project-description">
+                            Phase de test critique pour remplacer l'ancien agent de supervision (NSClient++) par le nouveau (snclient) sur 5 serveurs pilotes avant déploiement automatisé via Tanium.
+                        </p>
+
+                        <div class="tech-section">
+                            <div class="section-label">// TECH_STACK</div>
+                            <div class="badge-chaos">
+                                <span class="badge badge-street">NSClient++</span>
+                                <span class="badge badge-street">snclient</span>
+                                <span class="badge badge-street">Tanium</span>
+                                <span class="badge badge-street">PowerShell</span>
+                                <span class="badge badge-street">Windows Server</span>
+                            </div>
+                        </div>
+
+                        <div class="phases-box">
+                            <h4 class="phases-title">📋 Phases du projet</h4>
+                            <div class="phase-item">
+                                <span class="phase-number">1</span>
+                                <span class="phase-text">Préparation environnement & arrêt ancien service</span>
+                            </div>
+                            <div class="phase-item">
+                                <span class="phase-number">2</span>
+                                <span class="phase-text">Installation silencieuse du nouvel agent (.msi)</span>
+                            </div>
+                            <div class="phase-item">
+                                <span class="phase-number">3</span>
+                                <span class="phase-text">Config pare-feu & remplacement snclient.ini</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-cyber" onclick="openModal('modal3')">
+                            <span class="btn-icon">📄</span>
+                            <span>Situation Professionnelle</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+
+                        <div class="corner-deco top-left"></div>
+                        <div class="corner-deco bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-elements">
+            <div class="float-elem elem-1">💻</div>
+            <div class="float-elem elem-2">🚀</div>
+            <div class="float-elem elem-3">⚡</div>
+            <div class="float-elem elem-4">🔧</div>
+        </div>
+    </div>
+
+    <!-- Modal 1 - Migration OneDrive -->
+    <div id="modal1" class="cyber-modal">
+        <div class="modal-backdrop" onclick="closeModal('modal1')"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title-cyber">
+                    <span class="modal-icon">☁️</span>
+                    MIGRATION ONEDRIVE
+                </h3>
+                <button class="modal-close" onclick="closeModal('modal1')">✕</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// CONTEXTE</h4>
+                    <p>Chez VINCI Airports, un vaste projet de modernisation de l'infrastructure informatique a été lancé. Il s'agissait notamment de faire évoluer l'ensemble des postes utilisateurs de Windows 10 vers Windows 11, dans le but d'améliorer la sécurité, la compatibilité applicative et la performance générale du parc informatique.</p>
+                    <p>Cependant, un blocage technique majeur a été rapidement identifié : un nombre important d'utilisateurs, généralement les plus anciens dans l'entreprise, disposaient encore d'une redirection automatique de leurs dossiers Documents et Bureau vers un lecteur réseau local, le fameux lecteur U:.</p>
+                    <p>Ce fonctionnement, hérité de pratiques anciennes, n'était plus compatible avec les standards de Windows 11, qui repose davantage sur une logique de stockage cloud via Microsoft 365.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// ENVIRONNEMENT</h4>
+                    <div class="env-grid">
+                        <div class="env-item">
+                            <strong>🖥️ Systèmes</strong>
+                            <span>Windows 10 → Windows 11</span>
+                        </div>
+                        <div class="env-item">
+                            <strong>🌐 Réseau</strong>
+                            <span>Active Directory, GPO, comptes centralisés</span>
+                        </div>
+                        <div class="env-item">
+                            <strong>🛠️ Outils</strong>
+                            <span>OneDrive, PowerShell, Excel, Outlook, GPO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// RÉALISATION</h4>
+                    
+                    <div class="realization-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h5>Recensement des utilisateurs concernés</h5>
+                            <p>À l'aide d'un script PowerShell, j'ai détecté les utilisateurs dont les dossiers redirigés pointaient encore vers le lecteur U. J'ai intégré les résultats dans un fichier Excel pour identifier les utilisateurs prioritaires par direction (DSI, DRH, DAF, DOPS, DAIJ…), leur mail, leur numéro de téléphone et la taille de leurs données.</p>
+                        </div>
+                    </div>
+
+                    <div class="realization-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h5>Communication avec les utilisateurs</h5>
+                            <p>J'ai conçu un PowerPoint explicatif contenant : le contexte de la migration, les étapes de la procédure, les bénéfices de OneDrive, et les bonnes pratiques à suivre. J'ai ensuite rédigé un mail d'accompagnement clair et professionnel.</p>
+                        </div>
+                    </div>
+
+                    <div class="realization-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h5>Préparation et actions techniques</h5>
+                            <p>J'ai ajouté manuellement chaque utilisateur dans les groupes AD nécessaires : "O_GPO_Exclude-Folder" et "O_GPO_Redirect-Folder". J'ai ensuite déclenché la mise à jour des GPO via 'gpupdate /force'.</p>
+                        </div>
+                    </div>
+
+                    <div class="realization-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h5>Migration des fichiers vers OneDrive</h5>
+                            <p>Je me suis rendu physiquement sur le poste de l'utilisateur. J'ai vérifié que OneDrive était bien activé et synchronisé, puis copié manuellement tous les fichiers depuis le lecteur U vers le dossier OneDrive local.</p>
+                        </div>
+                    </div>
+
+                    <div class="realization-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h5>Clôture de la migration</h5>
+                            <p>Après validation du bon fonctionnement, j'ai retiré l'utilisateur du groupe "O_GPO_Redirect-Folder", mis à jour le tableau de suivi Excel et informé mon tuteur.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// BILAN</h4>
+                    <p>La plupart des utilisateurs ciblés ont été migrés avec succès vers OneDrive, supprimant ainsi le blocage empêchant la transition vers Windows 11. L'approche personnalisée, combinant un support technique et une communication claire, a permis de réduire les réticences et d'assurer une transition fluide.</p>
+                    <p>Ce projet m'a permis de développer des compétences techniques concrètes (AD, PowerShell, GPO, cloud), mais aussi des compétences humaines : écoute, accompagnement, autonomie et rigueur.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 - Centreon -->
+    <div id="modal2" class="cyber-modal">
+        <div class="modal-backdrop" onclick="closeModal('modal2')"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title-cyber">
+                    <span class="modal-icon">📊</span>
+                    SUPERVISION CENTREON
+                </h3>
+                <button class="modal-close" onclick="closeModal('modal2')">✕</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// CONTEXTE</h4>
+                    <p>Dans le cadre de mon projet de deuxième année, j'ai mis en place une solution de supervision pour l'entreprise GSB afin d'améliorer la surveillance de son infrastructure informatique et réduire les risques de panne ou d'incident de sécurité.</p>
+                    <p>Après une étude comparative des outils existants, j'ai choisi d'implémenter Centreon pour centraliser le suivi des serveurs Linux et Windows ainsi que d'un switch Cisco.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// FONCTIONNALITÉS</h4>
+                    <div class="features-modal-grid">
+                        <div class="feature-modal-card">
+                            <div class="feature-modal-icon">📈</div>
+                            <h5>Supervision ressources</h5>
+                            <p>Monitoring CPU, mémoire, espace disque</p>
+                        </div>
+                        <div class="feature-modal-card">
+                            <div class="feature-modal-icon">⚙️</div>
+                            <h5>Services essentiels</h5>
+                            <p>SSH, Apache, services Windows</p>
+                        </div>
+                        <div class="feature-modal-card">
+                            <div class="feature-modal-icon">🌐</div>
+                            <h5>Équipements réseau</h5>
+                            <p>Switch Cisco via SNMPv3</p>
+                        </div>
+                        <div class="feature-modal-card">
+                            <div class="feature-modal-icon">🔒</div>
+                            <h5>Sécurisation</h5>
+                            <p>HTTPS, pare-feu, gestion accès</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// RÉALISATION</h4>
+                    <p>La solution permet de superviser les ressources critiques, les services essentiels et les équipements réseau. Je suis également en cours de sécurisation de la plateforme via HTTPS, pare-feu et gestion des accès pour garantir la confidentialité des données de supervision.</p>
+                    <p>Des tests de panne et de surcharge ont validé le bon fonctionnement des alertes et des tableaux de bord.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// COMPÉTENCES DÉVELOPPÉES</h4>
+                    <div class="skills-modal-list">
+                        <span class="skill-modal-badge">Administration système</span>
+                        <span class="skill-modal-badge">Configuration réseau</span>
+                        <span class="skill-modal-badge">Sécurisation des services</span>
+                        <span class="skill-modal-badge">Gestion proactive des incidents</span>
+                        <span class="skill-modal-badge">Monitoring</span>
+                        <span class="skill-modal-badge">SNMPv3</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal pour Situation Professionnelle 1 -->
-    <div id="modal1" class="situation-modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal1')">&times;</span>
-            <h3 class="modal-title">Situation Professionnelle 1 – Migration des fichiers utilisateurs vers OneDrive</h3>
+    <!-- Modal 3 - Migration Agents -->
+    <div id="modal3" class="cyber-modal">
+        <div class="modal-backdrop" onclick="closeModal('modal3')"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title-cyber">
+                    <span class="modal-icon">🔄</span>
+                    MIGRATION AGENTS SUPERVISION
+                </h3>
+                <button class="modal-close" onclick="closeModal('modal3')">✕</button>
+            </div>
             
-            <div class="modal-section">
-                <h4>Contexte :</h4>
-                <p>Chez VINCI Airports, un vaste projet de modernisation de l'infrastructure informatique a été lancé. Il s'agissait notamment de faire évoluer l'ensemble des postes utilisateurs de Windows 10 vers Windows 11, dans le but d'améliorer la sécurité, la compatibilité applicative et la performance générale du parc informatique.</p>
-                <p>Cependant, un blocage technique majeur a été rapidement identifié : un nombre important d'utilisateurs, généralement les plus anciens dans l'entreprise, disposaient encore d'une redirection automatique de leurs dossiers Documents et Bureau vers un lecteur réseau local, le fameux lecteur U:.</p>
-                <p>Ce fonctionnement, hérité de pratiques anciennes, n'était plus compatible avec les standards de Windows 11, qui repose davantage sur une logique de stockage cloud via Microsoft 365.</p>
-            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// CONTEXTE</h4>
+                    <p>Ce projet de migration consistait en une phase de test critique visant à remplacer l'ancien agent de supervision (NSClient++) par le nouveau (snclient) sur un échantillon de 5 serveurs cibles avant un déploiement automatisé à grande échelle via l'outil Tanium.</p>
+                </div>
 
-            <div class="modal-section">
-                <h4>Environnement :</h4>
-                <ul>
-                    <li><strong>Systèmes :</strong> Windows 10 (avant migration), préparation vers Windows 11</li>
-                    <li><strong>Réseau :</strong> Active Directory, GPO (stratégies de groupe), comptes utilisateurs centralisés</li>
-                    <li><strong>Outils :</strong> OneDrive, PowerShell, Excel, Outlook, GPO, documentation PowerPoint</li>
-                </ul>
-            </div>
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// PROCÉDURE TECHNIQUE</h4>
+                    
+                    <div class="procedure-timeline">
+                        <div class="procedure-step">
+                            <div class="procedure-marker">1</div>
+                            <div class="procedure-content">
+                                <h5>Préparation de l'environnement</h5>
+                                <ul>
+                                    <li>Création du répertoire dédié</li>
+                                    <li>Arrêt définitif de l'ancien service nscp</li>
+                                    <li>Vérification des prérequis système</li>
+                                </ul>
+                            </div>
+                        </div>
 
-            <div class="modal-section">
-                <h4>Réalisation :</h4>
-                <p><strong>1. Recensement des utilisateurs concernés :</strong></p>
-                <p>À l'aide d'un script PowerShell fourni et expliqué par un collègue (Antonin Desestre), j'ai détecté les utilisateurs dont les dossiers redirigés pointaient encore vers le lecteur U. J'ai intégré les résultats dans un fichier Excel pour identifier les utilisateurs prioritaires par direction (DSI, DRH, DAF, DOPS, DAIJ…), leur mail, leur numéro de téléphone et la taille de leurs données dans le lecteur U.</p>
+                        <div class="procedure-step">
+                            <div class="procedure-marker">2</div>
+                            <div class="procedure-content">
+                                <h5>Installation du nouvel agent</h5>
+                                <ul>
+                                    <li>Installation silencieuse via fichier .msi</li>
+                                    <li>Configuration sur port spécifique</li>
+                                    <li>Validation de l'installation</li>
+                                </ul>
+                            </div>
+                        </div>
 
-                <p><strong>2. Communication avec les utilisateurs :</strong></p>
-                <p>J'ai conçu un PowerPoint explicatif contenant : le contexte de la migration, les étapes de la procédure, les bénéfices de OneDrive, et les bonnes pratiques à suivre. J'ai ensuite rédigé un mail d'accompagnement clair et professionnel, que j'ai envoyé individuellement à chaque utilisateur concerné avec la présentation PowerPoint en pièce jointe.</p>
+                        <div class="procedure-step">
+                            <div class="procedure-marker">3</div>
+                            <div class="procedure-content">
+                                <h5>Finalisation du paramétrage</h5>
+                                <ul>
+                                    <li>Ouverture des flux via pare-feu</li>
+                                    <li>Remplacement du fichier snclient.ini</li>
+                                    <li>Tests de remontée des données</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <p><strong>3. Préparation et actions techniques :</strong></p>
-                <p>J'ai ajouté manuellement chaque utilisateur dans les groupes AD nécessaires : "O_GPO_Exclude-Folder" pour exclure certaines redirections automatiques et "O_GPO_Redirect-Folder" pour forcer le comportement souhaité temporairement. J'ai ensuite déclenché la mise à jour des GPO via la commande 'gpupdate /force'.</p>
-
-                <p><strong>4. Migration des fichiers vers OneDrive :</strong></p>
-                <p>Je me suis rendu physiquement sur le poste de l'utilisateur à l'heure convenue. J'ai vérifié que OneDrive était bien activé et synchronisé sur le PC. J'ai copié manuellement tous les fichiers depuis le lecteur U vers le dossier OneDrive local, en veillant à conserver l'arborescence des fichiers.</p>
-
-                <p><strong>5. Clôture de la migration :</strong></p>
-                <p>Après validation du bon fonctionnement de OneDrive, j'ai retiré l'utilisateur du groupe "O_GPO_Redirect-Folder" pour finaliser le processus. J'ai mis à jour le tableau de suivi de migration dans Excel et ai informé mon tuteur de l'état de chaque migration.</p>
-            </div>
-
-            <div class="modal-section">
-                <h4>Bilan :</h4>
-                <p>La plupart des utilisateurs ciblés ont été migrés avec succès vers OneDrive, supprimant ainsi le blocage empêchant la transition vers Windows 11. L'approche personnalisée, combinant un support technique et une communication claire, a permis de réduire les réticences et d'assurer une transition fluide.</p>
-                <p>Ce projet m'a permis de développer des compétences techniques concrètes (AD, PowerShell, GPO, cloud), mais aussi des compétences humaines : écoute, accompagnement, autonomie et rigueur.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal pour Situation Professionnelle 2 -->
-    <div id="modal2" class="situation-modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal2')">&times;</span>
-            <h3 class="modal-title">Situation Professionnelle 2 – Installation et configuration d'un contrôleur de domaine Active Directory et DNS sur Windows Server 2019</h3>
-            
-            <div class="modal-section">
-                <h4>Contexte :</h4>
-                <p>Lors de ma première année en BTS SIO, un des exercices pratiques consistait à installer et configurer un contrôleur de domaine Active Directory (AD) ainsi qu'un serveur DNS sur une machine virtuelle Windows Server 2019. Ce projet avait pour but de centraliser la gestion des utilisateurs, des groupes, et des machines dans un réseau d'entreprise, tout en assurant une résolution de noms efficace grâce au DNS intégré à Windows Server.</p>
-                <p>L'objectif était aussi de simuler un environnement réaliste, avec une infrastructure étendue : en plus du contrôleur de domaine, nous avons utilisé un serveur de fichiers distinct, nommé SRV-FIC, pour stocker et organiser les fichiers des utilisateurs de manière centralisée.</p>
-            </div>
-
-            <div class="modal-section">
-                <h4>Environnement :</h4>
-                <ul>
-                    <li><strong>Système serveur :</strong> Windows Server 2019</li>
-                    <li><strong>Client :</strong> Machine virtuelle (VM) Windows 10</li>
-                    <li><strong>Réseau :</strong> LAN virtuel avec IP statique (10.0.206.x)</li>
-                    <li><strong>Outils :</strong> Active Directory, DNS, Gestionnaire de serveur, Outils GPO</li>
-                    <li><strong>Serveur complémentaire :</strong> Serveur de fichiers nommé SRV-FIC</li>
-                </ul>
-            </div>
-
-            <div class="modal-section">
-                <h4>Réalisation :</h4>
-                <p><strong>1. Création et préparation du serveur :</strong></p>
-                <p>J'ai commencé par créer une machine virtuelle Windows Server 2019. Après installation, j'ai ajusté les paramètres de base : nom du serveur (AD-DNS) et adresse IP statique pour une communication fiable sur le réseau local.</p>
-
-                <p><strong>2. Installation des rôles Active Directory (AD), DNS et DHCP :</strong></p>
-                <p>Depuis le Gestionnaire de serveur, j'ai ajouté les rôles nécessaires : Active Directory Domain Services (AD DS) et DNS, indispensable pour la résolution de noms dans le domaine. Une fois les rôles installés, j'ai utilisé l'assistant de promotion du serveur pour en faire un contrôleur de domaine principal d'un nouveau domaine : GSBKD.local.</p>
-
-                <p><strong>3. Configuration du DNS :</strong></p>
-                <p>Une fois le domaine fonctionnel, j'ai configuré le DNS avec une zone de recherche directe : création d'un enregistrement A pour w19-ad-dns.GSBKD.local, ce qui permet au DNS de faire correspondre un nom de machine à une adresse IP.</p>
-
-                <p><strong>4. Tests et vérification :</strong></p>
-                <p>J'ai mené plusieurs tests pour valider la configuration : j'ai rejoint une VM Windows 10 au domaine, puis vérifié qu'un utilisateur pouvait se connecter avec un compte AD. J'ai également testé que la résolution inversée fonctionnait, en interrogeant une adresse IP et en recevant le bon nom DNS.</p>
-                <p>En parallèle, j'ai commencé à utiliser un serveur de fichiers séparé, nommé SRV-FIC, sur lequel les utilisateurs pouvaient stocker leurs documents.</p>
-            </div>
-
-            <div class="modal-section">
-                <h4>Bilan :</h4>
-                <p>Ce projet m'a permis de développer des compétences techniques solides dans :</p>
-                <ul>
-                    <li>L'installation et la configuration d'un contrôleur de domaine Active Directory</li>
-                    <li>La mise en place et l'utilisation d'un serveur DNS</li>
-                    <li>L'intégration de clients au domaine</li>
-                    <li>La gestion de ressources partagées via un serveur de fichiers dédié (SRV-FIC)</li>
-                </ul>
-                <p>J'ai compris l'intérêt d'une gestion centralisée des utilisateurs et des ressources, notamment à travers les stratégies de groupe (GPO) que nous avons abordées par la suite. Cette expérience m'a offert un aperçu concret du fonctionnement d'une infrastructure réseau en entreprise, et de l'importance des services comme AD, DNS, DHCP et les serveurs de fichiers dans l'organisation quotidienne du travail.</p>
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// BILAN</h4>
+                    <p>Les tests sur les 5 serveurs pilotes ont été concluants, validant ainsi la procédure de migration. Cette phase de test a permis d'identifier et de corriger les points de blocage potentiels avant le déploiement automatisé à grande échelle via Tanium.</p>
+                    <p>Ce projet m'a permis d'acquérir une expertise dans la gestion des agents de supervision, le déploiement d'infrastructure et la préparation de migrations à grande échelle.</p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fermer avec Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.cyber-modal');
+                modals.forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
