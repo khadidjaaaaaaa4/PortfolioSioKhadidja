@@ -1,5 +1,9 @@
+/* CERTIFICATIONS Y2K CYBER CHAOS */
+
+/* Import du CSS principal si nécessaire */
 @import url('parcours.css');
 
+/* Grid des certifications */
 .certifications-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -7,12 +11,14 @@
     margin: 3rem 0;
 }
 
+/* Cartes de certification */
 .cert-card {
     min-height: 450px;
     display: flex;
     flex-direction: column;
 }
 
+/* Header de la certification */
 .cert-header {
     display: flex;
     align-items: center;
@@ -61,6 +67,7 @@
     margin-top: 0.5rem;
 }
 
+/* Émetteur de la certification */
 .cert-issuer {
     display: flex;
     align-items: center;
@@ -79,6 +86,7 @@
     font-size: 1.5rem;
 }
 
+/* Description */
 .cert-description {
     font-family: 'Rubik', sans-serif;
     color: var(--pastel-blue);
@@ -87,6 +95,7 @@
     flex-grow: 1;
 }
 
+/* Score display pour Root-Me */
 .score-display {
     background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(157, 0, 255, 0.1));
     border: 2px solid var(--neon-cyan);
@@ -136,6 +145,7 @@
     color: var(--pastel-blue);
 }
 
+/* Status de la certification */
 .cert-status {
     display: flex;
     align-items: center;
@@ -183,6 +193,7 @@
     50% { box-shadow: 0 0 50px rgba(0, 255, 255, 0.7); }
 }
 
+/* Carte future */
 .future-cert {
     position: relative;
     overflow: hidden;
@@ -214,6 +225,7 @@
     color: var(--pastel-pink);
 }
 
+/* Liste des futures certifications */
 .future-list {
     background: rgba(255, 0, 255, 0.05);
     border: 2px dashed rgba(255, 0, 255, 0.3);
@@ -244,6 +256,7 @@
     font-size: 1.5rem;
 }
 
+/* Section stats */
 .stats-section {
     margin-top: 5rem;
     padding-top: 3rem;
@@ -332,6 +345,7 @@
     letter-spacing: 1px;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
     .certifications-grid {
         grid-template-columns: 1fr;
@@ -362,6 +376,7 @@
     }
 }
 
+/* Animation d'entrée des cartes */
 .cert-card {
     animation: card-enter 0.6s ease-out forwards;
     opacity: 0;
