@@ -3,47 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille Technologique - Portfolio BTS SIO</title>
+    <title>Veille Informationnelle - Portfolio BTS SIO</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="parcours.css">
+    <link rel="stylesheet" href="veille.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=VT323&family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Mon Portfolio BTS SIO</h1>
-            <p class="subtitle">Services Informatiques aux Organisations</p>
+    <div class="cursor-trail"></div>
+    
+    <div class="container y2k-container">
+        <header class="glitch-header">
+            <h1 class="glitch-text" data-text="Mon Portfolio BTS SIO">Mon Portfolio BTS SIO</h1>
+            <p class="subtitle neon-text">Services Informatiques aux Organisations</p>
+            <div class="header-decorations">
+                <span class="float-sticker">📡</span>
+                <span class="float-sticker">🔍</span>
+                <span class="float-sticker">📰</span>
+            </div>
         </header>
 
-        <nav>
+        <nav class="y2k-nav">
             <div class="nav-container">
-                <a href="index.html" class="nav-btn">Accueil</a>
-                <a href="parcours.html" class="nav-btn">Parcours</a>
-                <a href="infrastructure.html" class="nav-btn">Infrastructure</a>
-                <a href="certifications.html" class="nav-btn">Certifications</a>
-                <a href="projets.html" class="nav-btn">Projets</a>
-                <a href="grille-competences.html" class="nav-btn">Grille de Compétences</a>
-                <a href="veille.html" class="nav-btn">Veille Informationnelle</a>
+                <a href="index.html" class="nav-btn nav-bubble">🏠 Accueil</a>
+                <a href="parcours.html" class="nav-btn nav-bubble">🎓 Parcours</a>
+                <a href="infrastructure.html" class="nav-btn nav-bubble">🖥️ Infra</a>
+                <a href="certifications.html" class="nav-btn nav-bubble">🏆 Certifs</a>
+                <a href="projets.html" class="nav-btn nav-bubble">💻 Projets</a>
+                <a href="grille-competences.html" class="nav-btn nav-bubble">📊 Compétences</a>
+                <a href="veille.html" class="nav-btn nav-bubble active">📡 Veille</a>
             </div>
         </nav>
 
-        <div class="content">
-            <div class="tab-content">
-                <h2 class="section-title">Veille Informationnelle</h2>
-                <h4>Des interactions physiques aux interactions numériques : quels impacts des technologies sur nos relations au quotidien ?</h4>
+        <div class="content chaos-content">
+            <div class="title-wrapper">
+                <h2 class="section-title cyber-title">
+                    <span class="title-bg">TECH WATCH</span>
+                    Veille Informationnelle
+                </h2>
+                <div class="decorative-line"></div>
             </div>
+
+            <!-- Introduction -->
+            <div class="intro-card card-chaos card-purple">
+                <div class="card-sticker">🔍</div>
+                <div class="card-noise"></div>
+                
+                <div class="intro-content">
+                    <h3 class="cyber-heading-small">MA THÉMATIQUE DE VEILLE</h3>
+                    <p class="intro-text">
+                        Dans le cadre de ma formation BTS SIO, j'ai choisi de me concentrer sur une thématique essentielle à l'ère du numérique : <strong>l'impact des technologies sur les relations sociales et la vie privée</strong>. Cette veille technologique explore comment les systèmes numériques, notamment les systèmes de crédit social et la surveillance numérique, transforment nos interactions sociales et notre rapport à la confiance.
+                    </p>
+                    
+                    <div class="theme-highlights">
+                        <div class="theme-item">
+                            <span class="theme-icon">🔐</span>
+                            <span class="theme-label">Vie privée & Surveillance</span>
+                        </div>
+                        <div class="theme-item">
+                            <span class="theme-icon">👥</span>
+                            <span class="theme-label">Relations sociales</span>
+                        </div>
+                        <div class="theme-item">
+                            <span class="theme-icon">⚖️</span>
+                            <span class="theme-label">Éthique numérique</span>
+                        </div>
+                        <div class="theme-item">
+                            <span class="theme-icon">🌐</span>
+                            <span class="theme-label">Impact sociétal</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="corner-deco top-left"></div>
+                <div class="corner-deco bottom-right"></div>
+            </div>
+
+            <!-- Articles Section -->
+            <div class="articles-section">
+                <div class="section-label glitch-label">// ARTICLES_SELECTED</div>
+                
+                <div class="articles-grid">
+                    <!-- Article 1 -->
+                    <div class="article-card card-chaos card-cyan">
+                        <div class="card-sticker">📄</div>
+                        <div class="card-noise"></div>
+                        
+                        <div class="article-date-badge">
+                            <span class="date-icon">📅</span>
+                            <span class="date-text">7 novembre 2024</span>
+                        </div>
+                        
+                        <h3 class="article-title">Social credit scores reduce interpersonal cooperation and trust</h3>
+                        
+                        <div class="article-source">
+                            <span class="source-icon">📰</span>
+                            <span class="source-name">PLOS ONE - Journal scientifique</span>
+                        </div>
+                        
+                        <p class="article-summary">
+                            Cette étude scientifique démontre comment les systèmes de crédit social réduisent la coopération interpersonnelle et la confiance entre individus. L'article analyse les mécanismes par lesquels la surveillance et la notation permanente affectent les comportements sociaux naturels.
+                        </p>
+                        
+                        <div class="article-tags">
+                            <span class="article-tag">Crédit social</span>
+                            <span class="article-tag">Confiance</span>
+                            <span class="article-tag">Coopération</span>
+                            <span class="article-tag">Étude scientifique</span>
+                        </div>
+                        
+                        <div class="article-insights">
+                            <h4 class="insights-title">💡 Points clés</h4>
+                            <ul class="insights-list">
+                                <li>Impact négatif sur la confiance sociale</li>
+                                <li>Réduction de la coopération spontanée</li>
+                                <li>Modification des comportements naturels</li>
+                                <li>Conséquences sur le tissu social</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0335810" target="_blank" class="btn-article">
+                            <span class="btn-icon">🔗</span>
+                            <span>Lire l'article</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                        
+                        <div class="corner-deco top-right"></div>
+                        <div class="corner-deco bottom-left"></div>
+                    </div>
+
+                    <!-- Article 2 -->
+                    <div class="article-card card-chaos card-pink">
+                        <div class="card-sticker">📄</div>
+                        <div class="card-noise"></div>
+                        
+                        <div class="article-date-badge">
+                            <span class="date-icon">📅</span>
+                            <span class="date-text">3 janvier 2026</span>
+                        </div>
+                        
+                        <h3 class="article-title">China's Social Credit System and Information Control Regime</h3>
+                        
+                        <div class="article-source">
+                            <span class="source-icon">📰</span>
+                            <span class="source-name">ORF Online - Observer Research Foundation</span>
+                        </div>
+                        
+                        <p class="article-summary">
+                            Analyse approfondie du système de crédit social chinois et de son régime de contrôle de l'information. Cet article explore comment ce système est utilisé pour surveiller et influencer le comportement des citoyens à grande échelle.
+                        </p>
+                        
+                        <div class="article-tags">
+                            <span class="article-tag">Chine</span>
+                            <span class="article-tag">Surveillance</span>
+                            <span class="article-tag">Contrôle social</span>
+                            <span class="article-tag">Big Data</span>
+                        </div>
+                        
+                        <div class="article-insights">
+                            <h4 class="insights-title">💡 Points clés</h4>
+                            <ul class="insights-list">
+                                <li>Système de notation comportementale généralisé</li>
+                                <li>Intégration avec le contrôle de l'information</li>
+                                <li>Implications pour les libertés individuelles</li>
+                                <li>Modèle potentiel pour d'autres pays</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://www.orfonline.org/expert-speak/china-s-social-credit-system-and-information-control-regime" target="_blank" class="btn-article">
+                            <span class="btn-icon">🔗</span>
+                            <span>Lire l'article</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                        
+                        <div class="corner-deco top-left"></div>
+                        <div class="corner-deco bottom-right"></div>
+                    </div>
+
+                    <!-- Article 3 -->
+                    <div class="article-card card-chaos card-yellow">
+                        <div class="card-sticker">📄</div>
+                        <div class="card-noise"></div>
+                        
+                        <div class="article-date-badge">
+                            <span class="date-icon">📅</span>
+                            <span class="date-text">19 mars 2025</span>
+                        </div>
+                        
+                        <h3 class="article-title">Baromètre du numérique - édition 2025</h3>
+                        
+                        <div class="article-source">
+                            <span class="source-icon">📰</span>
+                            <span class="source-name">ARCEP - Autorité de régulation</span>
+                        </div>
+                        
+                        <p class="article-summary">
+                            Le baromètre annuel de l'ARCEP présente une analyse complète de l'évolution des usages numériques en France. Cette édition examine particulièrement l'impact du numérique sur les pratiques sociales et la perception de la vie privée par les citoyens.
+                        </p>
+                        
+                        <div class="article-tags">
+                            <span class="article-tag">France</span>
+                            <span class="article-tag">Statistiques</span>
+                            <span class="article-tag">Usages numériques</span>
+                            <span class="article-tag">Baromètre</span>
+                        </div>
+                        
+                        <div class="article-insights">
+                            <h4 class="insights-title">💡 Points clés</h4>
+                            <ul class="insights-list">
+                                <li>Évolution des usages numériques en France</li>
+                                <li>Perception de la vie privée en ligne</li>
+                                <li>Données chiffrées sur l'équipement</li>
+                                <li>Tendances et préoccupations des utilisateurs</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/barometre-du-numerique/le-barometre-du-numerique-edition-2025.html" target="_blank" class="btn-article">
+                            <span class="btn-icon">🔗</span>
+                            <span>Lire l'article</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                        
+                        <div class="corner-deco top-right"></div>
+                        <div class="corner-deco bottom-left"></div>
+                    </div>
+
+                    <!-- Article 4 -->
+                    <div class="article-card card-chaos card-cyan">
+                        <div class="card-sticker">📄</div>
+                        <div class="card-noise"></div>
+                        
+                        <div class="article-date-badge">
+                            <span class="date-icon">📅</span>
+                            <span class="date-text">18 juillet 2025</span>
+                        </div>
+                        
+                        <h3 class="article-title">Impact du numérique sur les liens sociaux : conséquences et évolutions</h3>
+                        
+                        <div class="article-source">
+                            <span class="source-icon">📰</span>
+                            <span class="source-name">NewsTech</span>
+                        </div>
+                        
+                        <p class="article-summary">
+                            Exploration des effets du numérique sur les relations humaines et les interactions sociales. L'article analyse comment les technologies modifient nos façons de communiquer et de maintenir des liens, avec leurs avantages et leurs défis.
+                        </p>
+                        
+                        <div class="article-tags">
+                            <span class="article-tag">Relations sociales</span>
+                            <span class="article-tag">Communication</span>
+                            <span class="article-tag">Réseaux sociaux</span>
+                            <span class="article-tag">Évolution</span>
+                        </div>
+                        
+                        <div class="article-insights">
+                            <h4 class="insights-title">💡 Points clés</h4>
+                            <ul class="insights-list">
+                                <li>Transformation des modes de communication</li>
+                                <li>Impact sur la qualité des relations</li>
+                                <li>Paradoxe de la connexion permanente</li>
+                                <li>Nouvelles formes d'interactions sociales</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://www.newstech.fr/effets-numerique-relations/" target="_blank" class="btn-article">
+                            <span class="btn-icon">🔗</span>
+                            <span>Lire l'article</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                        
+                        <div class="corner-deco top-left"></div>
+                        <div class="corner-deco bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Synthèse -->
+            <div class="synthesis-section">
+                <div class="section-label glitch-label">// SYNTHESIS</div>
+                
+                <div class="synthesis-card card-chaos card-purple">
+                    <div class="card-sticker">💭</div>
+                    <div class="card-noise"></div>
+                    
+                    <h3 class="cyber-heading-small">SYNTHÈSE & RÉFLEXION</h3>
+                    
+                    <div class="synthesis-content">
+                        <p>
+                            Cette veille technologique met en lumière une tension fondamentale de notre époque : <strong>la collision entre innovation numérique et préservation du lien social authentique</strong>. Les quatre articles sélectionnés convergent vers une même conclusion préoccupante : les systèmes de surveillance et de notation numérique, bien qu'efficaces pour certains objectifs organisationnels, ont un coût social important.
+                        </p>
+                        
+                        <div class="key-findings">
+                            <h4 class="findings-title">🔑 Constats principaux</h4>
+                            <div class="findings-grid">
+                                <div class="finding-box">
+                                    <span class="finding-icon">⚠️</span>
+                                    <h5>Érosion de la confiance</h5>
+                                    <p>Les systèmes de notation réduisent la confiance spontanée entre individus</p>
+                                </div>
+                                <div class="finding-box">
+                                    <span class="finding-icon">🔍</span>
+                                    <h5>Surveillance généralisée</h5>
+                                    <p>Extension des mécanismes de contrôle à tous les aspects de la vie</p>
+                                </div>
+                                <div class="finding-box">
+                                    <span class="finding-icon">📊</span>
+                                    <h5>Transformation des usages</h5>
+                                    <p>Évolution rapide des pratiques numériques et de leurs impacts</p>
+                                </div>
+                                <div class="finding-box">
+                                    <span class="finding-icon">🌍</span>
+                                    <h5>Portée mondiale</h5>
+                                    <p>Des modèles qui s'exportent et influencent d'autres pays</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="personal-reflection">
+                            <h4 class="reflection-title">💡 Réflexion personnelle</h4>
+                            <p>
+                                En tant que future professionnelle de l'informatique, je considère qu'il est essentiel de prendre conscience de ces enjeux. Les systèmes que nous concevons et déployons ont un impact direct sur la société. Cette veille me rappelle l'importance d'une approche éthique dans le développement technologique, où la protection de la vie privée et la préservation des liens sociaux authentiques doivent être des priorités, au même titre que l'efficacité technique.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="corner-deco top-right"></div>
+                    <div class="corner-deco bottom-left"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="floating-elements">
+            <div class="float-elem elem-1">📡</div>
+            <div class="float-elem elem-2">🔍</div>
+            <div class="float-elem elem-3">📰</div>
+            <div class="float-elem elem-4">💭</div>
         </div>
     </div>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
