@@ -1,0 +1,686 @@
+/* PROJETS Y2K CYBER CHAOS STYLESHEET */
+
+/* Import des styles de base */
+@import url('parcours.css');
+
+/* YEAR SECTIONS */
+.year-section {
+    margin: 4rem 0;
+}
+
+.year-label {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.year-tag {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    padding: 0.7rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    animation: float-tag 2s ease-in-out infinite;
+}
+
+.year-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 3px;
+    text-shadow: 
+        2px 2px 0 var(--neon-pink),
+        4px 4px 0 var(--neon-cyan);
+}
+
+/* PROJECTS GRID */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 3rem;
+}
+
+/* PROJECT CARDS */
+.project-card {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* PROJECT HEADER */
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-icon {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    transform: rotate(-5deg);
+    animation: icon-float 3s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.project-header > div {
+    flex: 1;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.7rem;
+}
+
+.meta-badge {
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    color: var(--pastel-pink);
+}
+
+/* PROJECT DESCRIPTION */
+.project-description {
+    font-family: 'Rubik', sans-serif;
+    color: var(--pastel-blue);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+}
+
+/* TECH SECTION */
+.tech-section {
+    margin: 2rem 0;
+}
+
+/* CHALLENGES BOX */
+.challenges-box {
+    background: linear-gradient(135deg, rgba(157, 0, 255, 0.15), rgba(255, 0, 255, 0.15));
+    border: 2px solid var(--cyber-purple);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.challenges-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 1rem 0;
+}
+
+.challenges-box p {
+    font-family: 'Rubik', sans-serif;
+    color: var(--pastel-pink);
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* FEATURES LIST */
+.features-list {
+    margin: 2rem 0;
+}
+
+.feature-item-project {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border-left: 3px solid var(--neon-cyan);
+    font-family: 'Rubik', sans-serif;
+    color: var(--pastel-blue);
+    transition: all 0.3s ease;
+}
+
+.feature-item-project:hover {
+    background: rgba(0, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.feature-bullet {
+    color: var(--neon-cyan);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* PHASES BOX */
+.phases-box {
+    background: linear-gradient(135deg, rgba(255, 0, 255, 0.15), rgba(255, 107, 53, 0.15));
+    border: 2px solid var(--neon-pink);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.phases-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 1.5rem 0;
+}
+
+.phase-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    margin: 0.7rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.phase-item:hover {
+    background: rgba(255, 0, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.phase-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--neon-pink);
+    background: rgba(255, 0, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.phase-text {
+    font-family: 'Rubik', sans-serif;
+    color: var(--pastel-pink);
+    font-size: 0.95rem;
+}
+
+/* CYBER BUTTON */
+.btn-cyber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+    color: white;
+    border: none;
+    padding: 1.2rem 2rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    box-shadow: 0 5px 20px rgba(255, 0, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cyber::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-cyber:hover::before {
+    left: 100%;
+}
+
+.btn-cyber:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 0, 255, 0.6);
+}
+
+.btn-icon {
+    font-size: 1.5rem;
+}
+
+.btn-arrow {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-cyber:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* MODALS */
+.cyber-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+.modal-container {
+    position: relative;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.98), rgba(15, 12, 41, 0.98));
+    border: 3px solid var(--neon-cyan);
+    border-radius: 20px;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.8),
+        0 0 50px rgba(0, 255, 255, 0.3);
+    animation: modal-appear 0.3s ease-out;
+}
+
+@keyframes modal-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* MODAL HEADER */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), transparent);
+}
+
+.modal-title-cyber {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 
+        2px 2px 0 var(--neon-pink),
+        4px 4px 0 var(--neon-cyan);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modal-icon {
+    font-size: 2.5rem;
+}
+
+.modal-close {
+    background: rgba(255, 0, 255, 0.2);
+    border: 2px solid var(--neon-pink);
+    color: var(--neon-pink);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: var(--neon-pink);
+    color: white;
+    transform: rotate(90deg);
+    box-shadow: 0 0 20px var(--neon-pink);
+}
+
+/* MODAL BODY */
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-section {
+    margin-bottom: 2.5rem;
+}
+
+.section-title-modal {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title-modal::before {
+    content: '>';
+    margin-right: 0.7rem;
+    color: var(--neon-pink);
+    animation: blink 1s infinite;
+}
+
+.modal-section p {
+    font-family: 'Rubik', sans-serif;
+    color: var(--pastel-blue);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.modal-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.modal-section li {
+    font-family: 'Rubik', sans-serif;
+    color: var(--pastel-blue);
+    padding: 0.5rem 0 0.5rem 2rem;
+    position: relative;
+}
+
+.modal-section li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--neon-cyan);
+    font-size: 1.2rem;
+}
+
+/* ENV GRID */
+.env-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.env-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(0, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.env-item:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2);
+}
+
+.env-item strong {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #fff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.env-item span {
+    font-family: 'Rubik', sans-serif;
+    color: var(--pastel-pink);
+    font-size: 0.95rem;
+}
+
+/* REALIZATION STEPS */
+.realization-step {
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border-left: 4px solid var(--cyber-purple);
+}
+
+.step-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--cyber-purple);
+    background: rgba(157, 0, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.step-content h5 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #fff;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 1rem 0;
+}
+
+.step-content p {
+    margin: 0;
+}
+
+/* FEATURES MODAL GRID */
+.features-modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feature-modal-card {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(157, 0, 255, 0.1));
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-modal-card:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+.feature-modal-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-modal-card h5 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 0.5rem 0;
+}
+
+.feature-modal-card p {
+    font-family: 'Rubik', sans-serif;
+    color: var(--pastel-pink);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* SKILLS MODAL LIST */
+.skills-modal-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1rem;
+}
+
+.skill-modal-badge {
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--cyber-purple));
+    color: white;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+}
+
+/* PROCEDURE TIMELINE */
+.procedure-timeline {
+    margin: 2rem 0;
+}
+
+.procedure-step {
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.procedure-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 50px;
+    width: 3px;
+    height: calc(100% + 2rem);
+    background: linear-gradient(180deg, var(--neon-pink), var(--neon-cyan));
+}
+
+.procedure-marker {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.procedure-content {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 0, 255, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+}
+
+.procedure-content h5 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #fff;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 1rem 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .year-label {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .project-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .project-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 3rem;
+    }
+    
+    .modal-container {
+        max-width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+    
+    .modal-title-cyber {
+        font-size: 1.3rem;
+    }
+    
+    .features-modal-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .realization-step {
+        flex-direction: column;
+    }
+    
+    .env-grid {
+        grid-template-columns: 1fr;
+    }
+}
