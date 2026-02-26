@@ -91,7 +91,7 @@
                 <div class="section-label glitch-label">// NETWORK_TOPOLOGY</div>
 
                 <div class="diagram-wrapper">
-                    <div class="diagram-title">🔌 Schéma réseau interactif</div>
+                    <div class="diagram-title">🔌 Schéma réseau</div>
 
                     <div class="network-svg-container">
                         <svg class="network-svg" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +141,7 @@
                             <rect x="30" y="380" width="260" height="170" rx="20"
                                   fill="rgba(255,107,53,0.08)" stroke="#ff6b35" stroke-width="2.5"
                                   stroke-dasharray="8 4" class="zone-pulse"/>
-                            <text x="50" y="408" class="zone-label" fill="#ff6b35" filter="url(#glow-orange)">🔴 ZONE DMZ / EXTERNE</text>
+                            <text x="50" y="408" class="zone-label" fill="#ff6b35" filter="url(#glow-orange)">🔴 ZONE EXTERNE</text>
 
                             <!-- Zone DMZ SRV (orange) -->
                             <rect x="580" y="30" width="190" height="140" rx="20"
@@ -188,7 +188,7 @@
                                   stroke="#88aaff" stroke-width="2"
                                   class="link-line-slow" marker-end="url(#arrow-cyan)" opacity="0.7"/>
 
-                            <!-- DMZ/Externe → Firewall -->
+                            <!-- DMZ → Firewall -->
                             <line x1="290" y1="450" x2="410" y2="335"
                                   stroke="#ff6b35" stroke-width="2"
                                   class="link-line" marker-end="url(#arrow-orange)" opacity="0.7"/>
@@ -355,13 +355,11 @@
                                 <div class="server-ip">10.0.206.66</div>
                             </div>
                         </div>
-                        <span class="server-zone-badge zone-interne">🟢 Zone Interne</span>
+                        <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
                         <p class="server-desc">Contrôleur de domaine Windows Server. Il gère l'authentification des utilisateurs, les politiques de groupe (GPO) et l'organisation de l'annuaire d'entreprise.</p>
                         <div class="server-tags">
                             <span class="server-tag">Windows Server</span>
-                            <span class="server-tag">LDAP</span>
                             <span class="server-tag">GPO</span>
-                            <span class="server-tag">Kerberos</span>
                         </div>
                         <div class="corner-deco top-right"></div>
                     </div>
@@ -376,11 +374,9 @@
                                 <div class="server-ip">10.0.206.67</div>
                             </div>
                         </div>
-                        <span class="server-zone-badge zone-interne">🟢 Zone Interne</span>
-                        <p class="server-desc">Serveur de fichiers partagés permettant un stockage centralisé avec gestion fine des droits d'accès (ACL) par utilisateur et groupe AD.</p>
+                        <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
+                        <p class="server-desc">Serveur de fichiers partagés permettant un stockage centralisé avec gestion fine des droits d'accès par utilisateur et groupe AD.</p>
                         <div class="server-tags">
-                            <span class="server-tag">SMB</span>
-                            <span class="server-tag">ACL</span>
                             <span class="server-tag">Partage réseau</span>
                         </div>
                         <div class="corner-deco top-right"></div>
@@ -396,13 +392,11 @@
                                 <div class="server-ip">10.0.206.68</div>
                             </div>
                         </div>
-                        <span class="server-zone-badge zone-interne">🟢 Zone Interne</span>
-                        <p class="server-desc">NAS TrueNAS pour le stockage réseau haute capacité, la gestion des sauvegardes et la redondance des données via ZFS.</p>
+                        <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
+                        <p class="server-desc">NAS TrueNAS pour le stockage réseau haute capacité, la gestion des sauvegardes et la redondance des données.</p>
                         <div class="server-tags">
                             <span class="server-tag">TrueNAS</span>
-                            <span class="server-tag">ZFS</span>
                             <span class="server-tag">Sauvegarde</span>
-                            <span class="server-tag">NFS/SMB</span>
                         </div>
                         <div class="corner-deco top-right"></div>
                     </div>
@@ -417,8 +411,8 @@
                                 <div class="server-ip">10.0.206.64</div>
                             </div>
                         </div>
-                        <span class="server-zone-badge zone-interne">🟢 Zone Interne</span>
-                        <p class="server-desc">Plateforme de supervision Centreon pour le monitoring temps réel des services réseau, des serveurs et des équipements via SNMP et NRPE.</p>
+                        <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
+                        <p class="server-desc">Plateforme de supervision Centreon pour le monitoring temps réel des services réseau, des serveurs et des équipements via SNMP.</p>
                         <div class="server-tags">
                             <span class="server-tag">Centreon</span>
                             <span class="server-tag">SNMP</span>
@@ -438,12 +432,9 @@
                                 <div class="server-ip">10.0.206.63</div>
                             </div>
                         </div>
-                        <span class="server-zone-badge zone-interne">🟢 Zone Interne</span>
-                        <p class="server-desc">SIEM Wazuh pour la détection d'intrusions (IDS), la centralisation des logs de sécurité, l'analyse comportementale et la réponse aux incidents.</p>
+                        <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
+                        <p class="server-desc">Wazuh pour la détection d'intrusions, la centralisation des logs de sécurité, l'analyse comportementale et la réponse aux incidents.</p>
                         <div class="server-tags">
-                            <span class="server-tag">SIEM</span>
-                            <span class="server-tag">IDS</span>
-                            <span class="server-tag">Logs</span>
                             <span class="server-tag">Wazuh</span>
                         </div>
                         <div class="corner-deco top-right"></div>
@@ -465,6 +456,7 @@
                             <span class="server-tag">Apache</span>
                             <span class="server-tag">PHP</span>
                             <span class="server-tag">MySQL</span>
+                            <span class="server-tag">MariaDB</span>
                             <span class="server-tag">Linux</span>
                         </div>
                         <div class="corner-deco top-right"></div>
@@ -484,83 +476,32 @@
                         <p class="server-desc">Serveur DNS assurant la résolution des noms de domaine internes et la redirection vers des résolveurs DNS publics pour les requêtes externes.</p>
                         <div class="server-tags">
                             <span class="server-tag">DNS</span>
-                            <span class="server-tag">BIND</span>
                             <span class="server-tag">Résolution</span>
                         </div>
                         <div class="corner-deco top-right"></div>
                     </div>
 
-                    <!-- DCB CLIENT -->
+                    <!-- DEB CLIENT -->
                     <div class="server-card card-chaos card-orange">
                         <div class="card-noise"></div>
                         <div class="server-header">
                             <span class="server-icon">🖥️</span>
                             <div>
-                                <div class="server-name">DCB CLIENT <span class="status-dot status-online"></span></div>
+                                <div class="server-name">DEB CLIENT <span class="status-dot status-online"></span></div>
                                 <div class="server-ip">172.28.206.220</div>
                             </div>
                         </div>
                         <span class="server-zone-badge zone-externe">🔴 Zone Externe</span>
-                        <p class="server-desc">Poste client situé dans la zone externe/DMZ, simulant un accès depuis un réseau peu fiable. Son trafic transite obligatoirement par le pare-feu.</p>
+                        <p class="server-desc">Poste client situé dans la zone externe, simulant un accès depuis un réseau peu fiable. Son trafic transite obligatoirement par le pare-feu.</p>
                         <div class="server-tags">
                             <span class="server-tag">Client</span>
                             <span class="server-tag">DMZ</span>
-                            <span class="server-tag">172.28.x.x</span>
+                            <span class="server-tag">172.28.206.220</span>
                         </div>
                         <div class="corner-deco top-right"></div>
                     </div>
                 </div>
             </div>
-
-            <!-- SYNTHÈSE -->
-            <div class="synthesis-section">
-                <div class="section-label glitch-label">// SYNTHESIS</div>
-
-                <div class="synthesis-card card-chaos card-purple">
-                    <div class="card-sticker">💭</div>
-                    <div class="card-noise"></div>
-
-                    <h3 class="cyber-heading-small">SYNTHÈSE & RÉFLEXION</h3>
-
-                    <div class="synthesis-content">
-                        <p>
-                            Cette infrastructure illustre les <strong>bonnes pratiques de segmentation réseau</strong> appliquées dans un contexte professionnel. La séparation en zones distinctes (interne, DMZ, externe) permet de limiter la surface d'attaque et d'appliquer le principe du moindre privilège. Le pare-feu central joue un rôle crucial en filtrant l'ensemble des flux entre ces zones.
-                        </p>
-
-                        <div class="key-findings">
-                            <h4 class="findings-title">🔑 Points techniques clés</h4>
-                            <div class="findings-grid">
-                                <div class="finding-box">
-                                    <span class="finding-icon">🔥</span>
-                                    <h5>Pare-feu centralisé</h5>
-                                    <p>Filtrage de tout le trafic inter-zones avec règles strictes</p>
-                                </div>
-                                <div class="finding-box">
-                                    <span class="finding-icon">🏢</span>
-                                    <h5>Active Directory</h5>
-                                    <p>Gestion centralisée des identités et des politiques</p>
-                                </div>
-                                <div class="finding-box">
-                                    <span class="finding-icon">📊</span>
-                                    <h5>Supervision complète</h5>
-                                    <p>Monitoring réseau (Centreon) + SIEM sécurité (Wazuh)</p>
-                                </div>
-                                <div class="finding-box">
-                                    <span class="finding-icon">🌐</span>
-                                    <h5>DMZ isolée</h5>
-                                    <p>Services web exposés dans une zone contrôlée et isolée</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="personal-reflection">
-                            <h4 class="reflection-title">💡 Ce que j'ai appris</h4>
-                            <p>
-                                La mise en place de cette infrastructure m'a permis de comprendre concrètement l'importance de la <strong>défense en profondeur</strong> et de la segmentation réseau. Chaque composant a un rôle précis : le pare-feu protège, l'AD centralise, Centreon surveille et Wazuh détecte. Cette vision systémique de l'infrastructure est fondamentale pour tout professionnel de l'IT.
-                            </p>
-                        </div>
-                    </div>
-
                     <div class="corner-deco top-right"></div>
                     <div class="corner-deco bottom-left"></div>
                 </div>
@@ -604,3 +545,4 @@
     </script>
 </body>
 </html>
+
