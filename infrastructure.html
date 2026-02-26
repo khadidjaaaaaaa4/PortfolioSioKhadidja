@@ -135,7 +135,7 @@
                             <rect x="30" y="30" width="360" height="250" rx="20"
                                   fill="rgba(0,200,0,0.08)" stroke="#00c800" stroke-width="2.5"
                                   stroke-dasharray="8 4" class="zone-pulse"/>
-                            <text x="50" y="58" class="zone-label" fill="#00c800" filter="url(#glow-green)">🟢 ZONE INTERNE</text>
+                            <text x="50" y="58" class="zone-label" fill="#00c800" filter="url(#glow-green)">🟢 ZONE LAN</text>
 
                             <!-- Zone DMZ (orange-rouge) -->
                             <rect x="30" y="380" width="260" height="170" rx="20"
@@ -294,9 +294,9 @@
                                 <text x="650" y="125" font-size="9" fill="#cc8800" text-anchor="middle" font-family="VT323, monospace">10.0.206.10</text>
                             </g>
 
-                            <!-- DCB CLIENT -->
+                            <!-- DEB CLIENT -->
                             <g class="node-group"
-                               data-name="DCB CLIENT"
+                               data-name="DEB CLIENT"
                                data-ip="172.28.206.220"
                                data-desc="Client dans la zone DMZ externe, simulant un accès depuis un réseau moins fiable ou externe."
                                data-role="Client DMZ externe"
@@ -326,14 +326,13 @@
                             <rect x="540" y="460" width="330" height="120" rx="12" fill="rgba(0,0,0,0.5)" stroke="rgba(0,255,255,0.2)" stroke-width="1.5"/>
                             <text x="560" y="485" font-size="12" fill="#00ffff" font-family="VT323, monospace" letter-spacing="2">LÉGENDE</text>
                             <rect x="560" y="495" width="15" height="8" rx="2" fill="rgba(0,200,0,0.3)" stroke="#00c800"/>
-                            <text x="582" y="504" font-size="11" fill="#88bb88" font-family="Rubik, sans-serif">Zone Interne</text>
+                            <text x="582" y="504" font-size="11" fill="#88bb88" font-family="Rubik, sans-serif">Zone LAN</text>
                             <rect x="560" y="515" width="15" height="8" rx="2" fill="rgba(255,165,0,0.2)" stroke="#ffa500"/>
-                            <text x="582" y="524" font-size="11" fill="#cc9944" font-family="Rubik, sans-serif">DMZ (services web)</text>
+                            <text x="582" y="524" font-size="11" fill="#cc9944" font-family="Rubik, sans-serif">DMZ</text>
                             <rect x="560" y="535" width="15" height="8" rx="2" fill="rgba(255,107,53,0.2)" stroke="#ff6b35"/>
-                            <text x="582" y="544" font-size="11" fill="#cc6633" font-family="Rubik, sans-serif">Zone Externe / DMZ</text>
+                            <text x="582" y="544" font-size="11" fill="#cc6633" font-family="Rubik, sans-serif">Zone Externe</text>
                             <line x1="560" y1="559" x2="575" y2="559" stroke="#00ffff" stroke-width="2" stroke-dasharray="4 2"/>
                             <text x="582" y="563" font-size="11" fill="#88aacc" font-family="Rubik, sans-serif">Flux réseau</text>
-                            <text x="560" y="578" font-size="10" fill="#556677" font-family="Rubik, sans-serif" font-style="italic">Survolez les équipements pour plus d'infos</text>
                         </svg>
                     </div>
                 </div>
@@ -545,4 +544,5 @@
     </script>
 </body>
 </html>
+
 
