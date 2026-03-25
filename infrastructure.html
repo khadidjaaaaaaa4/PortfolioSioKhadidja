@@ -61,7 +61,7 @@
                 <div class="intro-content">
                     <h3 class="cyber-heading-small">MON INFRASTRUCTURE</h3>
                     <p class="intro-text">
-                        Dans le cadre de ma formation BTS SIO, j'ai eu l'opportunité de travailler sur une <strong>infrastructure réseau complète</strong>. Celle-ci comprend plusieurs zones de sécurité distinctes : une zone interne sécurisée avec des serveurs de gestion, une DMZ pour les services exposés, et une connexion vers Internet contrôlée par un pare-feu centralisé.
+                        Dans le cadre de ma formation BTS SIO, j'ai eu l'opportunité de travailler sur une <strong>infrastructure réseau complète</strong>. Celle-ci comprend plusieurs zones de sécurité distinctes : une zone LAN sécurisée avec des serveurs de gestion, une DMZ pour les services web exposés, et une zone externe contrôlée par un pare-feu centralisé.
                     </p>
                     <div class="theme-highlights">
                         <div class="theme-item">
@@ -96,7 +96,6 @@
                     <div class="network-svg-container">
                         <svg class="network-svg" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
                             <defs>
-                                <!-- Glow filters -->
                                 <filter id="glow-cyan">
                                     <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
                                     <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -109,14 +108,12 @@
                                     <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
                                     <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
                                 </filter>
-                                <!-- Arrow markers -->
                                 <marker id="arrow-cyan" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto">
                                     <path d="M0,0 L0,6 L8,3 z" fill="#00ffff" opacity="0.8"/>
                                 </marker>
                                 <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto">
                                     <path d="M0,0 L0,6 L8,3 z" fill="#ff6b35" opacity="0.8"/>
                                 </marker>
-                                <!-- Animated styles -->
                                 <style>
                                     .link-line { stroke-dasharray: 8 4; animation: dash 2s linear infinite; }
                                     .link-line-slow { stroke-dasharray: 6 6; animation: dash 4s linear infinite; }
@@ -129,79 +126,77 @@
                                 </style>
                             </defs>
 
-                            <!-- ======================== ZONES ======================== -->
-
-                            <!-- Zone Interne (verte) -->
+                            <!-- Zone LAN (verte) -->
                             <rect x="30" y="30" width="360" height="250" rx="20"
                                   fill="rgba(0,200,0,0.08)" stroke="#00c800" stroke-width="2.5"
                                   stroke-dasharray="8 4" class="zone-pulse"/>
                             <text x="50" y="58" class="zone-label" fill="#00c800" filter="url(#glow-green)">🟢 ZONE LAN</text>
 
-                            <!-- Zone DMZ (orange-rouge) -->
-                            <rect x="30" y="380" width="260" height="170" rx="20"
-                                  fill="rgba(255,107,53,0.08)" stroke="#ff6b35" stroke-width="2.5"
-                                  stroke-dasharray="8 4" class="zone-pulse"/>
-                            <text x="50" y="408" class="zone-label" fill="#ff6b35" filter="url(#glow-orange)">🔴 ZONE EXTERNE</text>
-
-                            <!-- Zone DMZ SRV (orange) -->
-                            <rect x="580" y="30" width="190" height="140" rx="20"
+                            <!-- Zone DMZ (orange) -->
+                            <rect x="580" y="30" width="290" height="250" rx="20"
                                   fill="rgba(255,165,0,0.1)" stroke="#ffa500" stroke-width="2.5"
                                   stroke-dasharray="8 4" class="zone-pulse"/>
                             <text x="600" y="58" class="zone-label" fill="#ffa500" filter="url(#glow-orange)">🟠 DMZ</text>
 
-                            <!-- Internet cloud -->
-                            <text x="770" y="380" font-size="55" text-anchor="middle" opacity="0.7">☁️</text>
-                            <text x="770" y="415" font-size="12" fill="#88aaff" text-anchor="middle" font-family="VT323, monospace" letter-spacing="2">INTERNET</text>
+                            <!-- Zone EXTERNE (rouge) -->
+                            <rect x="30" y="380" width="290" height="170" rx="20"
+                                  fill="rgba(255,107,53,0.08)" stroke="#ff6b35" stroke-width="2.5"
+                                  stroke-dasharray="8 4" class="zone-pulse"/>
+                            <text x="50" y="408" class="zone-label" fill="#ff6b35" filter="url(#glow-orange)">🔴 ZONE EXTERNE</text>
 
-                            <!-- ======================== FIREWALL (centre) ======================== -->
+                            <!-- Internet cloud -->
+                            <text x="770" y="480" font-size="55" text-anchor="middle" opacity="0.7">☁️</text>
+                            <text x="770" y="515" font-size="12" fill="#88aaff" text-anchor="middle" font-family="VT323, monospace" letter-spacing="2">INTERNET</text>
+
+                            <!-- FIREWALL (centre) -->
                             <g class="node-group"
                                data-name="Pare-feu"
-                               data-ip="10.0.206.17 / 10.0.206.1 / 172.28.206.1"
-                               data-desc="Pare-feu central gérant toutes les communications entre les zones. Il sécurise le trafic entrant/sortant."
+                               data-ip="10.0.206.65/26 / 10.0.206.1/26 / 172.28.206.253/24"
+                               data-desc="Pare-feu central gérant toutes les communications entre les zones (LAN, DMZ, Externe et Internet)."
                                data-role="Sécurité réseau"
                                onmouseenter="showTooltip(event, this)"
                                onmouseleave="hideTooltip()">
-                                <rect x="400" y="240" width="100" height="80" rx="12"
+                                <rect x="400" y="320" width="100" height="80" rx="12"
                                       fill="#1a1a2e" stroke="#ff6b35" stroke-width="3"
                                       filter="url(#glow-orange)"/>
-                                <text x="450" y="270" font-size="28" text-anchor="middle">🔥</text>
-                                <text x="450" y="295" font-size="11" fill="#ff6b35" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">FIREWALL</text>
-                                <text x="450" y="310" font-size="10" fill="#ffa500" text-anchor="middle" font-family="VT323, monospace">CENTRAL</text>
+                                <text x="450" y="350" font-size="28" text-anchor="middle">🔥</text>
+                                <text x="450" y="375" font-size="11" fill="#ff6b35" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">FIREWALL</text>
+                                <text x="450" y="390" font-size="10" fill="#ffa500" text-anchor="middle" font-family="VT323, monospace">CENTRAL</text>
                             </g>
 
-                            <!-- ======================== CONNEXIONS ======================== -->
+                            <!-- CONNEXIONS -->
 
-                            <!-- Zone interne → Firewall -->
-                            <line x1="390" y1="270" x2="400" y2="270"
+                            <!-- Zone LAN → Firewall -->
+                            <line x1="390" y1="155" x2="420" y2="320"
                                   stroke="#00c800" stroke-width="2.5"
                                   class="link-line" marker-end="url(#arrow-cyan)" opacity="0.8"/>
-                            <text x="330" y="262" font-size="11" fill="#00c800" font-family="VT323, monospace" letter-spacing="1">10.0.206.17</text>
+                            <text x="360" y="230" font-size="11" fill="#00c800" font-family="VT323, monospace" letter-spacing="1">10.0.206.65/26</text>
 
-                            <!-- DMZ SRV → Firewall -->
-                            <line x1="580" y1="100" x2="500" y2="260"
+                            <!-- DMZ → Firewall -->
+                            <line x1="580" y1="155" x2="500" y2="340"
                                   stroke="#ffa500" stroke-width="2"
                                   class="link-line" marker-end="url(#arrow-orange)" opacity="0.7"/>
-                            <text x="540" y="175" font-size="11" fill="#ffa500" font-family="VT323, monospace" letter-spacing="1">10.0.206.1</text>
+                            <text x="540" y="240" font-size="11" fill="#ffa500" font-family="VT323, monospace" letter-spacing="1">10.0.206.1/26</text>
+
+                            <!-- Zone EXTERNE → Firewall -->
+                            <line x1="320" y1="450" x2="410" y2="410"
+                                  stroke="#ff6b35" stroke-width="2"
+                                  class="link-line" marker-end="url(#arrow-orange)" opacity="0.7"/>
+                            <text x="300" y="415" font-size="11" fill="#ff6b35" font-family="VT323, monospace" letter-spacing="1">172.28.206.253/24</text>
 
                             <!-- Firewall → Internet -->
-                            <line x1="730" y1="355" x2="510" y2="310"
+                            <line x1="720" y1="480" x2="510" y2="385"
                                   stroke="#88aaff" stroke-width="2"
                                   class="link-line-slow" marker-end="url(#arrow-cyan)" opacity="0.7"/>
 
-                            <!-- DMZ → Firewall -->
-                            <line x1="290" y1="450" x2="410" y2="335"
-                                  stroke="#ff6b35" stroke-width="2"
-                                  class="link-line" marker-end="url(#arrow-orange)" opacity="0.7"/>
-                            <text x="300" y="390" font-size="11" fill="#ff6b35" font-family="VT323, monospace" letter-spacing="1">172.28.206.1</text>
-
-                            <!-- ======================== SERVEURS INTERNES ======================== -->
+                            <!-- ========== SERVEURS ZONE LAN ========== -->
 
                             <!-- AD -->
                             <g class="node-group"
                                data-name="AD (Active Directory)"
                                data-ip="10.0.206.66"
-                               data-desc="Contrôleur de domaine Windows Server. Gère l'authentification, les politiques de groupe (GPO) et les comptes utilisateurs."
-                               data-role="Annuaire & Authentification"
+                               data-desc="Contrôleur de domaine Windows Server gérant l'authentification et les GPO."
+                               data-role="Annuaire & Auth"
                                onmouseenter="showTooltip(event, this)"
                                onmouseleave="hideTooltip()">
                                 <rect x="45" y="70" width="90" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
@@ -212,10 +207,10 @@
 
                             <!-- SRV-FIC -->
                             <g class="node-group"
-                               data-name="SRV-FIC (Serveur de fichiers)"
+                               data-name="SRV-FIC"
                                data-ip="10.0.206.67"
-                               data-desc="Serveur de fichiers partagés permettant le stockage centralisé et la gestion des droits d'accès aux fichiers."
-                               data-role="Partage de fichiers"
+                               data-desc="Serveur de fichiers partagés avec gestion des droits d'accès."
+                               data-role="Fichiers"
                                onmouseenter="showTooltip(event, this)"
                                onmouseleave="hideTooltip()">
                                 <rect x="155" y="70" width="90" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
@@ -228,8 +223,8 @@
                             <g class="node-group"
                                data-name="SRV-TRUENAS"
                                data-ip="10.0.206.68"
-                               data-desc="Serveur NAS TrueNAS pour le stockage réseau, les sauvegardes et la gestion de données volumineuses."
-                               data-role="Stockage NAS"
+                               data-desc="NAS TrueNAS pour stockage et sauvegardes."
+                               data-role="NAS"
                                onmouseenter="showTooltip(event, this)"
                                onmouseleave="hideTooltip()">
                                 <rect x="265" y="70" width="105" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
@@ -242,8 +237,8 @@
                             <g class="node-group"
                                data-name="SRV-CENTREON"
                                data-ip="10.0.206.64"
-                               data-desc="Serveur de supervision Centreon pour le monitoring de l'infrastructure, des services et des performances réseau."
-                               data-role="Supervision / Monitoring"
+                               data-desc="Plateforme de supervision et monitoring réseau."
+                               data-role="Supervision"
                                onmouseenter="showTooltip(event, this)"
                                onmouseleave="hideTooltip()">
                                 <rect x="45" y="180" width="105" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
@@ -256,8 +251,8 @@
                             <g class="node-group"
                                data-name="SRV-WAZUH"
                                data-ip="10.0.206.63"
-                               data-desc="Serveur SIEM Wazuh pour la détection d'intrusions, la gestion des logs de sécurité et la réponse aux incidents."
-                               data-role="SIEM / Sécurité"
+                               data-desc="SIEM Wazuh pour détection d'intrusions et logs de sécurité."
+                               data-role="SIEM"
                                onmouseenter="showTooltip(event, this)"
                                onmouseleave="hideTooltip()">
                                 <rect x="170" y="180" width="100" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
@@ -270,7 +265,7 @@
                             <g class="node-group"
                                data-name="W11 CLIENT"
                                data-ip="10.0.206.70"
-                               data-desc="Poste de travail client Windows 11 rattaché au domaine Active Directory."
+                               data-desc="Poste client Windows 11 rattaché au domaine AD."
                                data-role="Poste utilisateur"
                                onmouseenter="showTooltip(event, this)"
                                onmouseleave="hideTooltip()">
@@ -280,12 +275,14 @@
                                 <text x="330" y="240" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.70</text>
                             </g>
 
+                            <!-- ========== SERVEURS ZONE DMZ ========== -->
+
                             <!-- SRV-LAMP -->
                             <g class="node-group"
                                data-name="SRV-LAMP"
                                data-ip="10.0.206.10"
-                               data-desc="Serveur web LAMP (Linux, Apache, MySQL, PHP). Héberge des applications web accessibles depuis la DMZ."
-                               data-role="Serveur Web"
+                               data-desc="Serveur web LAMP hébergeant des applications web."
+                               data-role="Web Server"
                                onmouseenter="showTooltip(event, this)"
                                onmouseleave="hideTooltip()">
                                 <rect x="600" y="65" width="100" height="70" rx="10" fill="#1a1200" stroke="#ffa500" stroke-width="2" filter="url(#glow-orange)"/>
@@ -294,45 +291,75 @@
                                 <text x="650" y="125" font-size="9" fill="#cc8800" text-anchor="middle" font-family="VT323, monospace">10.0.206.10</text>
                             </g>
 
+                            <!-- WEB-2 -->
+                            <g class="node-group"
+                               data-name="WEB-2"
+                               data-ip="10.0.206.11"
+                               data-desc="Serveur web secondaire pour la haute disponibilité."
+                               data-role="Web Server"
+                               onmouseenter="showTooltip(event, this)"
+                               onmouseleave="hideTooltip()">
+                                <rect x="720" y="65" width="100" height="70" rx="10" fill="#1a1200" stroke="#ffa500" stroke-width="2" filter="url(#glow-orange)"/>
+                                <text x="770" y="93" font-size="20" text-anchor="middle">🌐</text>
+                                <text x="770" y="111" font-size="10" fill="#ffc966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">WEB-2</text>
+                                <text x="770" y="125" font-size="9" fill="#cc8800" text-anchor="middle" font-family="VT323, monospace">10.0.206.11</text>
+                            </g>
+
+                            <!-- WEB-3 -->
+                            <g class="node-group"
+                               data-name="WEB-3"
+                               data-ip="10.0.206.12"
+                               data-desc="Serveur web tertiaire pour load balancing."
+                               data-role="Web Server"
+                               onmouseenter="showTooltip(event, this)"
+                               onmouseleave="hideTooltip()">
+                                <rect x="600" y="175" width="100" height="70" rx="10" fill="#1a1200" stroke="#ffa500" stroke-width="2" filter="url(#glow-orange)"/>
+                                <text x="650" y="203" font-size="20" text-anchor="middle">🌐</text>
+                                <text x="650" y="221" font-size="10" fill="#ffc966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">WEB-3</text>
+                                <text x="650" y="235" font-size="9" fill="#cc8800" text-anchor="middle" font-family="VT323, monospace">10.0.206.12</text>
+                            </g>
+
+                            <!-- ========== ZONE EXTERNE ========== -->
+
                             <!-- DEB CLIENT -->
                             <g class="node-group"
                                data-name="DEB CLIENT"
                                data-ip="172.28.206.220"
-                               data-desc="Client dans la zone DMZ externe, simulant un accès depuis un réseau moins fiable ou externe."
-                               data-role="Client DMZ externe"
+                               data-desc="Client externe Debian simulant un accès non fiable."
+                               data-role="Client externe"
                                onmouseenter="showTooltip(event, this)"
                                onmouseleave="hideTooltip()">
-                                <rect x="50" y="420" width="100" height="70" rx="10" fill="#1a0a00" stroke="#ff6b35" stroke-width="2" filter="url(#glow-orange)"/>
-                                <text x="100" y="448" font-size="20" text-anchor="middle">🖥️</text>
-                                <text x="100" y="466" font-size="9" fill="#ff9966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">DCB CLIENT</text>
-                                <text x="100" y="480" font-size="8.5" fill="#cc5533" text-anchor="middle" font-family="VT323, monospace">172.28.206.220</text>
+                                <rect x="50" y="420" width="110" height="70" rx="10" fill="#1a0a00" stroke="#ff6b35" stroke-width="2" filter="url(#glow-orange)"/>
+                                <text x="105" y="448" font-size="20" text-anchor="middle">🖥️</text>
+                                <text x="105" y="466" font-size="9" fill="#ff9966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">DEB CLIENT</text>
+                                <text x="105" y="480" font-size="8.5" fill="#cc5533" text-anchor="middle" font-family="VT323, monospace">172.28.206.220</text>
                             </g>
 
                             <!-- SRV-DNS -->
                             <g class="node-group"
                                data-name="SRV-DNS"
                                data-ip="10.0.206.65"
-                               data-desc="Serveur DNS gérant la résolution de noms de domaine interne et la redirection vers les DNS externes."
-                               data-role="Résolution DNS"
+                               data-desc="Serveur DNS pour résolution de noms."
+                               data-role="DNS"
                                onmouseenter="showTooltip(event, this)"
                                onmouseleave="hideTooltip()">
-                                <rect x="165" y="420" width="100" height="70" rx="10" fill="#1a0a00" stroke="#ff6b35" stroke-width="2" filter="url(#glow-orange)"/>
-                                <text x="215" y="448" font-size="20" text-anchor="middle">🔍</text>
-                                <text x="215" y="466" font-size="10" fill="#ff9966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">SRV-DNS</text>
-                                <text x="215" y="480" font-size="9" fill="#cc5533" text-anchor="middle" font-family="VT323, monospace">10.0.206.65</text>
+                                <rect x="180" y="420" width="100" height="70" rx="10" fill="#1a0a00" stroke="#ff6b35" stroke-width="2" filter="url(#glow-orange)"/>
+                                <text x="230" y="448" font-size="20" text-anchor="middle">🔍</text>
+                                <text x="230" y="466" font-size="10" fill="#ff9966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">SRV-DNS</text>
+                                <text x="230" y="480" font-size="9" fill="#cc5533" text-anchor="middle" font-family="VT323, monospace">10.0.206.65</text>
                             </g>
 
                             <!-- LÉGENDE -->
-                            <rect x="540" y="460" width="330" height="120" rx="12" fill="rgba(0,0,0,0.5)" stroke="rgba(0,255,255,0.2)" stroke-width="1.5"/>
-                            <text x="560" y="485" font-size="12" fill="#00ffff" font-family="VT323, monospace" letter-spacing="2">LÉGENDE</text>
-                            <rect x="560" y="495" width="15" height="8" rx="2" fill="rgba(0,200,0,0.3)" stroke="#00c800"/>
-                            <text x="582" y="504" font-size="11" fill="#88bb88" font-family="Rubik, sans-serif">Zone LAN</text>
-                            <rect x="560" y="515" width="15" height="8" rx="2" fill="rgba(255,165,0,0.2)" stroke="#ffa500"/>
-                            <text x="582" y="524" font-size="11" fill="#cc9944" font-family="Rubik, sans-serif">DMZ</text>
-                            <rect x="560" y="535" width="15" height="8" rx="2" fill="rgba(255,107,53,0.2)" stroke="#ff6b35"/>
-                            <text x="582" y="544" font-size="11" fill="#cc6633" font-family="Rubik, sans-serif">Zone Externe</text>
-                            <line x1="560" y1="559" x2="575" y2="559" stroke="#00ffff" stroke-width="2" stroke-dasharray="4 2"/>
-                            <text x="582" y="563" font-size="11" fill="#88aacc" font-family="Rubik, sans-serif">Flux réseau</text>
+                            <rect x="400" y="470" width="300" height="115" rx="12" fill="rgba(0,0,0,0.5)" stroke="rgba(0,255,255,0.2)" stroke-width="1.5"/>
+                            <text x="420" y="493" font-size="12" fill="#00ffff" font-family="VT323, monospace" letter-spacing="2">LÉGENDE</text>
+                            <rect x="420" y="503" width="15" height="8" rx="2" fill="rgba(0,200,0,0.3)" stroke="#00c800"/>
+                            <text x="442" y="512" font-size="11" fill="#88bb88" font-family="Rubik, sans-serif">Zone LAN (10.0.206.64/26)</text>
+                            <rect x="420" y="523" width="15" height="8" rx="2" fill="rgba(255,165,0,0.2)" stroke="#ffa500"/>
+                            <text x="442" y="532" font-size="11" fill="#cc9944" font-family="Rubik, sans-serif">DMZ (10.0.206.1/26)</text>
+                            <rect x="420" y="543" width="15" height="8" rx="2" fill="rgba(255,107,53,0.2)" stroke="#ff6b35"/>
+                            <text x="442" y="552" font-size="11" fill="#cc6633" font-family="Rubik, sans-serif">Zone Externe (172.28.206.253/24)</text>
+                            <line x1="420" y1="567" x2="435" y2="567" stroke="#00ffff" stroke-width="2" stroke-dasharray="4 2"/>
+                            <text x="442" y="571" font-size="11" fill="#88aacc" font-family="Rubik, sans-serif">Flux réseau</text>
                         </svg>
                     </div>
                 </div>
@@ -355,10 +382,11 @@
                             </div>
                         </div>
                         <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
-                        <p class="server-desc">Contrôleur de domaine Windows Server. Il gère l'authentification des utilisateurs, les politiques de groupe (GPO) et l'organisation de l'annuaire d'entreprise.</p>
+                        <p class="server-desc">Contrôleur de domaine Windows Server gérant l'authentification, les GPO et l'annuaire d'entreprise.</p>
                         <div class="server-tags">
                             <span class="server-tag">Windows Server</span>
                             <span class="server-tag">GPO</span>
+                            <span class="server-tag">LDAP</span>
                         </div>
                         <div class="corner-deco top-right"></div>
                     </div>
@@ -374,8 +402,9 @@
                             </div>
                         </div>
                         <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
-                        <p class="server-desc">Serveur de fichiers partagés permettant un stockage centralisé avec gestion fine des droits d'accès par utilisateur et groupe AD.</p>
+                        <p class="server-desc">Serveur de fichiers partagés avec stockage centralisé et gestion des droits d'accès.</p>
                         <div class="server-tags">
+                            <span class="server-tag">SMB</span>
                             <span class="server-tag">Partage réseau</span>
                         </div>
                         <div class="corner-deco top-right"></div>
@@ -392,7 +421,7 @@
                             </div>
                         </div>
                         <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
-                        <p class="server-desc">NAS TrueNAS pour le stockage réseau haute capacité, la gestion des sauvegardes et la redondance des données.</p>
+                        <p class="server-desc">NAS TrueNAS pour stockage haute capacité, sauvegardes et redondance des données.</p>
                         <div class="server-tags">
                             <span class="server-tag">TrueNAS</span>
                             <span class="server-tag">Sauvegarde</span>
@@ -411,12 +440,11 @@
                             </div>
                         </div>
                         <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
-                        <p class="server-desc">Plateforme de supervision Centreon pour le monitoring temps réel des services réseau, des serveurs et des équipements via SNMP.</p>
+                        <p class="server-desc">Plateforme de supervision Centreon pour monitoring temps réel des services et équipements réseau.</p>
                         <div class="server-tags">
                             <span class="server-tag">Centreon</span>
                             <span class="server-tag">SNMP</span>
                             <span class="server-tag">Monitoring</span>
-                            <span class="server-tag">Alerting</span>
                         </div>
                         <div class="corner-deco top-right"></div>
                     </div>
@@ -432,9 +460,30 @@
                             </div>
                         </div>
                         <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
-                        <p class="server-desc">Wazuh pour la détection d'intrusions, la centralisation des logs de sécurité, l'analyse comportementale et la réponse aux incidents.</p>
+                        <p class="server-desc">SIEM Wazuh pour détection d'intrusions, centralisation des logs et réponse aux incidents.</p>
                         <div class="server-tags">
+                            <span class="server-tag">SIEM</span>
                             <span class="server-tag">Wazuh</span>
+                            <span class="server-tag">IDS</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- W11 CLIENT -->
+                    <div class="server-card card-chaos card-cyan">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">💻</span>
+                            <div>
+                                <div class="server-name">W11 CLIENT <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.70</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
+                        <p class="server-desc">Poste client Windows 11 rattaché au domaine Active Directory.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Windows 11</span>
+                            <span class="server-tag">Client AD</span>
                         </div>
                         <div class="corner-deco top-right"></div>
                     </div>
@@ -450,13 +499,49 @@
                             </div>
                         </div>
                         <span class="server-zone-badge zone-dmz">🟠 DMZ</span>
-                        <p class="server-desc">Serveur web LAMP (Linux, Apache, MySQL, PHP) hébergeant des applications web. Situé en DMZ pour être accessible depuis l'extérieur de façon contrôlée.</p>
+                        <p class="server-desc">Serveur web LAMP principal hébergeant des applications web accessibles depuis l'extérieur.</p>
                         <div class="server-tags">
                             <span class="server-tag">Apache</span>
                             <span class="server-tag">PHP</span>
                             <span class="server-tag">MySQL</span>
-                            <span class="server-tag">MariaDB</span>
-                            <span class="server-tag">Linux</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- WEB-2 -->
+                    <div class="server-card card-chaos card-orange">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🌐</span>
+                            <div>
+                                <div class="server-name">WEB-2 <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.11</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-dmz">🟠 DMZ</span>
+                        <p class="server-desc">Serveur web secondaire pour haute disponibilité et répartition de charge.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Web Server</span>
+                            <span class="server-tag">HA</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- WEB-3 -->
+                    <div class="server-card card-chaos card-orange">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🌐</span>
+                            <div>
+                                <div class="server-name">WEB-3 <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.12</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-dmz">🟠 DMZ</span>
+                        <p class="server-desc">Serveur web tertiaire pour load balancing et continuité de service.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Web Server</span>
+                            <span class="server-tag">Load Balancing</span>
                         </div>
                         <div class="corner-deco top-right"></div>
                     </div>
@@ -472,7 +557,7 @@
                             </div>
                         </div>
                         <span class="server-zone-badge zone-externe">🔴 Zone Externe</span>
-                        <p class="server-desc">Serveur DNS assurant la résolution des noms de domaine internes et la redirection vers des résolveurs DNS publics pour les requêtes externes.</p>
+                        <p class="server-desc">Serveur DNS assurant la résolution de noms internes et redirection vers DNS publics.</p>
                         <div class="server-tags">
                             <span class="server-tag">DNS</span>
                             <span class="server-tag">Résolution</span>
@@ -491,16 +576,65 @@
                             </div>
                         </div>
                         <span class="server-zone-badge zone-externe">🔴 Zone Externe</span>
-                        <p class="server-desc">Poste client situé dans la zone externe, simulant un accès depuis un réseau peu fiable. Son trafic transite obligatoirement par le pare-feu.</p>
+                        <p class="server-desc">Client Debian externe simulant un accès non fiable transitant par le pare-feu.</p>
                         <div class="server-tags">
                             <span class="server-tag">Client</span>
-                            <span class="server-tag">DMZ</span>
-                            <span class="server-tag">172.28.206.220</span>
+                            <span class="server-tag">Debian</span>
                         </div>
                         <div class="corner-deco top-right"></div>
                     </div>
                 </div>
             </div>
+
+            <!-- SYNTHÈSE -->
+            <div class="synthesis-section">
+                <div class="section-label glitch-label">// SYNTHESIS</div>
+
+                <div class="synthesis-card card-chaos card-purple">
+                    <div class="card-sticker">💭</div>
+                    <div class="card-noise"></div>
+
+                    <h3 class="cyber-heading-small">SYNTHÈSE & RÉFLEXION</h3>
+
+                    <div class="synthesis-content">
+                        <p>
+                            Cette infrastructure illustre une <strong>architecture réseau segmentée en trois zones</strong> : LAN, DMZ et Externe. Cette segmentation permet de limiter la surface d'attaque et d'appliquer des règles de sécurité différenciées selon les niveaux de confiance. Le pare-feu central filtre l'ensemble des flux inter-zones, garantissant une sécurité renforcée.
+                        </p>
+
+                        <div class="key-findings">
+                            <h4 class="findings-title">🔑 Points techniques clés</h4>
+                            <div class="findings-grid">
+                                <div class="finding-box">
+                                    <span class="finding-icon">🔥</span>
+                                    <h5>Pare-feu centralisé</h5>
+                                    <p>3 interfaces réseau pour segmenter LAN, DMZ et Externe</p>
+                                </div>
+                                <div class="finding-box">
+                                    <span class="finding-icon">🌐</span>
+                                    <h5>DMZ avec 3 serveurs web</h5>
+                                    <p>Haute disponibilité et load balancing des services web</p>
+                                </div>
+                                <div class="finding-box">
+                                    <span class="finding-icon">📊</span>
+                                    <h5>Supervision complète</h5>
+                                    <p>Centreon et Wazuh pour monitoring et sécurité</p>
+                                </div>
+                                <div class="finding-box">
+                                    <span class="finding-icon">🏢</span>
+                                    <h5>Active Directory</h5>
+                                    <p>Gestion centralisée des identités et politiques</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="personal-reflection">
+                            <h4 class="reflection-title">💡 Ce que j'ai appris</h4>
+                            <p>
+                                La mise en place de cette infrastructure m'a permis de comprendre l'importance de la <strong>défense en profondeur</strong> et de la segmentation réseau. Chaque zone a un niveau de sécurité adapté à son exposition : la DMZ héberge les services publics, le LAN protège les ressources internes, et la zone externe isole les accès non fiables. Cette architecture professionnelle illustre parfaitement les bonnes pratiques en matière de sécurité réseau.
+                            </p>
+                        </div>
+                    </div>
+
                     <div class="corner-deco top-right"></div>
                     <div class="corner-deco bottom-left"></div>
                 </div>
@@ -544,5 +678,3 @@
     </script>
 </body>
 </html>
-
-
