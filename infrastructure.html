@@ -82,7 +82,7 @@
                         <rect x="14" y="28" width="450" height="530" rx="14"
                               fill="rgba(16,185,129,.05)" stroke="#10b981" stroke-width="1.5"
                               stroke-dasharray="6 3" class="zone-pulse"/>
-                        <text x="32" y="54" class="zone-label zone-green">◈ ZONE INTERNE — LAN 10.0.211.0/24</text>
+                        <text x="32" y="54" class="zone-label zone-green">◈ ZONE INTERNE — LAN 10.0.206.0/24</text>
 
                         <rect x="685" y="28" width="495" height="230" rx="14"
                               fill="rgba(245,158,11,.05)" stroke="#f59e0b" stroke-width="1.5"
@@ -92,23 +92,23 @@
                         <rect x="200" y="650" width="530" height="130" rx="14"
                               fill="rgba(236,72,153,.04)" stroke="#ec4899" stroke-width="1.5"
                               stroke-dasharray="6 3" class="zone-pulse"/>
-                        <text x="218" y="673" class="zone-label zone-pink">◈ ZONE EXTERNE 172.28.211.0/24</text>
+                        <text x="218" y="673" class="zone-label zone-pink">◈ ZONE EXTERNE 172.28.206.0/24</text>
 
                         <!-- FIREWALL -->
                         <g class="node-group"
                            data-n="PARE-FEU CENTRAL"
-                           data-i="LAN : 10.0.211.1 | DMZ : 10.0.211.65 | EXT : 172.28.211.253"
+                           data-i="LAN : 10.0.206.1 | DMZ : 10.0.206.65 | EXT : 172.28.206.253"
                            data-r="Sécurité inter-zones"
-                           data-d="Seul point de sortie vers Internet. 3 interfaces : LAN 10.0.211.1 — DMZ 10.0.211.65 — Externe 172.28.211.253">
+                           data-d="Seul point de sortie vers Internet. 3 interfaces : LAN 10.0.206.1 — DMZ 10.0.206.65 — Externe 172.28.211.253">
                             <rect x="524" y="358" width="148" height="132" rx="12"
                                   fill="#0d0d30" stroke="#f59e0b" stroke-width="2.8"
                                   filter="url(#gfw)"/>
                             <text x="598" y="398" class="node-emoji" text-anchor="middle">🔥</text>
                             <text x="598" y="422" class="node-name fw-name" text-anchor="middle">FIREWALL</text>
                             <text x="598" y="436" class="node-mono" text-anchor="middle">CENTRAL</text>
-                            <text x="598" y="451" class="node-ip ip-green" text-anchor="middle">LAN 10.0.211.1</text>
-                            <text x="598" y="463" class="node-ip ip-orange" text-anchor="middle">DMZ 10.0.211.65</text>
-                            <text x="598" y="475" class="node-ip ip-pink" text-anchor="middle">EXT 172.28.211.253</text>
+                            <text x="598" y="451" class="node-ip ip-green" text-anchor="middle">LAN 10.0.206.1</text>
+                            <text x="598" y="463" class="node-ip ip-orange" text-anchor="middle">DMZ 10.0.206.65</text>
+                            <text x="598" y="475" class="node-ip ip-pink" text-anchor="middle">EXT 172.28.206.253</text>
                         </g>
 
                         <!-- CONNEXIONS : lignes simples (pas de flèches) -->
@@ -126,73 +126,64 @@
                         <!-- ===== ZONE LAN ===== -->
                         <!-- AD-01 -->
                         <g class="node-group"
-                           data-n="AD-01 — Contrôleur Primaire" data-i="10.0.211.66"
+                           data-n="AD-01 — Contrôleur Primaire" data-i="10.0.206.66"
                            data-r="Contrôleur de domaine principal"
                            data-d="Rôles FSMO, authentification Kerberos, GPO et annuaire d'entreprise.">
                             <rect x="24" y="68" width="108" height="84" rx="8" fill="#060b12" stroke="#10b981" stroke-width="1.8" filter="url(#gc)"/>
                             <text x="78" y="100" class="node-emoji" text-anchor="middle">🏢</text>
                             <text x="78" y="122" class="node-name" text-anchor="middle">AD-01</text>
-                            <text x="78" y="137" class="node-mono node-ip" text-anchor="middle">10.0.211.66</text>
+                            <text x="78" y="137" class="node-mono node-ip" text-anchor="middle">10.0.206.66</text>
                         </g>
-                        <!-- AD-02 -->
-                        <g class="node-group"
-                           data-n="AD-02 — Contrôleur Secondaire" data-i="10.0.211.69"
-                           data-r="Contrôleur de domaine secondaire"
-                           data-d="Réplication avec AD-01. Haute disponibilité en cas de panne.">
-                            <rect x="146" y="68" width="108" height="84" rx="8" fill="#060b12" stroke="#10b981" stroke-width="1.8" filter="url(#gc)"/>
-                            <text x="200" y="100" class="node-emoji" text-anchor="middle">🏛️</text>
-                            <text x="200" y="122" class="node-name" text-anchor="middle">AD-02</text>
-                            <text x="200" y="137" class="node-mono node-ip" text-anchor="middle">10.0.211.69</text>
-                        </g>
+                        
                         <!-- SRV-FIC -->
                         <g class="node-group"
-                           data-n="SRV-FIC" data-i="10.0.211.67"
+                           data-n="SRV-FIC" data-i="10.0.206.67"
                            data-r="Serveur de fichiers"
                            data-d="Stockage centralisé avec gestion fine des droits ACL liés aux groupes AD.">
                             <rect x="268" y="68" width="108" height="84" rx="8" fill="#060b12" stroke="#10b981" stroke-width="1.8" filter="url(#gc)"/>
                             <text x="322" y="100" class="node-emoji" text-anchor="middle">🗂️</text>
                             <text x="322" y="122" class="node-name" text-anchor="middle">SRV-FIC</text>
-                            <text x="322" y="137" class="node-mono node-ip" text-anchor="middle">10.0.211.67</text>
+                            <text x="322" y="137" class="node-mono node-ip" text-anchor="middle">10.0.206.67</text>
                         </g>
                         <!-- TRUENAS -->
                         <g class="node-group"
-                           data-n="SRV-TRUENAS" data-i="10.0.211.68"
+                           data-n="SRV-TRUENAS" data-i="10.0.206.68"
                            data-r="NAS / Stockage ZFS"
                            data-d="NAS TrueNAS haute capacité. Sauvegardes et redondance via ZFS.">
                             <rect x="392" y="68" width="108" height="84" rx="8" fill="#060b12" stroke="#10b981" stroke-width="1.8" filter="url(#gc)"/>
                             <text x="446" y="100" class="node-emoji" text-anchor="middle">💾</text>
                             <text x="446" y="122" class="node-name" text-anchor="middle">TRUENAS</text>
-                            <text x="446" y="137" class="node-mono node-ip" text-anchor="middle">10.0.211.68</text>
+                            <text x="446" y="137" class="node-mono node-ip" text-anchor="middle">10.0.206.68</text>
                         </g>
                         <!-- CENTREON -->
                         <g class="node-group"
-                           data-n="SRV-CENTREON" data-i="10.0.211.64"
+                           data-n="SRV-CENTREON" data-i="10.0.206.84"
                            data-r="Supervision / Monitoring"
                            data-d="Monitoring temps réel via SNMP et NRPE. Alertes et tableaux de bord.">
                             <rect x="24" y="206" width="116" height="84" rx="8" fill="#080820" stroke="#8b5cf6" stroke-width="1.8" filter="url(#gv)"/>
                             <text x="82" y="238" class="node-emoji" text-anchor="middle">📊</text>
                             <text x="82" y="260" class="node-name node-purple" text-anchor="middle">CENTREON</text>
-                            <text x="82" y="275" class="node-mono node-ip" text-anchor="middle">10.0.211.64</text>
+                            <text x="82" y="275" class="node-mono node-ip" text-anchor="middle">10.0.206.84</text>
                         </g>
                         <!-- WAZUH -->
                         <g class="node-group"
-                           data-n="SRV-WAZUH" data-i="10.0.211.63"
+                           data-n="SRV-WAZUH" data-i="10.0.206.83"
                            data-r="SIEM / Sécurité"
                            data-d="IDS, centralisation des logs de sécurité et réponse aux incidents.">
                             <rect x="158" y="206" width="108" height="84" rx="8" fill="#080820" stroke="#8b5cf6" stroke-width="1.8" filter="url(#gv)"/>
                             <text x="212" y="238" class="node-emoji" text-anchor="middle">🛡️</text>
                             <text x="212" y="260" class="node-name node-purple" text-anchor="middle">WAZUH</text>
-                            <text x="212" y="275" class="node-mono node-ip" text-anchor="middle">10.0.211.63</text>
+                            <text x="212" y="275" class="node-mono node-ip" text-anchor="middle">10.0.206.83</text>
                         </g>
                         <!-- W11 CLIENT -->
                         <g class="node-group"
-                           data-n="W11 CLIENT" data-i="10.0.211.70"
+                           data-n="W11 CLIENT" data-i="10.0.206.70"
                            data-r="Poste utilisateur"
                            data-d="Poste Windows 11 rattaché au domaine Active Directory.">
                             <rect x="284" y="206" width="116" height="84" rx="8" fill="#080820" stroke="#06b6d4" stroke-width="1.8" filter="url(#gv)"/>
                             <text x="342" y="238" class="node-emoji" text-anchor="middle">💻</text>
                             <text x="342" y="260" class="node-name node-cyan" text-anchor="middle">W11 CLIENT</text>
-                            <text x="342" y="275" class="node-mono node-ip" text-anchor="middle">10.0.211.70</text>
+                            <text x="342" y="275" class="node-mono node-ip" text-anchor="middle">10.0.206.70</text>
                         </g>
 
                         <!-- Ligne Switch LAN interne -->
@@ -203,65 +194,65 @@
                         <!-- ===== DMZ ===== -->
                         <!-- SRV-LAMP -->
                         <g class="node-group"
-                           data-n="SRV-LAMP" data-i="10.0.211.10"
+                           data-n="SRV-LAMP" data-i="10.0.206.10"
                            data-r="Serveur Web (DMZ)"
                            data-d="LAMP Linux/Apache/MySQL/PHP. Accessible depuis l'extérieur via le pare-feu.">
                             <rect x="698" y="68" width="100" height="78" rx="8" fill="#130a00" stroke="#f59e0b" stroke-width="1.8" filter="url(#go)"/>
                             <text x="748" y="98" class="node-emoji" text-anchor="middle">🌐</text>
                             <text x="748" y="118" class="node-name node-orange" text-anchor="middle">SRV-LAMP</text>
-                            <text x="748" y="132" class="node-mono node-ip" text-anchor="middle">10.0.211.10</text>
+                            <text x="748" y="132" class="node-mono node-ip" text-anchor="middle">10.0.206.10</text>
                         </g>
                         <!-- NEXTCLOUD -->
                         <g class="node-group"
-                           data-n="SRV-NEXTCLOUD" data-i="10.0.211.2"
+                           data-n="SRV-NEXTCLOUD" data-i="10.0.206.2"
                            data-r="Stockage cloud (DMZ)"
                            data-d="Nextcloud — partage de fichiers et collaboration accessible depuis l'extérieur via le pare-feu.">
                             <rect x="820" y="68" width="110" height="78" rx="8" fill="#130a00" stroke="#f59e0b" stroke-width="1.8" filter="url(#go)"/>
                             <text x="875" y="98" class="node-emoji" text-anchor="middle">☁️</text>
                             <text x="875" y="118" class="node-name node-orange" text-anchor="middle">NEXTCLOUD</text>
-                            <text x="875" y="132" class="node-mono node-ip" text-anchor="middle">10.0.211.2</text>
+                            <text x="875" y="132" class="node-mono node-ip" text-anchor="middle">10.0.206.2</text>
                         </g>
                         <!-- HAPROXY DMZ -->
                         <g class="node-group"
-                           data-n="HAPROXY — DMZ" data-i="10.0.211.11"
+                           data-n="HAPROXY — DMZ" data-i="10.0.206.13"
                            data-r="Load Balancer (DMZ)"
                            data-d="HAProxy en DMZ. Répartition de charge pour les services web exposés.">
                             <rect x="952" y="68" width="110" height="78" rx="8" fill="#130a00" stroke="#f59e0b" stroke-width="1.8" filter="url(#go)"/>
                             <text x="1007" y="98" class="node-emoji" text-anchor="middle">⚖️</text>
                             <text x="1007" y="118" class="node-name node-orange" text-anchor="middle">HAPROXY</text>
-                            <text x="1007" y="132" class="node-mono node-ip" text-anchor="middle">10.0.211.11</text>
+                            <text x="1007" y="132" class="node-mono node-ip" text-anchor="middle">10.0.206.13</text>
                         </g>
 
                         <!-- ===== ZONE EXTERNE ===== -->
                         <!-- DCB CLIENT -->
                         <g class="node-group"
-                           data-n="DCB CLIENT" data-i="172.28.211.220"
+                           data-n="DCB CLIENT" data-i="172.28.206.220"
                            data-r="Client zone externe"
                            data-d="Accès depuis réseau externe peu fiable. Trafic via pare-feu obligatoire.">
                             <rect x="214" y="706" width="112" height="78" rx="8" fill="#130010" stroke="#ec4899" stroke-width="1.8" filter="url(#go)"/>
                             <text x="270" y="736" class="node-emoji" text-anchor="middle">🖥️</text>
                             <text x="270" y="756" class="node-name node-pink" text-anchor="middle">DCB CLIENT</text>
-                            <text x="270" y="770" class="node-mono node-ip" text-anchor="middle">172.28.211.220</text>
+                            <text x="270" y="770" class="node-mono node-ip" text-anchor="middle">172.28.206.220</text>
                         </g>
                         <!-- SRV-DNS -->
                         <g class="node-group"
-                           data-n="SRV-DNS" data-i="10.0.211.65"
+                           data-n="SRV-DNS" data-i="10.0.206.65"
                            data-r="Résolution DNS"
                            data-d="Résolution des noms internes + redirection vers DNS publics.">
                             <rect x="348" y="706" width="100" height="78" rx="8" fill="#130010" stroke="#ec4899" stroke-width="1.8" filter="url(#go)"/>
                             <text x="398" y="736" class="node-emoji" text-anchor="middle">🔍</text>
                             <text x="398" y="756" class="node-name node-pink" text-anchor="middle">SRV-DNS</text>
-                            <text x="398" y="770" class="node-mono node-ip" text-anchor="middle">10.0.211.65</text>
+                            <text x="398" y="770" class="node-mono node-ip" text-anchor="middle">10.0.206.65</text>
                         </g>
                         <!-- HAPROXY EXTERNE -->
                         <g class="node-group"
-                           data-n="HAPROXY — Externe" data-i="172.28.211.254"
+                           data-n="HAPROXY — Externe" data-i="172.28.206.212"
                            data-r="Load Balancer (Zone Externe)"
                            data-d="HAProxy en zone externe. Répartition et redirection du trafic entrant depuis Internet.">
                             <rect x="476" y="706" width="110" height="78" rx="8" fill="#130010" stroke="#ec4899" stroke-width="1.8" filter="url(#go)"/>
                             <text x="531" y="736" class="node-emoji" text-anchor="middle">⚖️</text>
                             <text x="531" y="756" class="node-name node-pink" text-anchor="middle">HAPROXY</text>
-                            <text x="531" y="770" class="node-mono node-ip" text-anchor="middle">172.28.211.254</text>
+                            <text x="531" y="770" class="node-mono node-ip" text-anchor="middle">172.28.206.212</text>
                         </g>
 
                         <!-- INTERNET -->
@@ -298,34 +289,15 @@
                         <span class="srv-icon">🏢</span>
                         <div>
                             <div class="srv-name">AD-01 Primaire <span class="status-dot"></span></div>
-                            <div class="srv-ip">10.0.211.66</div>
+                            <div class="srv-ip">10.0.206.66</div>
                         </div>
                     </div>
                     <span class="zone-badge badge-intern">◈ Zone Interne</span>
-                    <p class="srv-desc">Contrôleur de domaine <strong>primaire</strong>. Rôles FSMO, authentification Kerberos, GPO et annuaire d'entreprise.</p>
+                    <p class="srv-desc">Contrôleur de domaine <strong>primaire</strong>. GPO et annuaire d'entreprise.</p>
                     <div class="srv-tags">
                         <span class="stag">Windows Server</span>
                         <span class="stag">LDAP</span>
                         <span class="stag">GPO</span>
-                        <span class="stag">Kerberos</span>
-                    </div>
-                </div>
-
-                <!-- AD-02 -->
-                <div class="srv-card srv-green">
-                    <div class="srv-header">
-                        <span class="srv-icon">🏛️</span>
-                        <div>
-                            <div class="srv-name">AD-02 Secondaire <span class="status-dot"></span></div>
-                            <div class="srv-ip">10.0.211.69</div>
-                        </div>
-                    </div>
-                    <span class="zone-badge badge-intern">◈ Zone Interne</span>
-                    <p class="srv-desc">Contrôleur de domaine <strong>secondaire</strong>. Réplication automatique avec AD-01 pour la haute disponibilité.</p>
-                    <div class="srv-tags">
-                        <span class="stag">Windows Server</span>
-                        <span class="stag">Réplication AD</span>
-                        <span class="stag">Failover</span>
                     </div>
                 </div>
 
@@ -335,14 +307,12 @@
                         <span class="srv-icon">🗂️</span>
                         <div>
                             <div class="srv-name">SRV-FIC <span class="status-dot"></span></div>
-                            <div class="srv-ip">10.0.211.67</div>
+                            <div class="srv-ip">10.0.206.67</div>
                         </div>
                     </div>
                     <span class="zone-badge badge-intern">◈ Zone Interne</span>
-                    <p class="srv-desc">Serveur de fichiers partagés avec gestion fine des droits ACL par utilisateur et groupe AD.</p>
+                    <p class="srv-desc">Serveur de fichiers partagés avec gestion fine des droits par utilisateur et groupe AD.</p>
                     <div class="srv-tags">
-                        <span class="stag">SMB</span>
-                        <span class="stag">ACL</span>
                         <span class="stag">Partage réseau</span>
                     </div>
                 </div>
@@ -353,14 +323,13 @@
                         <span class="srv-icon">💾</span>
                         <div>
                             <div class="srv-name">SRV-TRUENAS <span class="status-dot"></span></div>
-                            <div class="srv-ip">10.0.211.68</div>
+                            <div class="srv-ip">10.0.206.68</div>
                         </div>
                     </div>
                     <span class="zone-badge badge-intern">◈ Zone Interne</span>
-                    <p class="srv-desc">NAS TrueNAS haute capacité pour sauvegardes et redondance des données via ZFS.</p>
+                    <p class="srv-desc">NAS TrueNAS haute capacité pour sauvegardes et redondance des données.</p>
                     <div class="srv-tags">
                         <span class="stag">TrueNAS</span>
-                        <span class="stag">ZFS</span>
                         <span class="stag">Sauvegarde</span>
                     </div>
                 </div>
@@ -371,15 +340,14 @@
                         <span class="srv-icon">📊</span>
                         <div>
                             <div class="srv-name">SRV-CENTREON <span class="status-dot"></span></div>
-                            <div class="srv-ip">10.0.211.64</div>
+                            <div class="srv-ip">10.0.206.84</div>
                         </div>
                     </div>
                     <span class="zone-badge badge-intern">◈ Zone Interne</span>
-                    <p class="srv-desc">Supervision temps réel des services réseau via SNMP et NRPE. Alertes automatiques.</p>
+                    <p class="srv-desc">Supervision temps réel des services réseau via SNMP. Alertes automatiques.</p>
                     <div class="srv-tags">
                         <span class="stag">Centreon</span>
                         <span class="stag">SNMP</span>
-                        <span class="stag">NRPE</span>
                     </div>
                 </div>
 
@@ -389,14 +357,12 @@
                         <span class="srv-icon">🛡️</span>
                         <div>
                             <div class="srv-name">SRV-WAZUH <span class="status-dot"></span></div>
-                            <div class="srv-ip">10.0.211.63</div>
+                            <div class="srv-ip">10.0.206.83</div>
                         </div>
                     </div>
                     <span class="zone-badge badge-intern">◈ Zone Interne</span>
-                    <p class="srv-desc">SIEM Wazuh — détection d'intrusions, centralisation des logs et réponse aux incidents.</p>
+                    <p class="srv-desc">Wazuh — détection d'intrusions, centralisation des logs et réponse aux incidents.</p>
                     <div class="srv-tags">
-                        <span class="stag">SIEM</span>
-                        <span class="stag">IDS</span>
                         <span class="stag">Wazuh</span>
                     </div>
                 </div>
@@ -407,7 +373,7 @@
                         <span class="srv-icon">💻</span>
                         <div>
                             <div class="srv-name">W11 CLIENT <span class="status-dot"></span></div>
-                            <div class="srv-ip">10.0.211.70</div>
+                            <div class="srv-ip">10.0.206.70</div>
                         </div>
                     </div>
                     <span class="zone-badge badge-intern">◈ Zone Interne</span>
@@ -424,7 +390,7 @@
                         <span class="srv-icon">🌐</span>
                         <div>
                             <div class="srv-name">SRV-LAMP <span class="status-dot"></span></div>
-                            <div class="srv-ip">10.0.211.10</div>
+                            <div class="srv-ip">10.0.206.10</div>
                         </div>
                     </div>
                     <span class="zone-badge badge-dmz">◈ DMZ</span>
@@ -442,7 +408,7 @@
                         <span class="srv-icon">☁️</span>
                         <div>
                             <div class="srv-name">SRV-NEXTCLOUD <span class="status-dot"></span></div>
-                            <div class="srv-ip">10.0.211.2</div>
+                            <div class="srv-ip">10.0.206.2</div>
                         </div>
                     </div>
                     <span class="zone-badge badge-dmz">◈ DMZ</span>
@@ -460,7 +426,7 @@
                         <span class="srv-icon">⚖️</span>
                         <div>
                             <div class="srv-name">HAPROXY DMZ <span class="status-dot"></span></div>
-                            <div class="srv-ip">10.0.211.11</div>
+                            <div class="srv-ip">10.0.206.13</div>
                         </div>
                     </div>
                     <span class="zone-badge badge-dmz">◈ DMZ</span>
@@ -478,14 +444,13 @@
                         <span class="srv-icon">🔍</span>
                         <div>
                             <div class="srv-name">SRV-DNS <span class="status-dot"></span></div>
-                            <div class="srv-ip">10.0.211.65</div>
+                            <div class="srv-ip">10.0.206.65</div>
                         </div>
                     </div>
                     <span class="zone-badge badge-ext">◈ Zone Externe</span>
                     <p class="srv-desc">Résolution des noms de domaine internes + redirection vers résolveurs DNS publics.</p>
                     <div class="srv-tags">
                         <span class="stag">DNS</span>
-                        <span class="stag">BIND</span>
                         <span class="stag">Résolution</span>
                     </div>
                 </div>
@@ -495,15 +460,14 @@
                     <div class="srv-header">
                         <span class="srv-icon">🖥️</span>
                         <div>
-                            <div class="srv-name">DCB CLIENT <span class="status-dot"></span></div>
-                            <div class="srv-ip">172.28.211.220</div>
+                            <div class="srv-name">DEB CLIENT <span class="status-dot"></span></div>
+                            <div class="srv-ip">172.28.206.220</div>
                         </div>
                     </div>
                     <span class="zone-badge badge-ext">◈ Zone Externe</span>
                     <p class="srv-desc">Client zone externe simulant un accès depuis un réseau peu fiable. Trafic via pare-feu obligatoire.</p>
                     <div class="srv-tags">
                         <span class="stag">Client</span>
-                        <span class="stag">172.28.x.x</span>
                     </div>
                 </div>
 
@@ -513,7 +477,7 @@
                         <span class="srv-icon">⚖️</span>
                         <div>
                             <div class="srv-name">HAPROXY Externe <span class="status-dot"></span></div>
-                            <div class="srv-ip">172.28.211.254</div>
+                            <div class="srv-ip">172.28.206.212</div>
                         </div>
                     </div>
                     <span class="zone-badge badge-ext">◈ Zone Externe</span>
@@ -553,11 +517,6 @@
                         <span class="finding-icon">📊</span>
                         <h5>Supervision complète</h5>
                         <p>Centreon et Wazuh pour monitoring et sécurité</p>
-                    </div>
-                    <div class="finding-box">
-                        <span class="finding-icon">🏢</span>
-                        <h5>Active Directory ×2</h5>
-                        <p>Réplication AD-01 / AD-02 pour la haute disponibilité</p>
                     </div>
                 </div>
                 <div class="reflection">
