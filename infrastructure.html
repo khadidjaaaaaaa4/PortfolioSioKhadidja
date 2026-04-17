@@ -1,664 +1,571 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infrastructure – Portfolio BTS SIO</title>
-<link rel="stylesheet" href="infrastructure.css">
-<link rel="stylesheet" href="styles.css">
-<link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Grotesk:wght@400;600;700;800&family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
-<style>
-:root {
-  --neon-cyan: #00ffff;
-  --neon-pink: #ff00ff;
-  --neon-yellow: #ffe600;
-  --neon-green: #00ff88;
-  --street-orange: #ff6b35;
-  --pastel-blue: #a8d8ea;
-  --pastel-pink: #ffb3c6;
-  --bg-dark: #080810;
-  --bg-card: rgba(12,12,30,0.92);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background-color: var(--bg-dark);
-  color: #fff;
-  font-family: 'Rubik', sans-serif;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* BG GRID */
-.bg-grid {
-  position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  background-image:
-    linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,255,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.bg-glow {
-  position: fixed; border-radius: 50%;
-  pointer-events: none; z-index: 0; filter: blur(120px);
-}
-.glow-1 {
-  width: 600px; height: 600px; top: -200px; left: -200px;
-  background: rgba(157,0,255,0.12);
-}
-.glow-2 {
-  width: 500px; height: 500px; bottom: -150px; right: -150px;
-  background: rgba(0,255,255,0.08);
-}
-
-.page-wrapper {
-  position: relative; z-index: 1;
-  max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 4rem;
-}
-
-/* HEADER */
-.site-header {
-  text-align: center; padding: 3rem 0 1.5rem;
-}
-.site-title {
-  font-family: 'VT323', monospace; font-size: 3rem;
-  color: #fff; letter-spacing: 4px; text-transform: uppercase;
-  text-shadow: 0 0 20px rgba(0,255,255,0.4);
-}
-.site-title .accent { color: var(--neon-cyan); }
-.site-sub {
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem;
-  color: var(--pastel-blue); letter-spacing: 3px; text-transform: uppercase;
-  margin-top: 0.4rem; opacity: 0.7;
-}
-
-/* NAV */
-.site-nav {
-  margin: 1.5rem 0 2rem;
-  background: rgba(0,0,0,0.6);
-  border: 1px solid rgba(0,255,255,0.15);
-  border-radius: 14px;
-  backdrop-filter: blur(10px);
-}
-.nav-inner {
-  display: flex; flex-wrap: wrap; gap: 0.3rem; padding: 0.7rem;
-}
-.nav-btn {
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 600;
-  color: var(--pastel-blue); text-decoration: none;
-  padding: 0.5rem 1rem; border-radius: 8px;
-  border: 1px solid transparent;
-  transition: all 0.2s;
-}
-.nav-btn:hover {
-  background: rgba(0,255,255,0.1); border-color: rgba(0,255,255,0.3); color: #fff;
-}
-.nav-btn.active {
-  background: rgba(0,255,255,0.15); border-color: var(--neon-cyan); color: var(--neon-cyan);
-}
-
-/* SECTION HEADER */
-.section-header { margin: 3rem 0 1.5rem; }
-.section-tag {
-  font-family: 'VT323', monospace; font-size: 1rem;
-  color: var(--neon-cyan); letter-spacing: 3px; opacity: 0.7; margin-bottom: 0.5rem;
-}
-.section-title {
-  font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800;
-  color: #fff; line-height: 1.1;
-}
-.section-title em { font-style: normal; color: var(--neon-cyan); }
-.section-line {
-  height: 2px; margin-top: 1rem;
-  background: linear-gradient(90deg, var(--neon-cyan), transparent);
-}
-
-/* CARD */
-.card {
-  background: var(--bg-card);
-  border: 1.5px solid rgba(0,255,255,0.2);
-  border-radius: 18px;
-  padding: 2rem 2.2rem;
-  position: relative; overflow: hidden;
-}
-.card::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(0,255,255,0.04), rgba(157,0,255,0.04));
-  pointer-events: none;
-}
-
-/* INTRO */
-.intro-text {
-  font-size: 1.05rem; line-height: 1.8; color: var(--pastel-blue); margin-bottom: 1.5rem;
-}
-.intro-text strong { color: var(--neon-cyan); }
-
-.theme-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.tag {
-  font-family: 'Rubik', sans-serif; font-size: 0.78rem; font-weight: 600;
-  padding: 0.35rem 0.9rem; border-radius: 20px;
-  text-transform: uppercase; letter-spacing: 0.5px;
-}
-.tag-v {
-  background: rgba(0,255,255,0.1); border: 1px solid rgba(0,255,255,0.3); color: var(--neon-cyan);
-}
-.tag-c {
-  background: rgba(157,0,255,0.1); border: 1px solid rgba(157,0,255,0.3); color: #c084fc;
-}
-
-/* DIAGRAM */
-.diagram-scroll { overflow-x: auto; }
-.network-svg { width: 100%; min-width: 700px; height: auto; display: block; }
-
-.zone-pulse { animation: zone-glow 3s ease-in-out infinite alternate; }
-@keyframes zone-glow { from { opacity: 0.7; } to { opacity: 1; } }
-
-.zone-label { font-family: 'VT323', monospace; font-size: 14px; letter-spacing: 2px; font-weight: bold; }
-.zone-green { fill: #10b981; }
-.zone-orange { fill: #f59e0b; }
-.zone-pink { fill: #ec4899; }
-
-.node-group { cursor: pointer; }
-.node-group:hover rect { filter: brightness(1.4); }
-.node-emoji { font-size: 22px; }
-.node-name { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; fill: #fff; text-transform: uppercase; letter-spacing: 1px; }
-.fw-name { font-size: 13px; }
-.node-purple { fill: #a78bfa; }
-.node-cyan { fill: #22d3ee; }
-.node-orange { fill: #fbbf24; }
-.node-pink { fill: #f472b6; }
-.node-mono { font-family: 'VT323', monospace; font-size: 12px; }
-.node-ip { fill: #6ee7b7; }
-.ip-green { fill: #34d399; }
-.ip-orange { fill: #fbbf24; }
-.ip-pink { fill: #f472b6; }
-.link-v { animation: dash 3s linear infinite; }
-.link-c { animation: dash 4s linear infinite; }
-.link-s { animation: dash 5s linear infinite; stroke-dasharray: 6 3; }
-@keyframes dash { to { stroke-dashoffset: -24; } }
-.legend-txt { font-family: 'VT323', monospace; font-size: 12px; }
-
-/* TOOLTIP */
-.node-tooltip {
-  position: fixed; background: rgba(0,0,0,0.97); border: 2px solid var(--neon-cyan);
-  border-radius: 12px; padding: 0.9rem 1.2rem;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; color: #fff;
-  pointer-events: none; z-index: 9999; display: none; max-width: 260px;
-  box-shadow: 0 0 20px rgba(0,255,255,0.35);
-}
-.node-tooltip.show { display: block; }
-.node-tooltip h4 { color: var(--neon-cyan); font-size: 0.95rem; margin-bottom: 0.4rem; font-weight: 700; }
-.node-tooltip p { color: var(--pastel-blue); font-size: 0.78rem; line-height: 1.5; margin: 0.2rem 0; }
-.node-tooltip .tip-ip { color: var(--neon-yellow); font-family: 'VT323', monospace; font-size: 1rem; margin: 0.4rem 0; }
-
-/* SERVERS GRID */
-.servers-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.8rem; margin-top: 1.5rem;
-}
-.srv-card {
-  background: var(--bg-card); border-radius: 16px; padding: 1.6rem 1.8rem;
-  position: relative; overflow: hidden;
-  animation: enter 0.5s ease-out forwards; opacity: 0;
-  min-height: 220px; display: flex; flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.srv-card:hover { transform: translateY(-4px); }
-.srv-card:nth-child(1){animation-delay:0.05s} .srv-card:nth-child(2){animation-delay:0.1s}
-.srv-card:nth-child(3){animation-delay:0.15s} .srv-card:nth-child(4){animation-delay:0.2s}
-.srv-card:nth-child(5){animation-delay:0.25s} .srv-card:nth-child(6){animation-delay:0.3s}
-.srv-card:nth-child(7){animation-delay:0.35s} .srv-card:nth-child(8){animation-delay:0.4s}
-.srv-card:nth-child(9){animation-delay:0.45s} .srv-card:nth-child(10){animation-delay:0.5s}
-.srv-card:nth-child(11){animation-delay:0.55s} .srv-card:nth-child(12){animation-delay:0.6s}
-@keyframes enter { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
-
-.srv-green { border: 2px solid #10b981; box-shadow: 0 0 24px rgba(16,185,129,0.15); }
-.srv-purple { border: 2px solid #8b5cf6; box-shadow: 0 0 24px rgba(139,92,246,0.15); }
-.srv-cyan { border: 2px solid #06b6d4; box-shadow: 0 0 24px rgba(6,182,212,0.15); }
-.srv-orange { border: 2px solid #f59e0b; box-shadow: 0 0 24px rgba(245,158,11,0.15); }
-.srv-pink { border: 2px solid #ec4899; box-shadow: 0 0 24px rgba(236,72,153,0.15); }
-
-.srv-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-.srv-icon { font-size: 2rem; line-height: 1; }
-.srv-name {
-  font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 800;
-  color: #fff; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem;
-}
-.srv-ip { font-family: 'VT323', monospace; font-size: 1.1rem; color: var(--neon-yellow); letter-spacing: 2px; margin-top: 2px; }
-
-.status-dot {
-  width: 9px; height: 9px; border-radius: 50%; background: var(--neon-green);
-  box-shadow: 0 0 7px var(--neon-green); display: inline-block;
-  animation: pulse-dot 2s infinite;
-}
-@keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.75)} }
-
-.zone-badge {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  padding: 0.28rem 0.75rem; border-radius: 10px;
-  font-family: 'VT323', monospace; font-size: 0.9rem; letter-spacing: 1px;
-  margin-bottom: 0.9rem; width: fit-content;
-}
-.badge-intern { background: rgba(16,185,129,0.12); border: 1px solid #10b981; color: #10b981; }
-.badge-dmz { background: rgba(245,158,11,0.12); border: 1px solid #f59e0b; color: #f59e0b; }
-.badge-ext { background: rgba(236,72,153,0.12); border: 1px solid #ec4899; color: #ec4899; }
-
-.srv-desc {
-  font-family: 'Rubik', sans-serif; color: var(--pastel-blue);
-  font-size: 0.92rem; line-height: 1.6; margin-bottom: 1rem;
-}
-.srv-desc strong { color: var(--neon-pink); }
-
-.srv-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: auto; }
-.stag {
-  font-family: 'Rubik', sans-serif; font-size: 0.72rem; font-weight: 600;
-  padding: 0.25rem 0.65rem; background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.14); border-radius: 8px;
-  color: var(--pastel-pink); text-transform: uppercase; letter-spacing: 0.5px;
-}
-
-/* SYNTHESIS */
-.synthesis-intro {
-  font-family: 'Rubik', sans-serif; color: var(--pastel-blue);
-  font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;
-}
-.synthesis-intro strong { color: var(--neon-pink); }
-
-.findings-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.4rem; margin-bottom: 2rem;
-}
-.finding-box {
-  background: linear-gradient(135deg, rgba(0,255,255,0.07), rgba(157,0,255,0.07));
-  border: 1.5px solid rgba(0,255,255,0.2); border-radius: 14px;
-  padding: 1.4rem; text-align: center;
-  transition: all 0.25s;
-}
-.finding-box:hover { border-color: var(--neon-cyan); transform: translateY(-4px); box-shadow: 0 4px 18px rgba(0,255,255,0.2); }
-.finding-icon { font-size: 2.2rem; display: block; margin-bottom: 0.8rem; }
-.finding-box h5 {
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700;
-  color: #fff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.6rem;
-}
-.finding-box p { font-family: 'Rubik', sans-serif; color: var(--pastel-pink); font-size: 0.85rem; line-height: 1.5; }
-
-.reflection {
-  background: linear-gradient(135deg, rgba(255,0,255,0.12), rgba(255,107,53,0.12));
-  border: 1.5px solid var(--neon-pink); border-radius: 13px; padding: 1.6rem;
-}
-.reflection h4 {
-  font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700;
-  color: var(--neon-pink); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;
-}
-.reflection p { font-family: 'Rubik', sans-serif; color: var(--pastel-blue); font-size: 1rem; line-height: 1.8; }
-.reflection strong { color: var(--neon-pink); }
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .site-title { font-size: 2rem; }
-  .section-title { font-size: 1.6rem; }
-  .servers-grid { grid-template-columns: 1fr; }
-  .findings-grid { grid-template-columns: 1fr; }
-  .card { padding: 1.3rem 1.2rem; }
-  .nav-inner { justify-content: center; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure - Portfolio BTS SIO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="infrastructure.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=VT323&family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<div class="node-tooltip" id="tooltip">
-  <h4 id="tip-name"></h4>
-  <p class="tip-ip" id="tip-ip"></p>
-  <p id="tip-role"></p>
-  <p id="tip-desc"></p>
-</div>
-
-<div class="bg-grid"></div>
-<div class="bg-glow glow-1"></div>
-<div class="bg-glow glow-2"></div>
-
-<div class="page-wrapper">
-
-  <header class="site-header">
-    <h1 class="site-title">Mon Portfolio <span class="accent">BTS SIO</span></h1>
-    <p class="site-sub">Services Informatiques aux Organisations</p>
-  </header>
-
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-btn">🏠 Accueil</a>
-      <a href="parcours.html" class="nav-btn">🎓 Parcours</a>
-      <a href="projets.html" class="nav-btn">💻 Projets</a>
-      <a href="infrastructure.html" class="nav-btn active">🖥️ Infra</a>
-      <a href="grille-competences.html" class="nav-btn">📊 Compétences</a>
-      <a href="certifications.html" class="nav-btn">🏆 Certifs</a>
-      <a href="veille.html" class="nav-btn">📡 Veille</a>
-    </div>
-  </nav>
-
-  <main>
-
-    <div class="section-header">
-      <div class="section-tag">// network topology</div>
-      <h2 class="section-title">Infrastructure <em>Réseau</em></h2>
-      <div class="section-line"></div>
+    <div class="cursor-trail"></div>
+    
+    <div class="floating-elements">
+        <div class="float-elem elem-1">🖥️</div>
+        <div class="float-elem elem-2">🔒</div>
+        <div class="float-elem elem-3">🌐</div>
+        <div class="float-elem elem-4">⚙️</div>
     </div>
 
-    <div class="card" style="margin-bottom:2rem;">
-      <p class="intro-text">
-        Dans le cadre de ma formation BTS SIO, j'ai travaillé sur une <strong>infrastructure réseau complète et segmentée</strong>. Elle comprend une zone interne sécurisée avec <strong>deux contrôleurs Active Directory</strong>, une DMZ et une zone externe, le tout contrôlé par un pare-feu centralisé unique point de sortie vers Internet.
-      </p>
-      <div class="theme-tags">
-        <span class="tag tag-v">🔥 Pare-feu central</span>
-        <span class="tag tag-c">🖧 Segmentation réseau</span>
-        <span class="tag tag-v">📊 Supervision Centreon</span>
-        <span class="tag tag-c">🪟 Active Directory ×2</span>
-        <span class="tag tag-v">🛡️ Wazuh</span>
-        <span class="tag tag-c">💾 NAS TrueNAS</span>
-        <span class="tag tag-v">⚖️ HAProxy ×2</span>
-        <span class="tag tag-c">☁️ Nextcloud</span>
-      </div>
-    </div>
+    <!-- Tooltip -->
+    <div class="node-tooltip" id="tooltip"></div>
 
-    <!-- SCHÉMA RÉSEAU -->
-    <div class="card" style="margin-bottom:2rem;">
-      <div class="section-tag">// SCHÉMA RÉSEAU</div>
-      <div class="diagram-scroll">
-        <svg viewBox="0 0 1200 900" class="network-svg" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="gv"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            <filter id="gc"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            <filter id="go"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            <filter id="gfw"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          </defs>
+    <div class="container y2k-container">
+        <header class="glitch-header">
+            <h1 class="glitch-text" data-text="Mon Portfolio BTS SIO">Mon Portfolio BTS SIO</h1>
+            <p class="subtitle neon-text">Services Informatiques aux Organisations</p>
+            <div class="header-decorations">
+                <span class="float-sticker">🖥️</span>
+                <span class="float-sticker">🔒</span>
+                <span class="float-sticker">🌐</span>
+            </div>
+        </header>
 
-          <!-- ZONES -->
-          <rect x="14" y="28" width="500" height="540" rx="14" fill="rgba(16,185,129,.05)" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6 3" class="zone-pulse"/>
-          <text x="32" y="54" class="zone-label zone-green">◈ ZONE INTERNE — LAN 10.0.206.0/24</text>
+        <nav class="y2k-nav">
+            <div class="nav-container">
+                <a href="index.html" class="nav-btn nav-bubble">🏠 Accueil</a>
+                <a href="parcours.html" class="nav-btn nav-bubble">🎓 Parcours</a>
+                <a href="projets.html" class="nav-btn nav-bubble">💻 Projets</a>
+                <a href="infrastructure.html" class="nav-btn nav-bubble active">🖥️ Infra</a>
+                <a href="grille-competences.html" class="nav-btn nav-bubble">📊 Compétences</a>
+                <a href="certifications.html" class="nav-btn nav-bubble">🏆 Certifs</a>
+                <a href="veille.html" class="nav-btn nav-bubble">📡 Veille</a>
+            </div>
+        </nav>
 
-          <rect x="685" y="28" width="495" height="230" rx="14" fill="rgba(245,158,11,.05)" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 3" class="zone-pulse"/>
-          <text x="705" y="54" class="zone-label zone-orange">◈ DMZ</text>
+        <div class="content chaos-content">
+            <!-- TITRE -->
+            <div class="title-wrapper">
+                <h2 class="section-title cyber-title">
+                    <span class="title-bg">NETWORK MAP</span>
+                    Infrastructure Réseau
+                </h2>
+                <div class="decorative-line"></div>
+            </div>
 
-          <rect x="200" y="650" width="530" height="130" rx="14" fill="rgba(236,72,153,.04)" stroke="#ec4899" stroke-width="1.5" stroke-dasharray="6 3" class="zone-pulse"/>
-          <text x="218" y="673" class="zone-label zone-pink">◈ ZONE EXTERNE 172.28.206.0/24</text>
+            <!-- INTRO -->
+            <div class="intro-card card-chaos card-cyan">
+                <div class="card-sticker">🖥️</div>
+                <div class="card-noise"></div>
+                <div class="intro-content">
+                    <h3 class="cyber-heading-small">MON INFRASTRUCTURE</h3>
+                    <p class="intro-text">
+                        Dans le cadre de ma formation BTS SIO, j'ai eu l'opportunité de travailler sur une <strong>infrastructure réseau complète</strong>. Celle-ci comprend plusieurs zones de sécurité distinctes : une zone LAN sécurisée avec des serveurs de gestion, une DMZ pour les services web exposés, et une zone externe contrôlée par un pare-feu centralisé.
+                    </p>
+                    <div class="theme-highlights">
+                        <div class="theme-item">
+                            <span class="theme-icon">🔥</span>
+                            <span class="theme-label">Pare-feu & Sécurité</span>
+                        </div>
+                        <div class="theme-item">
+                            <span class="theme-icon">🖧</span>
+                            <span class="theme-label">Segmentation réseau</span>
+                        </div>
+                        <div class="theme-item">
+                            <span class="theme-icon">📊</span>
+                            <span class="theme-label">Supervision & Monitoring</span>
+                        </div>
+                        <div class="theme-item">
+                            <span class="theme-icon">🪟</span>
+                            <span class="theme-label">Active Directory</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="corner-deco top-right"></div>
+                <div class="corner-deco bottom-left"></div>
+            </div>
 
-          <!-- FIREWALL -->
-          <g class="node-group"
-             data-name="PARE-FEU CENTRAL"
-             data-ip="LAN : 10.0.206.1 | DMZ : 10.0.206.65 | EXT : 172.28.206.253"
-             data-role="Sécurité inter-zones"
-             data-desc="Seul point de sortie vers Internet. 3 interfaces : LAN 10.0.206.1 — DMZ 10.0.206.65 — Externe 172.28.211.253">
-            <rect x="524" y="358" width="148" height="132" rx="12" fill="#0d0d30" stroke="#f59e0b" stroke-width="2.8" filter="url(#gfw)"/>
-            <text x="598" y="398" class="node-emoji" text-anchor="middle">🔥</text>
-            <text x="598" y="422" class="node-name fw-name" text-anchor="middle">FIREWALL</text>
-            <text x="598" y="436" class="node-mono" text-anchor="middle" fill="#94a3b8">CENTRAL</text>
-            <text x="598" y="451" class="node-mono ip-green" text-anchor="middle">LAN 10.0.206.1</text>
-            <text x="598" y="463" class="node-mono ip-orange" text-anchor="middle">DMZ 10.0.206.65</text>
-            <text x="598" y="475" class="node-mono ip-pink" text-anchor="middle">EXT 172.28.206.253</text>
-          </g>
+            <!-- SCHEMA RÉSEAU -->
+            <div class="diagram-section">
+                <div class="section-label glitch-label">// NETWORK_TOPOLOGY</div>
 
-          <!-- CONNEXIONS -->
-          <line x1="514" y1="424" x2="524" y2="424" stroke="#34d399" stroke-width="2" class="link-v" opacity=".85"/>
-          <line x1="760" y1="258" x2="672" y2="392" stroke="#f59e0b" stroke-width="2" class="link-c" opacity=".8"/>
-          <line x1="598" y1="490" x2="598" y2="650" stroke="#f472b6" stroke-width="2" opacity=".75"/>
-          <line x1="730" y1="715" x2="1010" y2="715" stroke="#818cf8" stroke-width="2" class="link-s" opacity=".9"/>
+                <div class="diagram-wrapper">
+                    <div class="diagram-title">🔌 Schéma réseau</div>
 
-          <!-- ZONE LAN : rangée 1 -->
-          <g class="node-group" data-name="AD-01 — Contrôleur Primaire" data-ip="10.0.206.66" data-role="Contrôleur de domaine principal" data-desc="Rôles FSMO, authentification Kerberos, GPO et annuaire d'entreprise.">
-            <rect x="24" y="68" width="108" height="84" rx="8" fill="#060b12" stroke="#10b981" stroke-width="1.8" filter="url(#gc)"/>
-            <text x="78" y="100" class="node-emoji" text-anchor="middle">🏢</text>
-            <text x="78" y="122" class="node-name" text-anchor="middle">AD-01</text>
-            <text x="78" y="137" class="node-mono node-ip" text-anchor="middle">10.0.206.66</text>
-          </g>
-          <g class="node-group" data-name="SRV-FIC" data-ip="10.0.206.67" data-role="Serveur de fichiers" data-desc="Stockage centralisé avec gestion fine des droits ACL liés aux groupes AD.">
-            <rect x="152" y="68" width="108" height="84" rx="8" fill="#060b12" stroke="#10b981" stroke-width="1.8" filter="url(#gc)"/>
-            <text x="206" y="100" class="node-emoji" text-anchor="middle">🗂️</text>
-            <text x="206" y="122" class="node-name" text-anchor="middle">SRV-FIC</text>
-            <text x="206" y="137" class="node-mono node-ip" text-anchor="middle">10.0.206.67</text>
-          </g>
-          <g class="node-group" data-name="SRV-TRUENAS" data-ip="10.0.206.68" data-role="NAS / Stockage ZFS" data-desc="NAS TrueNAS haute capacité. Sauvegardes et redondance via ZFS.">
-            <rect x="280" y="68" width="108" height="84" rx="8" fill="#060b12" stroke="#10b981" stroke-width="1.8" filter="url(#gc)"/>
-            <text x="334" y="100" class="node-emoji" text-anchor="middle">💾</text>
-            <text x="334" y="122" class="node-name" text-anchor="middle">TRUENAS</text>
-            <text x="334" y="137" class="node-mono node-ip" text-anchor="middle">10.0.206.68</text>
-          </g>
-          <g class="node-group" data-name="W11 CLIENT" data-ip="10.0.206.70" data-role="Poste utilisateur" data-desc="Poste Windows 11 rattaché au domaine Active Directory.">
-            <rect x="396" y="68" width="108" height="84" rx="8" fill="#060b12" stroke="#06b6d4" stroke-width="1.8" filter="url(#gc)"/>
-            <text x="450" y="100" class="node-emoji" text-anchor="middle">💻</text>
-            <text x="450" y="122" class="node-name node-cyan" text-anchor="middle">W11 CLIENT</text>
-            <text x="450" y="137" class="node-mono node-ip" text-anchor="middle">10.0.206.70</text>
-          </g>
+                    <div class="network-svg-container">
+                        <svg class="network-svg" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <filter id="glow-cyan">
+                                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                                    <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                                <filter id="glow-green">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                                <filter id="glow-orange">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                                <marker id="arrow-cyan" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto">
+                                    <path d="M0,0 L0,6 L8,3 z" fill="#00ffff" opacity="0.8"/>
+                                </marker>
+                                <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto">
+                                    <path d="M0,0 L0,6 L8,3 z" fill="#ff6b35" opacity="0.8"/>
+                                </marker>
+                            </defs>
 
-          <!-- ZONE LAN : rangée 2 -->
-          <g class="node-group" data-name="SRV-CENTREON" data-ip="10.0.206.84" data-role="Supervision / Monitoring" data-desc="Monitoring temps réel via SNMP et NRPE. Alertes et tableaux de bord.">
-            <rect x="24" y="200" width="116" height="84" rx="8" fill="#080820" stroke="#8b5cf6" stroke-width="1.8" filter="url(#gv)"/>
-            <text x="82" y="232" class="node-emoji" text-anchor="middle">📊</text>
-            <text x="82" y="254" class="node-name node-purple" text-anchor="middle">CENTREON</text>
-            <text x="82" y="269" class="node-mono node-ip" text-anchor="middle">10.0.206.84</text>
-          </g>
-          <g class="node-group" data-name="SRV-WAZUH" data-ip="10.0.206.83" data-role="SIEM / Sécurité" data-desc="IDS, centralisation des logs de sécurité et réponse aux incidents.">
-            <rect x="160" y="200" width="108" height="84" rx="8" fill="#080820" stroke="#8b5cf6" stroke-width="1.8" filter="url(#gv)"/>
-            <text x="214" y="232" class="node-emoji" text-anchor="middle">🛡️</text>
-            <text x="214" y="254" class="node-name node-purple" text-anchor="middle">WAZUH</text>
-            <text x="214" y="269" class="node-mono node-ip" text-anchor="middle">10.0.206.83</text>
-          </g>
-          <g class="node-group" data-name="AD-02 — Secondaire" data-ip="10.0.206.X" data-role="Contrôleur de domaine secondaire" data-desc="Réplication AD depuis AD-01. Tolérance aux pannes et équilibrage des authentifications.">
-            <rect x="290" y="200" width="108" height="84" rx="8" fill="#060b12" stroke="#10b981" stroke-width="1.8" filter="url(#gc)"/>
-            <text x="344" y="232" class="node-emoji" text-anchor="middle">🏢</text>
-            <text x="344" y="254" class="node-name" text-anchor="middle">AD-02</text>
-            <text x="344" y="269" class="node-mono node-ip" text-anchor="middle">10.0.206.X</text>
-          </g>
+                            <!-- Zone LAN (verte) -->
+                            <rect x="30" y="30" width="360" height="250" rx="20" fill="rgba(0,200,0,0.08)" stroke="#00c800" stroke-width="2.5" stroke-dasharray="8 4" class="zone-pulse"/>
+                            <text x="50" y="58" class="zone-label" fill="#00c800" filter="url(#glow-green)">🟢 ZONE LAN</text>
 
-          <!-- Lignes internes LAN -->
-          <line x1="78" y1="152" x2="82" y2="200" stroke="#10b981" stroke-width="1" stroke-dasharray="3 3" opacity=".3"/>
-          <line x1="206" y1="152" x2="214" y2="200" stroke="#10b981" stroke-width="1" stroke-dasharray="3 3" opacity=".3"/>
-          <line x1="334" y1="152" x2="344" y2="200" stroke="#10b981" stroke-width="1" stroke-dasharray="3 3" opacity=".3"/>
+                            <!-- Zone DMZ (orange) -->
+                            <rect x="580" y="30" width="290" height="250" rx="20" fill="rgba(255,165,0,0.1)" stroke="#ffa500" stroke-width="2.5" stroke-dasharray="8 4" class="zone-pulse"/>
+                            <text x="600" y="58" class="zone-label" fill="#ffa500" filter="url(#glow-orange)">🟠 DMZ</text>
 
-          <!-- DMZ -->
-          <g class="node-group" data-name="SRV-LAMP" data-ip="10.0.206.10" data-role="Serveur Web (DMZ)" data-desc="LAMP Linux/Apache/MySQL/PHP. Accessible depuis l'extérieur via le pare-feu.">
-            <rect x="698" y="68" width="100" height="78" rx="8" fill="#130a00" stroke="#f59e0b" stroke-width="1.8" filter="url(#go)"/>
-            <text x="748" y="98" class="node-emoji" text-anchor="middle">🌐</text>
-            <text x="748" y="118" class="node-name node-orange" text-anchor="middle">SRV-LAMP</text>
-            <text x="748" y="132" class="node-mono node-ip" text-anchor="middle">10.0.206.10</text>
-          </g>
-          <g class="node-group" data-name="SRV-NEXTCLOUD" data-ip="10.0.206.2" data-role="Stockage cloud (DMZ)" data-desc="Nextcloud — partage de fichiers et collaboration accessible depuis l'extérieur via le pare-feu.">
-            <rect x="820" y="68" width="110" height="78" rx="8" fill="#130a00" stroke="#f59e0b" stroke-width="1.8" filter="url(#go)"/>
-            <text x="875" y="98" class="node-emoji" text-anchor="middle">☁️</text>
-            <text x="875" y="118" class="node-name node-orange" text-anchor="middle">NEXTCLOUD</text>
-            <text x="875" y="132" class="node-mono node-ip" text-anchor="middle">10.0.206.2</text>
-          </g>
-          <g class="node-group" data-name="HAPROXY — DMZ" data-ip="10.0.206.13" data-role="Load Balancer (DMZ)" data-desc="HAProxy en DMZ. Répartition de charge pour les services web exposés.">
-            <rect x="952" y="68" width="110" height="78" rx="8" fill="#130a00" stroke="#f59e0b" stroke-width="1.8" filter="url(#go)"/>
-            <text x="1007" y="98" class="node-emoji" text-anchor="middle">⚖️</text>
-            <text x="1007" y="118" class="node-name node-orange" text-anchor="middle">HAPROXY</text>
-            <text x="1007" y="132" class="node-mono node-ip" text-anchor="middle">10.0.206.13</text>
-          </g>
+                            <!-- Zone EXTERNE (rouge) -->
+                            <rect x="30" y="380" width="290" height="170" rx="20" fill="rgba(255,107,53,0.08)" stroke="#ff6b35" stroke-width="2.5" stroke-dasharray="8 4" class="zone-pulse"/>
+                            <text x="50" y="408" class="zone-label" fill="#ff6b35" filter="url(#glow-orange)">🔴 ZONE EXTERNE</text>
 
-          <!-- ZONE EXTERNE -->
-          <g class="node-group" data-name="DCB CLIENT" data-ip="172.28.206.220" data-role="Client zone externe" data-desc="Accès depuis réseau externe peu fiable. Trafic via pare-feu obligatoire.">
-            <rect x="214" y="690" width="112" height="78" rx="8" fill="#130010" stroke="#ec4899" stroke-width="1.8" filter="url(#go)"/>
-            <text x="270" y="720" class="node-emoji" text-anchor="middle">🖥️</text>
-            <text x="270" y="740" class="node-name node-pink" text-anchor="middle">DCB CLIENT</text>
-            <text x="270" y="755" class="node-mono node-ip" text-anchor="middle">172.28.206.220</text>
-          </g>
-          <g class="node-group" data-name="SRV-DNS" data-ip="10.0.206.65" data-role="Résolution DNS" data-desc="Résolution des noms internes + redirection vers DNS publics.">
-            <rect x="348" y="690" width="100" height="78" rx="8" fill="#130010" stroke="#ec4899" stroke-width="1.8" filter="url(#go)"/>
-            <text x="398" y="720" class="node-emoji" text-anchor="middle">🔍</text>
-            <text x="398" y="740" class="node-name node-pink" text-anchor="middle">SRV-DNS</text>
-            <text x="398" y="755" class="node-mono node-ip" text-anchor="middle">10.0.206.65</text>
-          </g>
-          <g class="node-group" data-name="HAPROXY — Externe" data-ip="172.28.206.212" data-role="Load Balancer (Zone Externe)" data-desc="HAProxy en zone externe. Répartition et redirection du trafic entrant depuis Internet.">
-            <rect x="476" y="690" width="110" height="78" rx="8" fill="#130010" stroke="#ec4899" stroke-width="1.8" filter="url(#go)"/>
-            <text x="531" y="720" class="node-emoji" text-anchor="middle">⚖️</text>
-            <text x="531" y="740" class="node-name node-pink" text-anchor="middle">HAPROXY</text>
-            <text x="531" y="755" class="node-mono node-ip" text-anchor="middle">172.28.206.212</text>
-          </g>
+                            <!-- Internet cloud -->
+                            <text x="770" y="480" font-size="55" text-anchor="middle" opacity="0.7">☁️</text>
+                            <text x="770" y="515" font-size="12" fill="#88aaff" text-anchor="middle" font-family="VT323, monospace" letter-spacing="2">INTERNET</text>
 
-          <!-- INTERNET -->
-          <text x="1060" y="725" font-size="48" text-anchor="middle" opacity=".8">☁️</text>
-          <text x="1060" y="770" class="node-mono" text-anchor="middle" fill="#818cf8" letter-spacing="2">INTERNET</text>
+                            <!-- FIREWALL (centre) -->
+                            <g class="node-group" data-name="Pare-feu" data-ip="10.0.206.65/26 / 10.0.206.1/26 / 172.28.206.253/24" data-desc="Pare-feu central gérant toutes les communications entre les zones (LAN, DMZ, Externe et Internet)." data-role="Sécurité réseau" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                                <rect x="400" y="320" width="100" height="80" rx="12" fill="#1a1a2e" stroke="#ff6b35" stroke-width="3" filter="url(#glow-orange)"/>
+                                <text x="450" y="350" font-size="28" text-anchor="middle">🔥</text>
+                                <text x="450" y="375" font-size="11" fill="#ff6b35" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">FIREWALL</text>
+                                <text x="450" y="390" font-size="10" fill="#ffa500" text-anchor="middle" font-family="VT323, monospace">CENTRAL</text>
+                            </g>
 
-          <!-- LÉGENDE -->
-          <rect x="760" y="810" width="400" height="26" rx="5" fill="rgba(0,0,0,.55)" stroke="rgba(139,92,246,.15)" stroke-width="1"/>
-          <rect x="772" y="819" width="7" height="5" rx="1" fill="rgba(16,185,129,.2)" stroke="#10b981"/>
-          <text x="783" y="826" class="legend-txt" fill="#34d399">LAN</text>
-          <rect x="808" y="819" width="7" height="5" rx="1" fill="rgba(245,158,11,.15)" stroke="#f59e0b"/>
-          <text x="819" y="826" class="legend-txt" fill="#f59e0b">DMZ</text>
-          <rect x="848" y="819" width="7" height="5" rx="1" fill="rgba(236,72,153,.12)" stroke="#ec4899"/>
-          <text x="859" y="826" class="legend-txt" fill="#f472b6">EXT</text>
-          <line x1="892" y1="822" x2="904" y2="822" stroke="#818cf8" stroke-width="1.2" stroke-dasharray="3 2"/>
-          <text x="908" y="826" class="legend-txt" fill="#818cf8">WAN</text>
-          <text x="940" y="826" class="legend-txt" fill="rgba(139,92,246,.5)">survole les nœuds pour détails</text>
-        </svg>
-      </div>
-    </div>
+                            <!-- CONNEXIONS -->
+                            <line x1="390" y1="155" x2="420" y2="320" stroke="#00c800" stroke-width="2.5" class="link-line" marker-end="url(#arrow-cyan)" opacity="0.8"/>
+                            <text x="360" y="230" font-size="11" fill="#00c800" font-family="VT323, monospace" letter-spacing="1">10.0.206.65/26</text>
 
-    <!-- SERVEURS -->
-    <div class="section-header">
-      <div class="section-tag">// server details</div>
-      <h2 class="section-title">Détail des <em>Serveurs</em></h2>
-      <div class="section-line"></div>
-    </div>
+                            <line x1="580" y1="155" x2="500" y2="340" stroke="#ffa500" stroke-width="2" class="link-line" marker-end="url(#arrow-orange)" opacity="0.7"/>
+                            <text x="540" y="240" font-size="11" fill="#ffa500" font-family="VT323, monospace" letter-spacing="1">10.0.206.1/26</text>
 
-    <div class="servers-grid">
-      <div class="srv-card srv-green">
-        <div class="srv-header"><span class="srv-icon">🏢</span><div><div class="srv-name">AD-01 Primaire <span class="status-dot"></span></div><div class="srv-ip">10.0.206.66</div></div></div>
-        <span class="zone-badge badge-intern">◈ Zone Interne</span>
-        <p class="srv-desc">Contrôleur de domaine <strong>primaire</strong>. GPO et annuaire d'entreprise.</p>
-        <div class="srv-tags"><span class="stag">Windows Server</span><span class="stag">LDAP</span><span class="stag">GPO</span></div>
-      </div>
-      <div class="srv-card srv-green">
-        <div class="srv-header"><span class="srv-icon">🗂️</span><div><div class="srv-name">SRV-FIC <span class="status-dot"></span></div><div class="srv-ip">10.0.206.67</div></div></div>
-        <span class="zone-badge badge-intern">◈ Zone Interne</span>
-        <p class="srv-desc">Serveur de fichiers partagés avec gestion fine des droits par utilisateur et groupe AD.</p>
-        <div class="srv-tags"><span class="stag">Partage réseau</span></div>
-      </div>
-      <div class="srv-card srv-purple">
-        <div class="srv-header"><span class="srv-icon">💾</span><div><div class="srv-name">SRV-TRUENAS <span class="status-dot"></span></div><div class="srv-ip">10.0.206.68</div></div></div>
-        <span class="zone-badge badge-intern">◈ Zone Interne</span>
-        <p class="srv-desc">NAS TrueNAS haute capacité pour sauvegardes et redondance des données.</p>
-        <div class="srv-tags"><span class="stag">TrueNAS</span><span class="stag">Sauvegarde</span></div>
-      </div>
-      <div class="srv-card srv-purple">
-        <div class="srv-header"><span class="srv-icon">📊</span><div><div class="srv-name">SRV-CENTREON <span class="status-dot"></span></div><div class="srv-ip">10.0.206.84</div></div></div>
-        <span class="zone-badge badge-intern">◈ Zone Interne</span>
-        <p class="srv-desc">Supervision temps réel des services réseau via SNMP. Alertes automatiques.</p>
-        <div class="srv-tags"><span class="stag">Centreon</span><span class="stag">SNMP</span></div>
-      </div>
-      <div class="srv-card srv-purple">
-        <div class="srv-header"><span class="srv-icon">🛡️</span><div><div class="srv-name">SRV-WAZUH <span class="status-dot"></span></div><div class="srv-ip">10.0.206.83</div></div></div>
-        <span class="zone-badge badge-intern">◈ Zone Interne</span>
-        <p class="srv-desc">Wazuh — détection d'intrusions, centralisation des logs et réponse aux incidents.</p>
-        <div class="srv-tags"><span class="stag">Wazuh</span><span class="stag">SIEM</span><span class="stag">IDS</span></div>
-      </div>
-      <div class="srv-card srv-cyan">
-        <div class="srv-header"><span class="srv-icon">💻</span><div><div class="srv-name">W11 CLIENT <span class="status-dot"></span></div><div class="srv-ip">10.0.206.70</div></div></div>
-        <span class="zone-badge badge-intern">◈ Zone Interne</span>
-        <p class="srv-desc">Poste Windows 11 rattaché au domaine Active Directory.</p>
-        <div class="srv-tags"><span class="stag">Windows 11</span><span class="stag">Client AD</span></div>
-      </div>
-      <div class="srv-card srv-orange">
-        <div class="srv-header"><span class="srv-icon">🌐</span><div><div class="srv-name">SRV-LAMP <span class="status-dot"></span></div><div class="srv-ip">10.0.206.10</div></div></div>
-        <span class="zone-badge badge-dmz">◈ DMZ</span>
-        <p class="srv-desc">Serveur LAMP (Linux/Apache/MySQL/PHP) accessible depuis l'extérieur via le pare-feu.</p>
-        <div class="srv-tags"><span class="stag">Apache</span><span class="stag">PHP</span><span class="stag">MySQL</span></div>
-      </div>
-      <div class="srv-card srv-orange">
-        <div class="srv-header"><span class="srv-icon">☁️</span><div><div class="srv-name">SRV-NEXTCLOUD <span class="status-dot"></span></div><div class="srv-ip">10.0.206.2</div></div></div>
-        <span class="zone-badge badge-dmz">◈ DMZ</span>
-        <p class="srv-desc">Nextcloud — partage de fichiers et collaboration en ligne, accessible depuis l'extérieur.</p>
-        <div class="srv-tags"><span class="stag">Nextcloud</span><span class="stag">PHP</span><span class="stag">MariaDB</span></div>
-      </div>
-      <div class="srv-card srv-orange">
-        <div class="srv-header"><span class="srv-icon">⚖️</span><div><div class="srv-name">HAPROXY DMZ <span class="status-dot"></span></div><div class="srv-ip">10.0.206.13</div></div></div>
-        <span class="zone-badge badge-dmz">◈ DMZ</span>
-        <p class="srv-desc">Load Balancer HAProxy en DMZ — répartition de charge pour les services web exposés.</p>
-        <div class="srv-tags"><span class="stag">HAProxy</span><span class="stag">Load Balancing</span></div>
-      </div>
-      <div class="srv-card srv-pink">
-        <div class="srv-header"><span class="srv-icon">🔍</span><div><div class="srv-name">SRV-DNS <span class="status-dot"></span></div><div class="srv-ip">10.0.206.65</div></div></div>
-        <span class="zone-badge badge-ext">◈ Zone Externe</span>
-        <p class="srv-desc">Résolution des noms de domaine internes + redirection vers résolveurs DNS publics.</p>
-        <div class="srv-tags"><span class="stag">DNS</span><span class="stag">Résolution</span></div>
-      </div>
-      <div class="srv-card srv-pink">
-        <div class="srv-header"><span class="srv-icon">🖥️</span><div><div class="srv-name">DEB CLIENT <span class="status-dot"></span></div><div class="srv-ip">172.28.206.220</div></div></div>
-        <span class="zone-badge badge-ext">◈ Zone Externe</span>
-        <p class="srv-desc">Client zone externe simulant un accès depuis un réseau peu fiable. Trafic via pare-feu obligatoire.</p>
-        <div class="srv-tags"><span class="stag">Client</span><span class="stag">Debian</span></div>
-      </div>
-      <div class="srv-card srv-pink">
-        <div class="srv-header"><span class="srv-icon">⚖️</span><div><div class="srv-name">HAPROXY Externe <span class="status-dot"></span></div><div class="srv-ip">172.28.206.212</div></div></div>
-        <span class="zone-badge badge-ext">◈ Zone Externe</span>
-        <p class="srv-desc">Load Balancer HAProxy en zone externe — répartition et redirection du trafic entrant depuis Internet.</p>
-        <div class="srv-tags"><span class="stag">HAProxy</span><span class="stag">Load Balancing</span><span class="stag">WAN</span></div>
-      </div>
-    </div>
+                            <line x1="320" y1="450" x2="410" y2="410" stroke="#ff6b35" stroke-width="2" class="link-line" marker-end="url(#arrow-orange)" opacity="0.7"/>
+                            <text x="300" y="415" font-size="11" fill="#ff6b35" font-family="VT323, monospace" letter-spacing="1">172.28.206.253/24</text>
 
-    <!-- SYNTHÈSE -->
-    <div class="section-header" style="margin-top:3rem;">
-      <div class="section-tag">// synthesis</div>
-      <h2 class="section-title">Synthèse & <em>Réflexion</em></h2>
-      <div class="section-line"></div>
-    </div>
+                            <line x1="720" y1="480" x2="510" y2="385" stroke="#88aaff" stroke-width="2" class="link-line-slow" marker-end="url(#arrow-cyan)" opacity="0.7"/>
 
-    <div class="card">
-      <p class="synthesis-intro">
-        Cette infrastructure illustre une <strong>architecture réseau segmentée en trois zones</strong> : LAN, DMZ et Externe. Cette segmentation permet de limiter la surface d'attaque et d'appliquer des règles de sécurité différenciées. Le pare-feu central filtre l'ensemble des flux inter-zones.
-      </p>
-      <div class="findings-grid">
-        <div class="finding-box">
-          <span class="finding-icon">🔥</span>
-          <h5>Pare-feu centralisé</h5>
-          <p>3 interfaces réseau pour segmenter LAN, DMZ et Externe</p>
+                            <!-- AD -->
+                            <g class="node-group" data-name="AD (Active Directory)" data-ip="10.0.206.66" data-desc="Contrôleur de domaine Windows Server gérant l'authentification et les GPO." data-role="Annuaire & Auth" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                                <rect x="45" y="70" width="90" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
+                                <text x="90" y="98" font-size="20" text-anchor="middle">🏢</text>
+                                <text x="90" y="116" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">AD</text>
+                                <text x="90" y="130" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.66</text>
+                            </g>
+
+                            <!-- SRV-FIC -->
+                            <g class="node-group" data-name="SRV-FIC" data-ip="10.0.206.67" data-desc="Serveur de fichiers partagés avec gestion des droits d'accès." data-role="Fichiers" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                                <rect x="155" y="70" width="90" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
+                                <text x="200" y="98" font-size="20" text-anchor="middle">🗂️</text>
+                                <text x="200" y="116" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">SRV-FIC</text>
+                                <text x="200" y="130" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.67</text>
+                            </g>
+
+                            <!-- SRV-TRUENAS -->
+                            <g class="node-group" data-name="SRV-TRUENAS" data-ip="10.0.206.68" data-desc="NAS TrueNAS pour stockage et sauvegardes." data-role="NAS" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                                <rect x="265" y="70" width="105" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
+                                <text x="317" y="98" font-size="20" text-anchor="middle">💾</text>
+                                <text x="317" y="116" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">TRUENAS</text>
+                                <text x="317" y="130" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.68</text>
+                            </g>
+
+                            <!-- SRV-CENTREON -->
+                            <g class="node-group" data-name="SRV-CENTREON" data-ip="10.0.206.64" data-desc="Plateforme de supervision et monitoring réseau." data-role="Supervision" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                                <rect x="45" y="180" width="105" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
+                                <text x="97" y="208" font-size="20" text-anchor="middle">📊</text>
+                                <text x="97" y="226" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">CENTREON</text>
+                                <text x="97" y="240" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.64</text>
+                            </g>
+
+                            <!-- SRV-WAZUH -->
+                            <g class="node-group" data-name="SRV-WAZUH" data-ip="10.0.206.63" data-desc="SIEM Wazuh pour détection d'intrusions et logs de sécurité." data-role="SIEM" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                                <rect x="170" y="180" width="100" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
+                                <text x="220" y="208" font-size="20" text-anchor="middle">🛡️</text>
+                                <text x="220" y="226" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">WAZUH</text>
+                                <text x="220" y="240" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.63</text>
+                            </g>
+
+                            <!-- W11 CLIENT -->
+                            <g class="node-group" data-name="W11 CLIENT" data-ip="10.0.206.70" data-desc="Poste client Windows 11 rattaché au domaine AD." data-role="Poste utilisateur" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                                <rect x="280" y="180" width="100" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
+                                <text x="330" y="208" font-size="20" text-anchor="middle">💻</text>
+                                <text x="330" y="226" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">W11 CLIENT</text>
+                                <text x="330" y="240" font-size="9" fill="#88bb88" text-anchor="middle" font-family="VT323, monospace">10.0.206.70</text>
+                            </g>
+
+                            <!-- SRV-LAMP -->
+                            <g class="node-group" data-name="SRV-LAMP" data-ip="10.0.206.10" data-desc="Serveur web LAMP hébergeant des applications web." data-role="Web Server" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                                <rect x="600" y="65" width="100" height="70" rx="10" fill="#1a1200" stroke="#ffa500" stroke-width="2" filter="url(#glow-orange)"/>
+                                <text x="650" y="93" font-size="20" text-anchor="middle">🌐</text>
+                                <text x="650" y="111" font-size="10" fill="#ffc966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">SRV-LAMP</text>
+                                <text x="650" y="125" font-size="9" fill="#cc8800" text-anchor="middle" font-family="VT323, monospace">10.0.206.10</text>
+                            </g>
+
+                            <!-- WEB-2 -->
+                            <g class="node-group" data-name="WEB-2" data-ip="10.0.206.11" data-desc="Serveur web secondaire pour la haute disponibilité." data-role="Web Server" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                                <rect x="720" y="65" width="100" height="70" rx="10" fill="#1a1200" stroke="#ffa500" stroke-width="2" filter="url(#glow-orange)"/>
+                                <text x="770" y="93" font-size="20" text-anchor="middle">🌐</text>
+                                <text x="770" y="111" font-size="10" fill="#ffc966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">WEB-2</text>
+                                <text x="770" y="125" font-size="9" fill="#cc8800" text-anchor="middle" font-family="VT323, monospace">10.0.206.11</text>
+                            </g>
+
+                            <!-- WEB-3 -->
+                            <g class="node-group" data-name="WEB-3" data-ip="10.0.206.12" data-desc="Serveur web tertiaire pour load balancing." data-role="Web Server" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                                <rect x="600" y="175" width="100" height="70" rx="10" fill="#1a1200" stroke="#ffa500" stroke-width="2" filter="url(#glow-orange)"/>
+                                <text x="650" y="203" font-size="20" text-anchor="middle">🌐</text>
+                                <text x="650" y="221" font-size="10" fill="#ffc966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">WEB-3</text>
+                                <text x="650" y="235" font-size="9" fill="#cc8800" text-anchor="middle" font-family="VT323, monospace">10.0.206.12</text>
+                            </g>
+
+                            <!-- DEB CLIENT -->
+                            <g class="node-group" data-name="DEB CLIENT" data-ip="172.28.206.220" data-desc="Client externe Debian simulant un accès non fiable." data-role="Client externe" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                                <rect x="50" y="420" width="110" height="70" rx="10" fill="#1a0a00" stroke="#ff6b35" stroke-width="2" filter="url(#glow-orange)"/>
+                                <text x="105" y="448" font-size="20" text-anchor="middle">🖥️</text>
+                                <text x="105" y="466" font-size="9" fill="#ff9966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">DEB CLIENT</text>
+                                <text x="105" y="480" font-size="8.5" fill="#cc5533" text-anchor="middle" font-family="VT323, monospace">172.28.206.220</text>
+                            </g>
+
+                            <!-- SRV-DNS -->
+                            <g class="node-group" data-name="SRV-DNS" data-ip="10.0.206.65" data-desc="Serveur DNS pour résolution de noms." data-role="DNS" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                                <rect x="180" y="420" width="100" height="70" rx="10" fill="#1a0a00" stroke="#ff6b35" stroke-width="2" filter="url(#glow-orange)"/>
+                                <text x="230" y="448" font-size="20" text-anchor="middle">🔍</text>
+                                <text x="230" y="466" font-size="10" fill="#ff9966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">SRV-DNS</text>
+                                <text x="230" y="480" font-size="9" fill="#cc5533" text-anchor="middle" font-family="VT323, monospace">10.0.206.65</text>
+                            </g>
+
+                            <!-- LÉGENDE -->
+                            <rect x="400" y="470" width="300" height="115" rx="12" fill="rgba(0,0,0,0.5)" stroke="rgba(0,255,255,0.2)" stroke-width="1.5"/>
+                            <text x="420" y="493" font-size="12" fill="#00ffff" font-family="VT323, monospace" letter-spacing="2">LÉGENDE</text>
+                            <rect x="420" y="503" width="15" height="8" rx="2" fill="rgba(0,200,0,0.3)" stroke="#00c800"/>
+                            <text x="442" y="512" font-size="11" fill="#88bb88" font-family="Rubik, sans-serif">Zone LAN (10.0.206.64/26)</text>
+                            <rect x="420" y="523" width="15" height="8" rx="2" fill="rgba(255,165,0,0.2)" stroke="#ffa500"/>
+                            <text x="442" y="532" font-size="11" fill="#cc9944" font-family="Rubik, sans-serif">DMZ (10.0.206.1/26)</text>
+                            <rect x="420" y="543" width="15" height="8" rx="2" fill="rgba(255,107,53,0.2)" stroke="#ff6b35"/>
+                            <text x="442" y="552" font-size="11" fill="#cc6633" font-family="Rubik, sans-serif">Zone Externe (172.28.206.253/24)</text>
+                            <line x1="420" y1="567" x2="435" y2="567" stroke="#00ffff" stroke-width="2" stroke-dasharray="4 2"/>
+                            <text x="442" y="571" font-size="11" fill="#88aacc" font-family="Rubik, sans-serif">Flux réseau</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DÉTAILS SERVEURS -->
+            <div class="servers-section">
+                <div class="section-label glitch-label">// SERVER_DETAILS</div>
+
+                <div class="servers-grid">
+
+                    <!-- AD -->
+                    <div class="server-card card-chaos card-cyan">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🏢</span>
+                            <div>
+                                <div class="server-name">Active Directory <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.66</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
+                        <p class="server-desc">Contrôleur de domaine Windows Server gérant l'authentification, les GPO et l'annuaire d'entreprise.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Windows Server</span>
+                            <span class="server-tag">GPO</span>
+                            <span class="server-tag">LDAP</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- SRV-FIC -->
+                    <div class="server-card card-chaos card-cyan">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🗂️</span>
+                            <div>
+                                <div class="server-name">SRV-FIC <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.67</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
+                        <p class="server-desc">Serveur de fichiers partagés avec stockage centralisé et gestion des droits d'accès.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">SMB</span>
+                            <span class="server-tag">Partage réseau</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- TRUENAS -->
+                    <div class="server-card card-chaos card-purple">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">💾</span>
+                            <div>
+                                <div class="server-name">SRV-TRUENAS <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.68</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
+                        <p class="server-desc">NAS TrueNAS pour stockage haute capacité, sauvegardes et redondance des données.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">TrueNAS</span>
+                            <span class="server-tag">Sauvegarde</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- CENTREON -->
+                    <div class="server-card card-chaos card-pink">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">📊</span>
+                            <div>
+                                <div class="server-name">SRV-CENTREON <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.64</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
+                        <p class="server-desc">Plateforme de supervision Centreon pour monitoring temps réel des services et équipements réseau.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Centreon</span>
+                            <span class="server-tag">SNMP</span>
+                            <span class="server-tag">Monitoring</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- WAZUH -->
+                    <div class="server-card card-chaos card-yellow">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🛡️</span>
+                            <div>
+                                <div class="server-name">SRV-WAZUH <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.63</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
+                        <p class="server-desc">SIEM Wazuh pour détection d'intrusions, centralisation des logs et réponse aux incidents.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">SIEM</span>
+                            <span class="server-tag">Wazuh</span>
+                            <span class="server-tag">IDS</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- W11 CLIENT -->
+                    <div class="server-card card-chaos card-cyan">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">💻</span>
+                            <div>
+                                <div class="server-name">W11 CLIENT <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.70</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-interne">🟢 Zone LAN</span>
+                        <p class="server-desc">Poste client Windows 11 rattaché au domaine Active Directory.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Windows 11</span>
+                            <span class="server-tag">Client AD</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- SRV-LAMP -->
+                    <div class="server-card card-chaos card-orange">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🌐</span>
+                            <div>
+                                <div class="server-name">SRV-LAMP <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.10</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-dmz">🟠 DMZ</span>
+                        <p class="server-desc">Serveur web LAMP principal hébergeant des applications web accessibles depuis l'extérieur.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Apache</span>
+                            <span class="server-tag">PHP</span>
+                            <span class="server-tag">MySQL</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- WEB-2 -->
+                    <div class="server-card card-chaos card-orange">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🌐</span>
+                            <div>
+                                <div class="server-name">WEB-2 <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.11</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-dmz">🟠 DMZ</span>
+                        <p class="server-desc">Serveur web secondaire pour haute disponibilité et répartition de charge.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Web Server</span>
+                            <span class="server-tag">HA</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- WEB-3 -->
+                    <div class="server-card card-chaos card-orange">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🌐</span>
+                            <div>
+                                <div class="server-name">WEB-3 <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.12</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-dmz">🟠 DMZ</span>
+                        <p class="server-desc">Serveur web tertiaire pour load balancing et continuité de service.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Web Server</span>
+                            <span class="server-tag">Load Balancing</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- SRV-DNS -->
+                    <div class="server-card card-chaos card-pink">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🔍</span>
+                            <div>
+                                <div class="server-name">SRV-DNS <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">10.0.206.65</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-externe">🔴 Zone Externe</span>
+                        <p class="server-desc">Serveur DNS assurant la résolution de noms internes et redirection vers DNS publics.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">DNS</span>
+                            <span class="server-tag">Résolution</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+
+                    <!-- DEB CLIENT -->
+                    <div class="server-card card-chaos card-orange">
+                        <div class="card-noise"></div>
+                        <div class="server-header">
+                            <span class="server-icon">🖥️</span>
+                            <div>
+                                <div class="server-name">DEB CLIENT <span class="status-dot status-online"></span></div>
+                                <div class="server-ip">172.28.206.220</div>
+                            </div>
+                        </div>
+                        <span class="server-zone-badge zone-externe">🔴 Zone Externe</span>
+                        <p class="server-desc">Client Debian externe simulant un accès non fiable transitant par le pare-feu.</p>
+                        <div class="server-tags">
+                            <span class="server-tag">Client</span>
+                            <span class="server-tag">Debian</span>
+                        </div>
+                        <div class="corner-deco top-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SYNTHÈSE -->
+            <div class="synthesis-section">
+                <div class="section-label glitch-label">// SYNTHESIS</div>
+
+                <div class="synthesis-card card-chaos card-purple">
+                    <div class="card-sticker">💭</div>
+                    <div class="card-noise"></div>
+
+                    <h3 class="cyber-heading-small">SYNTHÈSE & RÉFLEXION</h3>
+
+                    <div class="synthesis-content">
+                        <p>
+                            Cette infrastructure illustre une <strong>architecture réseau segmentée en trois zones</strong> : LAN, DMZ et Externe. Cette segmentation permet de limiter la surface d'attaque et d'appliquer des règles de sécurité différenciées selon les niveaux de confiance. Le pare-feu central filtre l'ensemble des flux inter-zones, garantissant une sécurité renforcée.
+                        </p>
+
+                        <div class="key-findings">
+                            <h4 class="findings-title">🔑 Points techniques clés</h4>
+                            <div class="findings-grid">
+                                <div class="finding-box">
+                                    <span class="finding-icon">🔥</span>
+                                    <h5>Pare-feu centralisé</h5>
+                                    <p>3 interfaces réseau pour segmenter LAN, DMZ et Externe</p>
+                                </div>
+                                <div class="finding-box">
+                                    <span class="finding-icon">🌐</span>
+                                    <h5>DMZ avec 3 serveurs web</h5>
+                                    <p>Haute disponibilité et load balancing des services web</p>
+                                </div>
+                                <div class="finding-box">
+                                    <span class="finding-icon">📊</span>
+                                    <h5>Supervision complète</h5>
+                                    <p>Centreon et Wazuh pour monitoring et sécurité</p>
+                                </div>
+                                <div class="finding-box">
+                                    <span class="finding-icon">🏢</span>
+                                    <h5>Active Directory</h5>
+                                    <p>Gestion centralisée des identités et politiques</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="personal-reflection">
+                            <h4 class="reflection-title">💡 Ce que j'ai appris</h4>
+                            <p>
+                                La mise en place de cette infrastructure m'a permis de comprendre l'importance de la <strong>défense en profondeur</strong> et de la segmentation réseau. Chaque zone a un niveau de sécurité adapté à son exposition : la DMZ héberge les services publics, le LAN protège les ressources internes, et la zone externe isole les accès non fiables. Cette architecture professionnelle illustre parfaitement les bonnes pratiques en matière de sécurité réseau.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="corner-deco top-right"></div>
+                    <div class="corner-deco bottom-left"></div>
+                </div>
+            </div>
         </div>
-        <div class="finding-box">
-          <span class="finding-icon">🌐</span>
-          <h5>DMZ HAProxy + Web</h5>
-          <p>Haute disponibilité et load balancing des services web</p>
-        </div>
-        <div class="finding-box">
-          <span class="finding-icon">📊</span>
-          <h5>Supervision complète</h5>
-          <p>Centreon et Wazuh pour monitoring et sécurité</p>
-        </div>
-      </div>
-      <div class="reflection">
-        <h4>💡 Ce que j'ai appris</h4>
-        <p>
-          La mise en place de cette infrastructure m'a permis de comprendre l'importance de la <strong>défense en profondeur</strong> et de la segmentation réseau. Chaque zone a un niveau de sécurité adapté à son exposition : la DMZ héberge les services publics, le LAN protège les ressources internes, et la zone externe isole les accès non fiables.
-        </p>
-      </div>
     </div>
 
-  </main>
-</div>
+    <script>
+        const tooltip = document.getElementById('tooltip');
 
-<script>
-const tooltip = document.getElementById('tooltip');
-const tipName = document.getElementById('tip-name');
-const tipIp = document.getElementById('tip-ip');
-const tipRole = document.getElementById('tip-role');
-const tipDesc = document.getElementById('tip-desc');
+        function showTooltip(event, el) {
+            const name = el.dataset.name;
+            const ip = el.dataset.ip;
+            const desc = el.dataset.desc;
+            const role = el.dataset.role;
 
-document.querySelectorAll('.node-group').forEach(node => {
-  node.addEventListener('mouseenter', e => {
-    tipName.textContent = node.dataset.name || '';
-    tipIp.textContent = node.dataset.ip || '';
-    tipRole.textContent = node.dataset.role || '';
-    tipDesc.textContent = node.dataset.desc || '';
-    tooltip.classList.add('show');
-  });
-  node.addEventListener('mousemove', e => {
-    const x = e.clientX + 16, y = e.clientY + 16;
-    tooltip.style.left = Math.min(x, window.innerWidth - 280) + 'px';
-    tooltip.style.top = Math.min(y, window.innerHeight - 160) + 'px';
-  });
-  node.addEventListener('mouseleave', () => tooltip.classList.remove('show'));
-});
-</script>
+            tooltip.innerHTML = `
+                <h4>${name}</h4>
+                <p class="ip">📡 ${ip}</p>
+                <p><strong style="color:#aaddff;">Rôle :</strong> ${role}</p>
+                <p>${desc}</p>
+            `;
+            tooltip.classList.add('show');
+            moveTooltip(event);
+        }
+
+        function hideTooltip() {
+            tooltip.classList.remove('show');
+        }
+
+        function moveTooltip(e) {
+            const x = e.clientX + 15;
+            const y = e.clientY + 15;
+            tooltip.style.left = Math.min(x, window.innerWidth - 270) + 'px';
+            tooltip.style.top = Math.min(y, window.innerHeight - 200) + 'px';
+        }
+
+        document.querySelectorAll('.node-group').forEach(el => {
+            el.addEventListener('mousemove', moveTooltip);
+        });
+    </script>
 </body>
 </html>
