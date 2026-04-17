@@ -1,22 +1,27 @@
 /* ===================================
    INFRASTRUCTURE.JS
-   Tooltip interactif sur les nœuds SVG
+   - Tooltip interactif sur les nœuds SVG
+   - Légende visible uniquement au survol du pare-feu
    =================================== */
-
 (function () {
-    const tooltip = document.getElementById('tooltip');
+    'use strict';
 
+    const tooltip  = document.getElementById('tooltip');
+    const legend   = document.getElementById('svg-legend');
+    const firewall = document.getElementById('firewall-node');
+
+    /* ── Tooltip ── */
     function showTooltip(event, el) {
-        const n = el.dataset.n || '';
-        const i = el.dataset.i || '';
-        const r = el.dataset.r || '';
-        const d = el.dataset.d || '';
+        const name = el.dataset.name || '';
+        const ip   = el.dataset.ip   || '';
+        const role = el.dataset.role || '';
+        const desc = el.dataset.desc || '';
 
         tooltip.innerHTML = `
-            <h4>${n}</h4>
-            <div class="tip-ip">📡 ${i}</div>
-            <div class="tip-role">${r}</div>
-            <div class="tip-desc">${d}</div>
+            <h4>${name}</h4>
+            <div class="tip-ip">📡 ${ip}</div>
+            <div class="tip-role">${role}</div>
+            <div class="tip-desc">${desc}</div>
         `;
         tooltip.classList.add('show');
         moveTooltip(event);
@@ -33,9 +38,22 @@
         tooltip.style.top  = Math.min(y, window.innerHeight - 210) + 'px';
     }
 
+    /* Attache les événements à tous les nœuds */
     document.querySelectorAll('.node-group').forEach(el => {
         el.addEventListener('mouseenter', e => showTooltip(e, el));
         el.addEventListener('mouseleave', hideTooltip);
         el.addEventListener('mousemove',  moveTooltip);
     });
+
+    /* ── Légende : visible uniquement au survol du pare-feu ── */
+    if (firewall && legend) {
+        firewall.addEventListener('mouseenter', () => {
+            legend.classList.remove('hidden-legend');
+            legend.classList.add('visible-legend');
+        });
+        firewall.addEventListener('mouseleave', () => {
+            legend.classList.remove('visible-legend');
+            legend.classList.add('hidden-legend');
+        });
+    }
 })();
