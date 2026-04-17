@@ -18,7 +18,7 @@
         <div class="float-elem elem-4">⚙️</div>
     </div>
 
-    <!-- Tooltip -->
+    <!-- Tooltip nœuds -->
     <div class="node-tooltip" id="tooltip"></div>
 
     <div class="container y2k-container">
@@ -45,6 +45,7 @@
         </nav>
 
         <div class="content chaos-content">
+
             <!-- TITRE -->
             <div class="title-wrapper">
                 <h2 class="section-title cyber-title">
@@ -59,26 +60,26 @@
                 <div class="card-sticker">🖥️</div>
                 <div class="card-noise"></div>
                 <div class="intro-content">
-                    <h3 class="cyber-heading-small">MON INFRASTRUCTURE</h3>
-                    <p class="intro-text">
-                        Dans le cadre de ma formation BTS SIO, j'ai eu l'opportunité de travailler sur une <strong>infrastructure réseau complète</strong>. Celle-ci comprend plusieurs zones de sécurité distinctes : une zone LAN sécurisée avec des serveurs de gestion, une DMZ pour les services web exposés, et une zone externe contrôlée par un pare-feu centralisé.
+                    <h3 class="cyber-heading-small intro-heading">MON INFRASTRUCTURE</h3>
+                    <p class="intro-text intro-text-light">
+                        Dans le cadre de ma formation BTS SIO, j'ai eu l'opportunité de travailler sur une <strong class="intro-strong">infrastructure réseau complète</strong>. Celle-ci comprend plusieurs zones de sécurité distinctes : une zone LAN sécurisée avec des serveurs de gestion, une DMZ pour les services web exposés, et une zone externe contrôlée par un pare-feu centralisé.
                     </p>
                     <div class="theme-highlights">
                         <div class="theme-item">
                             <span class="theme-icon">🔥</span>
-                            <span class="theme-label">Pare-feu & Sécurité</span>
+                            <span class="theme-label theme-label-light">Pare-feu &amp; Sécurité</span>
                         </div>
                         <div class="theme-item">
                             <span class="theme-icon">🖧</span>
-                            <span class="theme-label">Segmentation réseau</span>
+                            <span class="theme-label theme-label-light">Segmentation réseau</span>
                         </div>
                         <div class="theme-item">
                             <span class="theme-icon">📊</span>
-                            <span class="theme-label">Supervision & Monitoring</span>
+                            <span class="theme-label theme-label-light">Supervision &amp; Monitoring</span>
                         </div>
                         <div class="theme-item">
                             <span class="theme-icon">🪟</span>
-                            <span class="theme-label">Active Directory</span>
+                            <span class="theme-label theme-label-light">Active Directory</span>
                         </div>
                     </div>
                 </div>
@@ -94,7 +95,7 @@
                     <div class="diagram-title">🔌 Schéma réseau</div>
 
                     <div class="network-svg-container">
-                        <svg class="network-svg" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+                        <svg id="network-svg" class="network-svg" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <filter id="glow-cyan">
                                     <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
@@ -108,23 +109,17 @@
                                     <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
                                     <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
                                 </filter>
-                                <marker id="arrow-cyan" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto">
-                                    <path d="M0,0 L0,6 L8,3 z" fill="#00ffff" opacity="0.8"/>
-                                </marker>
-                                <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto">
-                                    <path d="M0,0 L0,6 L8,3 z" fill="#ff6b35" opacity="0.8"/>
-                                </marker>
                             </defs>
 
-                            <!-- Zone LAN (verte) -->
+                            <!-- Zone LAN -->
                             <rect x="30" y="30" width="360" height="250" rx="20" fill="rgba(0,200,0,0.08)" stroke="#00c800" stroke-width="2.5" stroke-dasharray="8 4" class="zone-pulse"/>
                             <text x="50" y="58" class="zone-label" fill="#00c800" filter="url(#glow-green)">🟢 ZONE LAN</text>
 
-                            <!-- Zone DMZ (orange) -->
+                            <!-- Zone DMZ -->
                             <rect x="580" y="30" width="290" height="250" rx="20" fill="rgba(255,165,0,0.1)" stroke="#ffa500" stroke-width="2.5" stroke-dasharray="8 4" class="zone-pulse"/>
                             <text x="600" y="58" class="zone-label" fill="#ffa500" filter="url(#glow-orange)">🟠 DMZ</text>
 
-                            <!-- Zone EXTERNE (rouge) -->
+                            <!-- Zone EXTERNE -->
                             <rect x="30" y="380" width="290" height="170" rx="20" fill="rgba(255,107,53,0.08)" stroke="#ff6b35" stroke-width="2.5" stroke-dasharray="8 4" class="zone-pulse"/>
                             <text x="50" y="408" class="zone-label" fill="#ff6b35" filter="url(#glow-orange)">🔴 ZONE EXTERNE</text>
 
@@ -132,28 +127,41 @@
                             <text x="770" y="480" font-size="55" text-anchor="middle" opacity="0.7">☁️</text>
                             <text x="770" y="515" font-size="12" fill="#88aaff" text-anchor="middle" font-family="VT323, monospace" letter-spacing="2">INTERNET</text>
 
-                            <!-- FIREWALL (centre) -->
-                            <g class="node-group" data-name="Pare-feu" data-ip="10.0.206.65/26 / 10.0.206.1/26 / 172.28.206.253/24" data-desc="Pare-feu central gérant toutes les communications entre les zones (LAN, DMZ, Externe et Internet)." data-role="Sécurité réseau" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                            <!-- LIGNES (sans flèches) -->
+                            <!-- LAN → Firewall -->
+                            <line x1="390" y1="155" x2="420" y2="320" stroke="#00c800" stroke-width="2.5" class="link-line" opacity="0.8"/>
+                            <text x="360" y="230" font-size="11" fill="#00c800" font-family="VT323, monospace" letter-spacing="1">10.0.206.65/26</text>
+
+                            <!-- DMZ → Firewall -->
+                            <line x1="580" y1="155" x2="500" y2="340" stroke="#ffa500" stroke-width="2" class="link-line" opacity="0.7"/>
+                            <text x="540" y="240" font-size="11" fill="#ffa500" font-family="VT323, monospace" letter-spacing="1">10.0.206.1/26</text>
+
+                            <!-- Externe → Firewall -->
+                            <line x1="320" y1="450" x2="410" y2="410" stroke="#ff6b35" stroke-width="2" class="link-line" opacity="0.7"/>
+                            <text x="300" y="415" font-size="11" fill="#ff6b35" font-family="VT323, monospace" letter-spacing="1">172.28.206.253/24</text>
+
+                            <!-- Internet → Firewall -->
+                            <line x1="720" y1="480" x2="510" y2="385" stroke="#88aaff" stroke-width="2" class="link-line-slow" opacity="0.7"/>
+
+                            <!-- FIREWALL -->
+                            <g class="node-group"
+                               data-name="Pare-feu"
+                               data-ip="10.0.206.65/26 · 10.0.206.1/26 · 172.28.206.253/24"
+                               data-role="Sécurité réseau"
+                               data-desc="Pare-feu central gérant toutes les communications entre les zones (LAN, DMZ, Externe et Internet)."
+                               id="firewall-node">
                                 <rect x="400" y="320" width="100" height="80" rx="12" fill="#1a1a2e" stroke="#ff6b35" stroke-width="3" filter="url(#glow-orange)"/>
                                 <text x="450" y="350" font-size="28" text-anchor="middle">🔥</text>
                                 <text x="450" y="375" font-size="11" fill="#ff6b35" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">FIREWALL</text>
                                 <text x="450" y="390" font-size="10" fill="#ffa500" text-anchor="middle" font-family="VT323, monospace">CENTRAL</text>
                             </g>
 
-                            <!-- CONNEXIONS -->
-                            <line x1="390" y1="155" x2="420" y2="320" stroke="#00c800" stroke-width="2.5" class="link-line" marker-end="url(#arrow-cyan)" opacity="0.8"/>
-                            <text x="360" y="230" font-size="11" fill="#00c800" font-family="VT323, monospace" letter-spacing="1">10.0.206.65/26</text>
-
-                            <line x1="580" y1="155" x2="500" y2="340" stroke="#ffa500" stroke-width="2" class="link-line" marker-end="url(#arrow-orange)" opacity="0.7"/>
-                            <text x="540" y="240" font-size="11" fill="#ffa500" font-family="VT323, monospace" letter-spacing="1">10.0.206.1/26</text>
-
-                            <line x1="320" y1="450" x2="410" y2="410" stroke="#ff6b35" stroke-width="2" class="link-line" marker-end="url(#arrow-orange)" opacity="0.7"/>
-                            <text x="300" y="415" font-size="11" fill="#ff6b35" font-family="VT323, monospace" letter-spacing="1">172.28.206.253/24</text>
-
-                            <line x1="720" y1="480" x2="510" y2="385" stroke="#88aaff" stroke-width="2" class="link-line-slow" marker-end="url(#arrow-cyan)" opacity="0.7"/>
-
                             <!-- AD -->
-                            <g class="node-group" data-name="AD (Active Directory)" data-ip="10.0.206.66" data-desc="Contrôleur de domaine Windows Server gérant l'authentification et les GPO." data-role="Annuaire & Auth" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                            <g class="node-group"
+                               data-name="AD (Active Directory)"
+                               data-ip="10.0.206.66"
+                               data-role="Annuaire &amp; Auth"
+                               data-desc="Contrôleur de domaine Windows Server gérant l'authentification et les GPO.">
                                 <rect x="45" y="70" width="90" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
                                 <text x="90" y="98" font-size="20" text-anchor="middle">🏢</text>
                                 <text x="90" y="116" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">AD</text>
@@ -161,7 +169,11 @@
                             </g>
 
                             <!-- SRV-FIC -->
-                            <g class="node-group" data-name="SRV-FIC" data-ip="10.0.206.67" data-desc="Serveur de fichiers partagés avec gestion des droits d'accès." data-role="Fichiers" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                            <g class="node-group"
+                               data-name="SRV-FIC"
+                               data-ip="10.0.206.67"
+                               data-role="Fichiers"
+                               data-desc="Serveur de fichiers partagés avec gestion des droits d'accès.">
                                 <rect x="155" y="70" width="90" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
                                 <text x="200" y="98" font-size="20" text-anchor="middle">🗂️</text>
                                 <text x="200" y="116" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">SRV-FIC</text>
@@ -169,7 +181,11 @@
                             </g>
 
                             <!-- SRV-TRUENAS -->
-                            <g class="node-group" data-name="SRV-TRUENAS" data-ip="10.0.206.68" data-desc="NAS TrueNAS pour stockage et sauvegardes." data-role="NAS" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                            <g class="node-group"
+                               data-name="SRV-TRUENAS"
+                               data-ip="10.0.206.68"
+                               data-role="NAS"
+                               data-desc="NAS TrueNAS pour stockage et sauvegardes.">
                                 <rect x="265" y="70" width="105" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
                                 <text x="317" y="98" font-size="20" text-anchor="middle">💾</text>
                                 <text x="317" y="116" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">TRUENAS</text>
@@ -177,7 +193,11 @@
                             </g>
 
                             <!-- SRV-CENTREON -->
-                            <g class="node-group" data-name="SRV-CENTREON" data-ip="10.0.206.64" data-desc="Plateforme de supervision et monitoring réseau." data-role="Supervision" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                            <g class="node-group"
+                               data-name="SRV-CENTREON"
+                               data-ip="10.0.206.64"
+                               data-role="Supervision"
+                               data-desc="Plateforme de supervision et monitoring réseau.">
                                 <rect x="45" y="180" width="105" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
                                 <text x="97" y="208" font-size="20" text-anchor="middle">📊</text>
                                 <text x="97" y="226" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">CENTREON</text>
@@ -185,7 +205,11 @@
                             </g>
 
                             <!-- SRV-WAZUH -->
-                            <g class="node-group" data-name="SRV-WAZUH" data-ip="10.0.206.63" data-desc="SIEM Wazuh pour détection d'intrusions et logs de sécurité." data-role="SIEM" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                            <g class="node-group"
+                               data-name="SRV-WAZUH"
+                               data-ip="10.0.206.63"
+                               data-role="SIEM"
+                               data-desc="SIEM Wazuh pour détection d'intrusions et logs de sécurité.">
                                 <rect x="170" y="180" width="100" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
                                 <text x="220" y="208" font-size="20" text-anchor="middle">🛡️</text>
                                 <text x="220" y="226" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">WAZUH</text>
@@ -193,7 +217,11 @@
                             </g>
 
                             <!-- W11 CLIENT -->
-                            <g class="node-group" data-name="W11 CLIENT" data-ip="10.0.206.70" data-desc="Poste client Windows 11 rattaché au domaine AD." data-role="Poste utilisateur" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                            <g class="node-group"
+                               data-name="W11 CLIENT"
+                               data-ip="10.0.206.70"
+                               data-role="Poste utilisateur"
+                               data-desc="Poste client Windows 11 rattaché au domaine AD.">
                                 <rect x="280" y="180" width="100" height="70" rx="10" fill="#0f1a0f" stroke="#00c800" stroke-width="2" filter="url(#glow-green)"/>
                                 <text x="330" y="208" font-size="20" text-anchor="middle">💻</text>
                                 <text x="330" y="226" font-size="10" fill="#00ff88" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">W11 CLIENT</text>
@@ -201,7 +229,11 @@
                             </g>
 
                             <!-- SRV-LAMP -->
-                            <g class="node-group" data-name="SRV-LAMP" data-ip="10.0.206.10" data-desc="Serveur web LAMP hébergeant des applications web." data-role="Web Server" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                            <g class="node-group"
+                               data-name="SRV-LAMP"
+                               data-ip="10.0.206.10"
+                               data-role="Web Server"
+                               data-desc="Serveur web LAMP hébergeant des applications web.">
                                 <rect x="600" y="65" width="100" height="70" rx="10" fill="#1a1200" stroke="#ffa500" stroke-width="2" filter="url(#glow-orange)"/>
                                 <text x="650" y="93" font-size="20" text-anchor="middle">🌐</text>
                                 <text x="650" y="111" font-size="10" fill="#ffc966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">SRV-LAMP</text>
@@ -209,7 +241,11 @@
                             </g>
 
                             <!-- WEB-2 -->
-                            <g class="node-group" data-name="WEB-2" data-ip="10.0.206.11" data-desc="Serveur web secondaire pour la haute disponibilité." data-role="Web Server" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                            <g class="node-group"
+                               data-name="WEB-2"
+                               data-ip="10.0.206.11"
+                               data-role="Web Server"
+                               data-desc="Serveur web secondaire pour la haute disponibilité.">
                                 <rect x="720" y="65" width="100" height="70" rx="10" fill="#1a1200" stroke="#ffa500" stroke-width="2" filter="url(#glow-orange)"/>
                                 <text x="770" y="93" font-size="20" text-anchor="middle">🌐</text>
                                 <text x="770" y="111" font-size="10" fill="#ffc966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">WEB-2</text>
@@ -217,7 +253,11 @@
                             </g>
 
                             <!-- WEB-3 -->
-                            <g class="node-group" data-name="WEB-3" data-ip="10.0.206.12" data-desc="Serveur web tertiaire pour load balancing." data-role="Web Server" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                            <g class="node-group"
+                               data-name="WEB-3"
+                               data-ip="10.0.206.12"
+                               data-role="Web Server"
+                               data-desc="Serveur web tertiaire pour load balancing.">
                                 <rect x="600" y="175" width="100" height="70" rx="10" fill="#1a1200" stroke="#ffa500" stroke-width="2" filter="url(#glow-orange)"/>
                                 <text x="650" y="203" font-size="20" text-anchor="middle">🌐</text>
                                 <text x="650" y="221" font-size="10" fill="#ffc966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">WEB-3</text>
@@ -225,7 +265,11 @@
                             </g>
 
                             <!-- DEB CLIENT -->
-                            <g class="node-group" data-name="DEB CLIENT" data-ip="172.28.206.220" data-desc="Client externe Debian simulant un accès non fiable." data-role="Client externe" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                            <g class="node-group"
+                               data-name="DEB CLIENT"
+                               data-ip="172.28.206.220"
+                               data-role="Client externe"
+                               data-desc="Client externe Debian simulant un accès non fiable.">
                                 <rect x="50" y="420" width="110" height="70" rx="10" fill="#1a0a00" stroke="#ff6b35" stroke-width="2" filter="url(#glow-orange)"/>
                                 <text x="105" y="448" font-size="20" text-anchor="middle">🖥️</text>
                                 <text x="105" y="466" font-size="9" fill="#ff9966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">DEB CLIENT</text>
@@ -233,24 +277,30 @@
                             </g>
 
                             <!-- SRV-DNS -->
-                            <g class="node-group" data-name="SRV-DNS" data-ip="10.0.206.65" data-desc="Serveur DNS pour résolution de noms." data-role="DNS" onmouseenter="showTooltip(event, this)" onmouseleave="hideTooltip()">
+                            <g class="node-group"
+                               data-name="SRV-DNS"
+                               data-ip="10.0.206.65"
+                               data-role="DNS"
+                               data-desc="Serveur DNS pour résolution de noms.">
                                 <rect x="180" y="420" width="100" height="70" rx="10" fill="#1a0a00" stroke="#ff6b35" stroke-width="2" filter="url(#glow-orange)"/>
                                 <text x="230" y="448" font-size="20" text-anchor="middle">🔍</text>
                                 <text x="230" y="466" font-size="10" fill="#ff9966" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700">SRV-DNS</text>
                                 <text x="230" y="480" font-size="9" fill="#cc5533" text-anchor="middle" font-family="VT323, monospace">10.0.206.65</text>
                             </g>
 
-                            <!-- LÉGENDE -->
-                            <rect x="400" y="470" width="300" height="115" rx="12" fill="rgba(0,0,0,0.5)" stroke="rgba(0,255,255,0.2)" stroke-width="1.5"/>
-                            <text x="420" y="493" font-size="12" fill="#00ffff" font-family="VT323, monospace" letter-spacing="2">LÉGENDE</text>
-                            <rect x="420" y="503" width="15" height="8" rx="2" fill="rgba(0,200,0,0.3)" stroke="#00c800"/>
-                            <text x="442" y="512" font-size="11" fill="#88bb88" font-family="Rubik, sans-serif">Zone LAN (10.0.206.64/26)</text>
-                            <rect x="420" y="523" width="15" height="8" rx="2" fill="rgba(255,165,0,0.2)" stroke="#ffa500"/>
-                            <text x="442" y="532" font-size="11" fill="#cc9944" font-family="Rubik, sans-serif">DMZ (10.0.206.1/26)</text>
-                            <rect x="420" y="543" width="15" height="8" rx="2" fill="rgba(255,107,53,0.2)" stroke="#ff6b35"/>
-                            <text x="442" y="552" font-size="11" fill="#cc6633" font-family="Rubik, sans-serif">Zone Externe (172.28.206.253/24)</text>
-                            <line x1="420" y1="567" x2="435" y2="567" stroke="#00ffff" stroke-width="2" stroke-dasharray="4 2"/>
-                            <text x="442" y="571" font-size="11" fill="#88aacc" font-family="Rubik, sans-serif">Flux réseau</text>
+                            <!-- LÉGENDE (cachée par défaut, visible au survol du firewall) -->
+                            <g id="svg-legend" class="svg-legend hidden-legend">
+                                <rect x="400" y="470" width="300" height="115" rx="12" fill="rgba(0,0,0,0.85)" stroke="rgba(0,255,255,0.4)" stroke-width="1.5"/>
+                                <text x="420" y="493" font-size="12" fill="#00ffff" font-family="VT323, monospace" letter-spacing="2">LÉGENDE</text>
+                                <rect x="420" y="503" width="15" height="8" rx="2" fill="rgba(0,200,0,0.3)" stroke="#00c800"/>
+                                <text x="442" y="512" font-size="11" fill="#88bb88" font-family="Rubik, sans-serif">Zone LAN (10.0.206.64/26)</text>
+                                <rect x="420" y="523" width="15" height="8" rx="2" fill="rgba(255,165,0,0.2)" stroke="#ffa500"/>
+                                <text x="442" y="532" font-size="11" fill="#cc9944" font-family="Rubik, sans-serif">DMZ (10.0.206.1/26)</text>
+                                <rect x="420" y="543" width="15" height="8" rx="2" fill="rgba(255,107,53,0.2)" stroke="#ff6b35"/>
+                                <text x="442" y="552" font-size="11" fill="#cc6633" font-family="Rubik, sans-serif">Zone Externe (172.28.206.253/24)</text>
+                                <line x1="420" y1="567" x2="435" y2="567" stroke="#00ffff" stroke-width="2" stroke-dasharray="4 2"/>
+                                <text x="442" y="571" font-size="11" fill="#88aacc" font-family="Rubik, sans-serif">Flux réseau</text>
+                            </g>
                         </svg>
                     </div>
                 </div>
@@ -485,7 +535,7 @@
                     <div class="card-sticker">💭</div>
                     <div class="card-noise"></div>
 
-                    <h3 class="cyber-heading-small">SYNTHÈSE & RÉFLEXION</h3>
+                    <h3 class="cyber-heading-small">SYNTHÈSE &amp; RÉFLEXION</h3>
 
                     <div class="synthesis-content">
                         <p>
@@ -533,39 +583,6 @@
         </div>
     </div>
 
-    <script>
-        const tooltip = document.getElementById('tooltip');
-
-        function showTooltip(event, el) {
-            const name = el.dataset.name;
-            const ip = el.dataset.ip;
-            const desc = el.dataset.desc;
-            const role = el.dataset.role;
-
-            tooltip.innerHTML = `
-                <h4>${name}</h4>
-                <p class="ip">📡 ${ip}</p>
-                <p><strong style="color:#aaddff;">Rôle :</strong> ${role}</p>
-                <p>${desc}</p>
-            `;
-            tooltip.classList.add('show');
-            moveTooltip(event);
-        }
-
-        function hideTooltip() {
-            tooltip.classList.remove('show');
-        }
-
-        function moveTooltip(e) {
-            const x = e.clientX + 15;
-            const y = e.clientY + 15;
-            tooltip.style.left = Math.min(x, window.innerWidth - 270) + 'px';
-            tooltip.style.top = Math.min(y, window.innerHeight - 200) + 'px';
-        }
-
-        document.querySelectorAll('.node-group').forEach(el => {
-            el.addEventListener('mousemove', moveTooltip);
-        });
-    </script>
+    <script src="infrastructure.js"></script>
 </body>
 </html>
