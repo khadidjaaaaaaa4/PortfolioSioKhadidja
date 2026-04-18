@@ -222,6 +222,66 @@
                         <div class="corner-deco top-left"></div>
                         <div class="corner-deco bottom-right"></div>
                     </div>
+
+                    <!-- Projet Nextcloud -->
+                    <div class="project-card card-chaos card-yellow">
+                        <div class="card-sticker">☁️</div>
+                        <div class="card-noise"></div>
+                        
+                        <div class="project-header">
+                            <div class="project-icon">🗂️</div>
+                            <div>
+                                <h3 class="cyber-heading">NEXTCLOUD EN DMZ</h3>
+                                <div class="project-meta">
+                                    <span class="meta-badge">🏫 Formation</span>
+                                    <span class="meta-badge">📅 2ème année</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="project-description">
+                            Déploiement d'un cloud privé Nextcloud en zone DMZ avec intégration à l'Active Directory via LDAPS. Les postes du LAN disposent du client de synchronisation pour maintenir les données à jour en temps réel.
+                        </p>
+
+                        <div class="tech-section">
+                            <div class="section-label">// TECH_STACK</div>
+                            <div class="badge-chaos">
+                                <span class="badge badge-pop">Nextcloud</span>
+                                <span class="badge badge-pop">Active Directory</span>
+                                <span class="badge badge-pop">LDAPS</span>
+                                <span class="badge badge-pop">Nginx</span>
+                                <span class="badge badge-pop">Ubuntu Server</span>
+                                <span class="badge badge-pop">PostgreSQL</span>
+                                <span class="badge badge-pop">TLS/HTTPS</span>
+                            </div>
+                        </div>
+
+                        <div class="phases-box">
+                            <h4 class="phases-title">📋 Phases du projet</h4>
+                            <div class="phase-item">
+                                <span class="phase-number">1</span>
+                                <span class="phase-text">Provisionnement VM DMZ & configuration réseau / pare-feu</span>
+                            </div>
+                            <div class="phase-item">
+                                <span class="phase-number">2</span>
+                                <span class="phase-text">Installation Nextcloud + HTTPS + intégration AD via LDAPS</span>
+                            </div>
+                            <div class="phase-item">
+                                <span class="phase-number">3</span>
+                                <span class="phase-text">Déploiement client LAN, MFA, durcissement & recette</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-cyber" onclick="openModal('modal4')">
+                            <span class="btn-icon">📄</span>
+                            <span>Situation Professionnelle</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+
+                        <div class="corner-deco top-right"></div>
+                        <div class="corner-deco bottom-left"></div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -460,6 +520,99 @@
         </div>
     </div>
 
+    <!-- Modal 4 - Nextcloud DMZ -->
+    <div id="modal4" class="cyber-modal">
+        <div class="modal-backdrop" onclick="closeModal('modal4')"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title-cyber">
+                    <span class="modal-icon">🗂️</span>
+                    NEXTCLOUD EN DMZ
+                </h3>
+                <button class="modal-close" onclick="closeModal('modal4')">✕</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// CONTEXTE</h4>
+                    <p>L'organisation souhaitait mettre en place une solution de stockage et de partage de fichiers souveraine et sécurisée, basée sur Nextcloud. Le serveur est hébergé en zone démilitarisée (DMZ) afin d'être accessible depuis l'extérieur tout en protégeant le réseau interne. L'authentification est centralisée via l'annuaire Active Directory existant.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// ENVIRONNEMENT</h4>
+                    <div class="env-grid">
+                        <div class="env-item">
+                            <strong>🖥️ Serveur</strong>
+                            <span>Ubuntu Server 22.04, Nginx, PHP 8.2, PostgreSQL</span>
+                        </div>
+                        <div class="env-item">
+                            <strong>🌐 Réseau</strong>
+                            <span>Architecture DMZ / LAN, pare-feu, DNS interne/externe</span>
+                        </div>
+                        <div class="env-item">
+                            <strong>🔐 Sécurité</strong>
+                            <span>LDAPS (port 636), TLS/HTTPS, MFA, en-têtes HTTP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// RÉALISATION</h4>
+
+                    <div class="realization-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h5>Préparation infrastructure</h5>
+                            <p>Provisionnement de la VM en DMZ, configuration des règles de pare-feu (HTTPS/443, LDAPS/636, SSH restreint) et des enregistrements DNS internes et externes.</p>
+                        </div>
+                    </div>
+
+                    <div class="realization-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h5>Déploiement Nextcloud</h5>
+                            <p>Installation de la stack serveur (Nginx, PHP 8.2, PostgreSQL), déploiement de Nextcloud Hub avec certificat TLS et accès web sécurisé en HTTPS.</p>
+                        </div>
+                    </div>
+
+                    <div class="realization-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h5>Intégration Active Directory</h5>
+                            <p>Configuration du plugin LDAP/AD dans Nextcloud, connexion sécurisée en LDAPS vers le contrôleur de domaine, mapping des attributs AD et filtrage par groupe (GRP_Nextcloud_Users).</p>
+                        </div>
+                    </div>
+
+                    <div class="realization-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h5>Déploiement clients LAN & sécurisation</h5>
+                            <p>Installation du client Nextcloud Desktop sur les postes LAN, activation du MFA/TOTP, configuration des en-têtes de sécurité HTTP (HSTS, CSP) et audit de vulnérabilités.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// BILAN</h4>
+                    <p>Le service Nextcloud est accessible en HTTPS depuis le LAN et Internet, avec authentification unifiée via Active Directory. La segmentation DMZ/LAN garantit qu'aucun flux direct non autorisé ne traverse le périmètre réseau.</p>
+                    <p>Ce projet m'a permis de consolider mes compétences en administration système Linux, sécurité réseau, intégration d'annuaire LDAP et déploiement d'un service cloud privé en environnement de production.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4 class="section-title-modal">// COMPÉTENCES DÉVELOPPÉES</h4>
+                    <div class="skills-modal-list">
+                        <span class="skill-modal-badge">Administration Linux</span>
+                        <span class="skill-modal-badge">Architecture réseau DMZ</span>
+                        <span class="skill-modal-badge">Intégration LDAP/AD</span>
+                        <span class="skill-modal-badge">Sécurisation TLS/HTTPS</span>
+                        <span class="skill-modal-badge">Déploiement cloud privé</span>
+                        <span class="skill-modal-badge">MFA / TOTP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         function openModal(modalId) {
             document.getElementById(modalId).style.display = 'flex';
@@ -471,7 +624,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Fermer avec Escape
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 const modals = document.querySelectorAll('.cyber-modal');
